@@ -1,1 +1,0 @@
-# projectary-frontend

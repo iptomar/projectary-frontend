@@ -1,1 +1,0 @@
-ora, o EDGE não funga com o javascript e nem o chrome, isto teve de ser testado com o IE ... muito bom
