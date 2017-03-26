@@ -1,6 +1,7 @@
 # projectary-frontend
 
 Pessoal fiz um boiler plate com mais organização, apenas falta resolver o problema do css.
+Como eu não fiz o upload do node_modules para executarem façam npm install, e depois npm start.
 
 | Frontend Team       |
 | ------------------- |
