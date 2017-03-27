@@ -19,7 +19,7 @@ var ProjectListComponent = (function () {
 ProjectListComponent = __decorate([
     core_1.Component({
         selector: "project-list",
-        templateUrl: "app/projects/project-list.component.html",
+        templateUrl: "app/projects/project-list.component.html"
     })
 ], ProjectListComponent);
 exports.ProjectListComponent = ProjectListComponent;

@@ -3,7 +3,7 @@ import { BrowserModule } from "@angular/platform-browser";
 
 import { AppComponent } from "./app.component";
 import { HomeComponent } from "./home/home.component";
-import { ProjectComponent } from "./projects/project.component";
+import { ProjectComponent } from "./projects/project-detail.component";
 import { ProjectListComponent } from "./projects/project-list.component";
 import { RouterModule } from "@angular/router";
 
