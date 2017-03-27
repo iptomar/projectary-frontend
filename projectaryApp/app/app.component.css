@@ -3,10 +3,12 @@ body{
     background: url('../assets/img/politecnico-tomar-fachada.jpg') no-repeat;
     background-size: 100%;
 }
-/* Remove the navbar's default margin-bottom and rounded borders */ 
+
     .navbar {
       margin-bottom: 0;
       border-radius: 0;
+      padding-left: 5%;
+      padding-right:5%;
     }
     
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
@@ -28,19 +30,19 @@ body{
       background-color: #555;
       color: white;
       position:fixed; bottom:0px; width: 100%;
-      padding: 15px;
+      padding: 10px;
     }
     
     /* On small screens, set height to 'auto' for sidenav and grid */
-    @media screen and (max-width: 767px) {
-      .sidenav {
+@media screen and (max-width: 767px) {
+    .sidenav {
         height: auto;
         padding: 15px;
-      }
-      .row.content {height:auto;} 
     }
-    #login-dp{
-    min-width: 250px;
+    .row.content {height:auto;} 
+}
+#login-dp{
+    min-width: 350px;
     padding: 14px 14px 0;
     overflow:hidden;
     background-color:rgba(255,255,255,.8);

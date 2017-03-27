@@ -11,8 +11,6 @@ var ProjectListComponent = (function () {
     function ProjectListComponent() {
         this.title = 'Lista de Projectos';
         this.saudacao = 'Aqui apresenta a Listagem de Projectos';
-        this.fim = 'DevPSI';
-        this.today = Date.now();
     }
     return ProjectListComponent;
 }());

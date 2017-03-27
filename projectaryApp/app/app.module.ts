@@ -3,8 +3,9 @@ import { BrowserModule } from "@angular/platform-browser";
 
 import { AppComponent } from "./app.component";
 import { HomeComponent } from "./home/home.component";
-import { ProjectComponent } from "./projects/project.component";
+import { ProjectComponent } from "./projects/project-detail.component";
 import { ProjectListComponent } from "./projects/project-list.component";
+import { NotFoundComponent } from "./notFound/nfound.component";
 import { RouterModule } from "@angular/router";
 
 @NgModule({
@@ -15,10 +16,11 @@ import { RouterModule } from "@angular/router";
       {path: 'home',component: HomeComponent},
       {path: 'project',component: ProjectComponent},
       {path: 'projectList',component: ProjectListComponent},
+      {path: '**' ,component: NotFoundComponent},
     ])
   ], 
   declarations: [ 
-    AppComponent,HomeComponent,ProjectComponent,ProjectListComponent
+    AppComponent,HomeComponent,ProjectComponent,ProjectListComponent,NotFoundComponent
   ],
   bootstrap: [ AppComponent ]
 })

@@ -11,14 +11,16 @@ var ProjectComponent = (function () {
     function ProjectComponent() {
         this.title = 'Projectos';
         this.saudacao = 'Aqui Estão os projectos';
+        this.fim = 'DevPSI';
+        this.today = Date.now();
     }
     return ProjectComponent;
 }());
 ProjectComponent = __decorate([
     core_1.Component({
         selector: "project",
-        templateUrl: "app/projects/project.component.html",
+        templateUrl: "app/projects/project-detail.component.html"
     })
 ], ProjectComponent);
 exports.ProjectComponent = ProjectComponent;
-//# sourceMappingURL=project.component.js.map
+//# sourceMappingURL=project-detail.component.js.map

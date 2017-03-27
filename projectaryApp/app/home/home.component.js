@@ -11,8 +11,6 @@ var HomeComponent = (function () {
     function HomeComponent() {
         this.title = 'Projectos Finais';
         this.saudacao = 'Bem vindo à Base de Dados de Projectos Finais';
-        this.fim = 'DevPSI';
-        this.today = Date.now();
     }
     return HomeComponent;
 }());

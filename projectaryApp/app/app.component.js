@@ -10,8 +10,6 @@ var core_1 = require("@angular/core");
 var AppComponent = (function () {
     function AppComponent() {
         this.organizacao = 'IPT';
-        this.title = 'Projectos Finais';
-        this.saudacao = 'Bem vindo à Base de Dados de Projectos Finais';
         this.fim = 'DevPSI';
         this.today = Date.now();
     }

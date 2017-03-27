@@ -7,18 +7,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var ProjectComponent = (function () {
-    function ProjectComponent() {
-        this.title = 'Projectos';
-        this.saudacao = 'Aqui Estão os projectos';
+var NotFoundComponent = (function () {
+    function NotFoundComponent() {
+        this.title = '404';
+        this.saudacao = 'Página Não encontrada!';
     }
-    return ProjectComponent;
+    return NotFoundComponent;
 }());
-ProjectComponent = __decorate([
+NotFoundComponent = __decorate([
     core_1.Component({
-        selector: "project",
-        templateUrl: "app/projects/project.component.html",
+        template: "\n    <h1 style=\"color:#800\">{{title}}</h1>\n    <p  style=\"color:#800\">{{saudacao}}</p>\n    <hr>\n  "
     })
-], ProjectComponent);
-exports.ProjectComponent = ProjectComponent;
-//# sourceMappingURL=project.component.js.map
+], NotFoundComponent);
+exports.NotFoundComponent = NotFoundComponent;
+//# sourceMappingURL=nfound.component.js.map
