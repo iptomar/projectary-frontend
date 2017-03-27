@@ -6,12 +6,11 @@ import { HomeComponent } from "./home/home.component";
 import { ProjectComponent } from "./projects/project.component";
 import { ProjectListComponent } from "./projects/project-list.component";
 import { RouterModule } from "@angular/router";
-//import { ProjectServiceComponent }from "./projects/project-list.component";
 
 @NgModule({
   imports: [ 
     BrowserModule,
-     BrowserModule, RouterModule.forRoot([
+    RouterModule.forRoot([
       {path: '',component: HomeComponent},
       {path: 'home',component: HomeComponent},
       {path: 'project',component: ProjectComponent},
