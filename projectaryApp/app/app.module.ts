@@ -10,7 +10,11 @@ import { ProjectComponent } from "./projects/project-detail.component";
 import { ProjectListComponent } from "./projects/project-list.component";
 import { ProjectService } from "./projects/project.service";
 import { ProjectFilterPipe } from "./projects/project-filter.pipe";
+<<<<<<< HEAD
+import { NotFoundComponent } from "./notFound/nfound.component";
+=======
 
+>>>>>>> refs/remotes/origin/master
 
 @NgModule({
   imports: [ 
@@ -20,8 +24,9 @@ import { ProjectFilterPipe } from "./projects/project-filter.pipe";
     RouterModule.forRoot([
       {path: '',component: HomeComponent},
       {path: 'home',component: HomeComponent},
-      {path: 'project',component: ProjectComponent},
-      {path: 'projectList',component: ProjectListComponent},
+      {path: 'project:id',component: ProjectComponent},
+      {path: 'projects',component: ProjectListComponent},
+	  {path: '**' ,component: NotFoundComponent},
     ])
   ], 
   declarations: [ 
@@ -29,7 +34,12 @@ import { ProjectFilterPipe } from "./projects/project-filter.pipe";
     HomeComponent,
     ProjectComponent,
     ProjectListComponent,
+<<<<<<< HEAD
+    ProjectFilterPipe,
+	NotFoundComponent
+=======
     ProjectFilterPipe
+>>>>>>> refs/remotes/origin/master
   ],
   providers: [
       ProjectService
