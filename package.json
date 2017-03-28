@@ -1,7 +1,7 @@
 {
     "name": "projectary",
     "version": "1.0.0",
-    "author": "Luis Nunes",
+    "author": "IPT",
     "scripts": {
         "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
         "tsc": "tsc",
