@@ -10,15 +10,15 @@ import { IProject } from "./project";
 
 @Injectable()
 export class ProjectService {
-    private _productUrl ="./projects.json";
+    private _productUrl ="app/projects/projects.json";
 
     constructor(private _http: Http){}
 
     getProducts(): Observable<IProject[]>{
         return this._http.get(this._productUrl).map(
             (response: Response) => <IProject[]> response.json())
-        .do(data => console.log("All: " + JSON.stringify(data)))
-        .catch(this.handleError);
+        // .do(data => console.log("All: " + JSON.stringify(data)))
+        // .catch(this.handleError);
     }
 
     private handleError(error: Response){
