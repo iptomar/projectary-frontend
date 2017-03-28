@@ -10,11 +10,8 @@ import { ProjectComponent } from "./projects/project-detail.component";
 import { ProjectListComponent } from "./projects/project-list.component";
 import { ProjectService } from "./projects/project.service";
 import { ProjectFilterPipe } from "./projects/project-filter.pipe";
-<<<<<<< HEAD
 import { NotFoundComponent } from "./notFound/nfound.component";
-=======
 
->>>>>>> refs/remotes/origin/master
 
 @NgModule({
   imports: [ 
@@ -34,12 +31,9 @@ import { NotFoundComponent } from "./notFound/nfound.component";
     HomeComponent,
     ProjectComponent,
     ProjectListComponent,
-<<<<<<< HEAD
     ProjectFilterPipe,
-	NotFoundComponent
-=======
+	  NotFoundComponent,
     ProjectFilterPipe
->>>>>>> refs/remotes/origin/master
   ],
   providers: [
       ProjectService
