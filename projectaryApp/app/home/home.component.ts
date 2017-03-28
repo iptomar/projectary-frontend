@@ -5,4 +5,6 @@ import {Component} from "@angular/core"
 export class HomeComponent{
     title = 'Projectos Finais';
     saudacao = 'Bem vindo à Base de Dados de Projectos Finais'
+    fim='DevPSI'
+    today: number = Date.now();
 }
