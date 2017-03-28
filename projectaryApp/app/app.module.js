@@ -8,11 +8,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
+var router_1 = require("@angular/router");
+var forms_1 = require("@angular/forms");
+var http_1 = require("@angular/http");
 var app_component_1 = require("./app.component");
 var home_component_1 = require("./home/home.component");
 var project_detail_component_1 = require("./projects/project-detail.component");
 var project_list_component_1 = require("./projects/project-list.component");
-var router_1 = require("@angular/router");
+var project_service_1 = require("./projects/project.service");
+var project_filter_pipe_1 = require("./projects/project-filter.pipe");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -22,6 +26,8 @@ AppModule = __decorate([
     core_1.NgModule({
         imports: [
             platform_browser_1.BrowserModule,
+            forms_1.FormsModule,
+            http_1.HttpModule,
             router_1.RouterModule.forRoot([
                 { path: '', component: home_component_1.HomeComponent },
                 { path: 'home', component: home_component_1.HomeComponent },
@@ -30,7 +36,14 @@ AppModule = __decorate([
             ])
         ],
         declarations: [
-            app_component_1.AppComponent, home_component_1.HomeComponent, project_detail_component_1.ProjectComponent, project_list_component_1.ProjectListComponent
+            app_component_1.AppComponent,
+            home_component_1.HomeComponent,
+            project_detail_component_1.ProjectComponent,
+            project_list_component_1.ProjectListComponent,
+            project_filter_pipe_1.ProjectFilterPipe
+        ],
+        providers: [
+            project_service_1.ProjectService
         ],
         bootstrap: [app_component_1.AppComponent]
     })
