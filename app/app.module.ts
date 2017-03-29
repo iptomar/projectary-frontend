@@ -13,6 +13,7 @@ import { ProjectFilterPipe } from "./projects/project-filter.pipe";
 import { NotFoundComponent } from "./notFound/nfound.component";
 import { LoginComponent } from "./login/login.component";
 
+
 @NgModule({
   imports: [ 
     BrowserModule,
