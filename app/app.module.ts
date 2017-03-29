@@ -11,6 +11,7 @@ import { ProjectListComponent } from "./projects/project-list.component";
 import { ProjectService } from "./projects/project.service";
 import { ProjectFilterPipe } from "./projects/project-filter.pipe";
 import { NotFoundComponent } from "./notFound/nfound.component";
+import { LoginComponent } from "./login/login.component";
 
 @NgModule({
   imports: [ 
@@ -31,7 +32,8 @@ import { NotFoundComponent } from "./notFound/nfound.component";
     ProjectComponent,
     ProjectListComponent,
     ProjectFilterPipe,
-	NotFoundComponent
+	  NotFoundComponent,
+    LoginComponent
   ],
   providers: [
       ProjectService
