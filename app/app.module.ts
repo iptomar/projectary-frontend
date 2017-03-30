@@ -11,8 +11,8 @@ import { ProjectListComponent } from "./projects/project-list.component";
 import { ProjectService } from "./projects/project.service";
 import { ProjectFilterPipe } from "./projects/project-filter.pipe";
 import { NotFoundComponent } from "./notFound/nfound.component";
-import { LoginComponent } from "./login/login.component";
-import { OptionPublicComponent } from "./options/optionPublic.component";
+import { LoginComponent } from "./menu/login/login.component";
+import { OptionPublicComponent } from "./menu/options/optionPublic.component";
 
 
 @NgModule({
