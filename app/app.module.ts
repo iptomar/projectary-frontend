@@ -12,6 +12,7 @@ import { ProjectService } from "./projects/project.service";
 import { ProjectFilterPipe } from "./projects/project-filter.pipe";
 import { NotFoundComponent } from "./notFound/nfound.component";
 import { LoginComponent } from "./login/login.component";
+import { OptionPublicComponent } from "./options/optionPublic.component";
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { LoginComponent } from "./login/login.component";
     ProjectListComponent,
     ProjectFilterPipe,
 	  NotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    OptionPublicComponent
   ],
   providers: [
       ProjectService
