@@ -11,6 +11,7 @@ import { ProjectListComponent } from "./projects/project-list.component";
 import { ProjectService } from "./projects/project.service";
 import { ProjectFilterPipe } from "./projects/project-filter.pipe";
 import { NotFoundComponent } from "./notFound/nfound.component";
+import { ProjectFormComponent } from "./project-form.component";
 
 
 @NgModule({
@@ -23,9 +24,10 @@ import { NotFoundComponent } from "./notFound/nfound.component";
       {path: 'home',component: HomeComponent},
       {path: 'project:id',component: ProjectComponent},
       {path: 'projects',component: ProjectListComponent},
-	  {path: '**' ,component: NotFoundComponent},
+      {path: 'projectform', component: ProjectFormComponent},
+	    {path: '**' ,component: NotFoundComponent}
     ])
-  ], 
+  ],
   declarations: [ 
     AppComponent,
     HomeComponent,
@@ -33,7 +35,8 @@ import { NotFoundComponent } from "./notFound/nfound.component";
     ProjectListComponent,
     ProjectFilterPipe,
 	  NotFoundComponent,
-    ProjectFilterPipe
+    ProjectFilterPipe,
+    ProjectFormComponent
   ],
   providers: [
       ProjectService

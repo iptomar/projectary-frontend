@@ -18,6 +18,7 @@ var project_list_component_1 = require("./projects/project-list.component");
 var project_service_1 = require("./projects/project.service");
 var project_filter_pipe_1 = require("./projects/project-filter.pipe");
 var nfound_component_1 = require("./notFound/nfound.component");
+var project_form_component_1 = require("./project-form.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -34,7 +35,8 @@ AppModule = __decorate([
                 { path: 'home', component: home_component_1.HomeComponent },
                 { path: 'project:id', component: project_detail_component_1.ProjectComponent },
                 { path: 'projects', component: project_list_component_1.ProjectListComponent },
-                { path: '**', component: nfound_component_1.NotFoundComponent },
+                { path: 'projectform', component: project_form_component_1.ProjectFormComponent },
+                { path: '**', component: nfound_component_1.NotFoundComponent }
             ])
         ],
         declarations: [
@@ -44,7 +46,8 @@ AppModule = __decorate([
             project_list_component_1.ProjectListComponent,
             project_filter_pipe_1.ProjectFilterPipe,
             nfound_component_1.NotFoundComponent,
-            project_filter_pipe_1.ProjectFilterPipe
+            project_filter_pipe_1.ProjectFilterPipe,
+            project_form_component_1.ProjectFormComponent
         ],
         providers: [
             project_service_1.ProjectService
