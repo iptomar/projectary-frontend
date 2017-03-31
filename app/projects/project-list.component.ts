@@ -4,7 +4,6 @@ import { ProjectService } from "./project.service";
 
 @Component({
     moduleId: module.id,
-	selector: "project-list",
 	templateUrl: "./project-list.component.html"
 })
  
@@ -12,6 +11,8 @@ export class ProjectListComponent implements OnInit{
     projects: IProject[];
     errorMessage: string;
     searchFilter: string;
+    title = 'Projetos Públicos';
+    saudacao = ''
 
     constructor(private _projectService : ProjectService){}
 
