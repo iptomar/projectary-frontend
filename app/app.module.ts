@@ -13,6 +13,7 @@ import { ProjectFilterPipe } from "./projects/project-filter.pipe";
 import { NotFoundComponent } from "./notFound/nfound.component";
 import { LoginComponent } from "./menu/login/login.component";
 import { OptionPublicComponent } from "./menu/options/optionPublic.component";
+import {ProjectFormComponent} from "./forms/project-form.component";
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { OptionPublicComponent } from "./menu/options/optionPublic.component";
       {path: 'home',component: HomeComponent},
       {path: 'project:id',component: ProjectComponent},
       {path: 'projects',component: ProjectListComponent},
+      { path: 'projectform', component: ProjectFormComponent },
 	  {path: '**' ,component: NotFoundComponent},
     ])
   ], 
@@ -36,7 +38,8 @@ import { OptionPublicComponent } from "./menu/options/optionPublic.component";
     ProjectFilterPipe,
 	  NotFoundComponent,
     LoginComponent,
-    OptionPublicComponent
+    OptionPublicComponent,
+    ProjectFormComponent
   ],
   providers: [
       ProjectService
