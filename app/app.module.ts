@@ -14,6 +14,7 @@ import { NotFoundComponent } from "./notFound/nfound.component";
 import { LoginComponent } from "./menu/login/login.component";
 import { OptionPublicComponent } from "./menu/options/optionPublic.component";
 import {ProjectFormComponent} from "./forms/project-form.component";
+import { ProfileComponent } from "./profiles/profile-detail.component";
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import {ProjectFormComponent} from "./forms/project-form.component";
       {path: 'project:id',component: ProjectComponent},
       {path: 'projects',component: ProjectListComponent},
       { path: 'projectform', component: ProjectFormComponent },
+      {path: 'profile:id', component: ProfileComponent},
 	  {path: '**' ,component: NotFoundComponent},
     ])
   ], 
