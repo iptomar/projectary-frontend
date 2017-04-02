@@ -34,12 +34,23 @@ body{
     }
     
     /* On small screens, set height to 'auto' for sidenav and grid */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 850px) {
     .sidenav {
         height: auto;
         padding: 15px;
     }
     .row.content {height:auto;} 
+    
+    h1 {font-size: 5.9vmin;}
+    h2 {font-size: 4.0vmin;}
+    h4 {font-size: 2.0vmin;}
+    p {font-size: 2vmin;}
+    .btn-default{font-size: 2.0vmin;}
+
+}
+
+@media screen and (max-width: 1060px) {
+    h4 {font-size: 2.8vmin;}
 }
 #login-dp{
     min-width: 350px;

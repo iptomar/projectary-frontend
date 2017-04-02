@@ -1,0 +1,86 @@
+<!-- Profile -->
+<div class="panel">
+    <div class="panel-heading" style="background-color: #252525; color: #EEEEEE;">
+        <table style="width: 100%;">
+            <tr>
+                <td>
+                    <h1>My Profile</h1>
+                </td>
+                <td><button class="btn btn-default pull-right" type="submit">Edit Profile</button></td>
+            </tr>
+        </table>
+    </div>
+    <div class="panel-body" style="background-color: #80C0F0;">
+        <table>
+            <tr>
+                <!-- PROFILE IMAGE -->
+                <td><img class="img-rounded" src="https://placehold.it/250x350?text=IMAGE" style="width:100%; max-width: 270px; min-width: 150px;"
+                        alt="Image"></td>
+                <td>
+                    <div class="row well well-sm">
+                        <!-- NAME -->
+                        <div class="col-md-2 col-sm-3 col-xs-12">
+                            <h4><small>Name</small></h4>
+                        </div>
+                        <div class="col-md-10 col-sm-7 col-xs-12">
+                            <h4>{{name}}</h4>
+                        </div>
+                        <!-- MAIL -->
+                        <div class="col-md-2 col-sm-3 col-xs-12">
+                            <h4><small>Mail</small></h4>
+                        </div>
+                        <div class="col-md-10 col-sm-7 col-xs-12">
+                            <h4>{{mail}}</h4>
+                        </div>
+                        <!-- SCHOOL -->
+                        <div class="col-md-2 col-sm-3 col-xs-12">
+                            <h4><small>College</small></h4>
+                        </div>
+                        <div class="col-md-10 col-sm-7 col-xs-12">
+                            <h4>{{college}}</h4>
+                        </div>
+                        <!-- COURSE -->
+                        <div class="col-md-2 col-sm-3 col-xs-12">
+                            <h4><small>Course</small></h4>
+                        </div>
+                        <div class="col-md-10 col-sm-7 col-xs-12">
+                            <h4>{{course}}</h4>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="panel-footer" style="background-color: #252525;"></div>
+</div>
+<!-- End Profile -->
+<!-- Projects -->
+<div class="panel">
+    <div class="panel-heading" style="background-color: #252525; color: #EEEEEE;">
+        <table style="width: 100%;">
+            <tr>
+                <td>
+                    <h2>My Projects</h2>
+                </td>
+                <td><button class="btn btn-default pull-right" type="submit">Submit Project</button></td>
+            </tr>
+        </table>
+    </div>
+    <div class="panel-body" style="background-color: #FFD0C0;">
+        <div class="container-fluid bg-3 text-center row">
+            <div class="row">
+                <!-- Each Project -->
+                <div class="col-sm-3 col-xs-4">
+                    <div class="thumbnail">
+                        <h4>{{project_name}}</h4>
+                        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                    </div>
+                </div>
+                <!--  -->
+            </div>
+        </div>
+
+    </div>
+</div>
+<br><br>
+<!-- End Projects -->
