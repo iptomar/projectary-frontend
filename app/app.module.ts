@@ -23,25 +23,26 @@ import { ProfileComponent } from "./profiles/profile-detail.component";
     FormsModule,
     HttpModule,
     RouterModule.forRoot([
-      {path: '',component: HomeComponent},
-      {path: 'home',component: HomeComponent},
-      {path: 'project:id',component: ProjectComponent},
-      {path: 'projects',component: ProjectListComponent},
-      { path: 'projectform', component: ProjectFormComponent },
-      {path: 'profile:id', component: ProfileComponent},
-	  {path: '**' ,component: NotFoundComponent},
+      	{path: '',component: HomeComponent},
+      	{path: 'home',component: HomeComponent},
+      	{path: 'project:id',component: ProjectComponent},
+      	{path: 'projects',component: ProjectListComponent},
+      	{path: 'projectform', component: ProjectFormComponent },
+      	{path: 'profile:id', component: ProfileComponent},
+	{path: '**' ,component: NotFoundComponent},
     ])
   ], 
   declarations: [ 
-    AppComponent,
-    HomeComponent,
-    ProjectComponent,
-    ProjectListComponent,
-    ProjectFilterPipe,
-	  NotFoundComponent,
-    LoginComponent,
-    OptionPublicComponent,
-    ProjectFormComponent
+    	AppComponent,
+    	HomeComponent,
+    	ProjectComponent,
+    	ProjectListComponent,
+    	ProjectFilterPipe,
+	NotFoundComponent,
+    	LoginComponent,
+    	OptionPublicComponent,
+    	ProjectFormComponent,
+	ProfileComponent
   ],
   providers: [
       ProjectService
