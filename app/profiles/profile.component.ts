@@ -3,7 +3,7 @@ import { IProject } from "../projects/project";
 
 @Component({
 	selector: "profile",
-	templateUrl: "app/profiles/profile-detail.component.html"
+	templateUrl: "app/profiles/profile.component.html"
 })
  
 export class ProfileComponent{
