@@ -15,6 +15,7 @@ import { LoginComponent } from "./menu/login/login.component";
 import { OptionPublicComponent } from "./menu/options/optionPublic.component";
 import {ProjectFormComponent} from "./forms/project-form.component";
 import { ProfileComponent } from "./profiles/profile-detail.component";
+import { ProjectFormService } from "./forms/project-form.service";
 
 
 @NgModule({
@@ -45,7 +46,7 @@ import { ProfileComponent } from "./profiles/profile-detail.component";
 	ProfileComponent
   ],
   providers: [
-      ProjectService
+      ProjectService, ProjectFormService
   ],
   bootstrap: [ AppComponent ]
 })
