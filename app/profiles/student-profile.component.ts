@@ -1,10 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { IProject } from "../projects/project";
-import { StudentProfileService } from './student-profile.service';
+import { StudentProfileService } from './users.service';
 import { Student } from './users';
 
 @Component({
-	selector: "profile",
+	selector: "student",
 	templateUrl: "app/profiles/student-profile.component.html"
     //providers: [ProfileService]
 })

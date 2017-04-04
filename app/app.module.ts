@@ -15,7 +15,7 @@ import { LoginComponent } from "./menu/login/login.component";
 import { OptionPublicComponent } from "./menu/options/optionPublic.component";
 import {ProjectFormComponent} from "./forms/project-form.component";
 import { StudentProfileComponent } from "./profiles/student-profile.component";
-import { StudentProfileService } from "./profiles/student-profile.service";
+import { StudentProfileService } from "./profiles/users.service";
 
 
 @NgModule({
