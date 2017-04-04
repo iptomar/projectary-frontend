@@ -14,8 +14,8 @@ import { NotFoundComponent } from "./notFound/nfound.component";
 import { LoginComponent } from "./menu/login/login.component";
 import { OptionPublicComponent } from "./menu/options/optionPublic.component";
 import {ProjectFormComponent} from "./forms/project-form.component";
-import { ProfileComponent } from "./profiles/profile.component";
-import { ProfileService } from "./profiles/profile.service";
+import { StudentProfileComponent } from "./profiles/student-profile.component";
+import { StudentProfileService } from "./profiles/student-profile.service";
 
 
 @NgModule({
@@ -26,10 +26,10 @@ import { ProfileService } from "./profiles/profile.service";
     RouterModule.forRoot([
       	{path: '',component: HomeComponent},
       	{path: 'home',component: HomeComponent},
-      	{path: 'project:id',component: ProjectComponent},
+      	{path: 'project/:id',component: ProjectComponent},
       	{path: 'projects',component: ProjectListComponent},
       	{path: 'projectform', component: ProjectFormComponent },
-      	{path: 'profile:id', component: ProfileComponent},
+      	{path: 'student/:id', component: StudentProfileComponent},
 	{path: '**' ,component: NotFoundComponent},
     ])
   ], 
@@ -43,11 +43,11 @@ import { ProfileService } from "./profiles/profile.service";
     	LoginComponent,
     	OptionPublicComponent,
     	ProjectFormComponent,
-		ProfileComponent
+		StudentProfileComponent
   ],
   providers: [
       ProjectService,
-	  ProfileService
+	  StudentProfileService
   ],
   bootstrap: [ AppComponent ]
 })
