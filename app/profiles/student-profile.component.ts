@@ -21,6 +21,9 @@ export class StudentProfileComponent implements OnInit{
     today: number = Date.now();
     */
 
+    title = 'Perfil de um utilizador';
+    saudacao = 'QUE FAZEM AQUI CUSCOS??';
+
     student : Student;
 
     constructor(private _profileService: StudentProfileService){}
@@ -32,7 +35,7 @@ export class StudentProfileComponent implements OnInit{
 
     // method that uses the service 
     getStudent(): void{
-        this.student = this._profileService.getStudent();
+        //this.student = this._profileService.getStudent();
     }
 
 }
