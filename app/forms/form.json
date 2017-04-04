@@ -1,0 +1,37 @@
+{
+  "school": [
+    {
+      "name": "Instituto Politécnico de Tomar",
+      "courses": [
+        "LEI",
+        "DTAG"
+      ],
+      "advisor": [
+        "Manso",
+        "Ramos"
+      ]
+    },
+    {
+      "name": "Instituto Superior Técnico",
+      "courses": [
+        "Jebaited",
+        "KappaPride"
+      ],
+      "advisor": [
+        "Man1",
+        "Man2"
+      ]
+    },
+    {
+      "name": "Universidade de Coimbra",
+      "courses": [
+        "Medicina",
+        "Filosofia"
+      ],
+      "advisor": [
+        "Teste1",
+        "Teste2"
+      ]
+    }
+  ]
+}
