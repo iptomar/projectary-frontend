@@ -11,10 +11,10 @@
     h5 {font-size: 1.7vmin;}
     p {font-size: 2vmin;}
     .btn-default{font-size: 2.0vmin;}
-
 }
 
 @media screen and (max-width: 1053px) {
     h4 {font-size: 2.8vmin;}
     h5 {font-size: 2.4vmin;}
 }
+

@@ -68,166 +68,69 @@
                     </div>
                     <!-- Student List -->
                     <div class="panel-body" style="background-color: #80C0F0;">
-                        <table style="width: 100%;">
-                            <tr>
-                                <td style="vertical-align: top;">
-                                    <!-- Filter to select students -->
-                                    <ul class="nav nav-stacked">
-                                        <li role="presentation" class="active"><a href="#">Home</a></li>
-                                        <li role="presentation"><a href="#">Profile</a></li>
-                                        <li role="presentation"><a href="#">Messages</a></li>
+                        <div class="col-md-2 col-sm-4 col-xs-4">
+                            <!-- Filter to select students -->
+                            <ul class="nav nav-stacked">
+                                <li role="presentation" class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <p>Departamento <span class="caret"></span></p>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Informática</a></li>
+                                        <li><a href="#">Eletrotécnica e Computadores</a></li>
+                                        <li><a href="#">Química e Bioquímica</a></li>
                                     </ul>
-
-                                </td>
-                                <td class="vertical-center">
-                                    <!-- Exemple of a student -->
-                                    <div class="container row">
-                                        <div class="col-md-2 col-sm-3 col-xs-6">
-                                            <img class="img-rounded" src="https://placehold.it/150x150?text=IMAGE" style="width:100%; max-width: 150px; min-width: 50px;"
-                                                alt="Image">
-                                        </div>
-                                        <div class="col-md-10 col-sm-9 col-xs-6">
-                                            <h4><small>{{course}}</small></h4>
-                                        </div>
-                                        <div class="col-md-10 col-sm-9 col-xs-6">
-                                            <h4>{{name}}</h4>
-                                        </div>
-                                        <div class="col-md-10 col-sm-9 col-xs-6">
-                                            <h5>{{mail}}</h5>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <!-- end exemple -->
-                                    <!-- Exemple of a student -->
-                                    <div class="container row">
-                                        <div class="col-md-2 col-sm-3 col-xs-6">
-                                            <img class="img-rounded" src="https://placehold.it/150x150?text=IMAGE" style="width:100%; max-width: 150px; min-width: 50px;"
-                                                alt="Image">
-                                        </div>
-                                        <div class="col-md-10 col-sm-9 col-xs-6">
-                                            <h4><small>{{course}}</small></h4>
-                                        </div>
-                                        <div class="col-md-10 col-sm-9 col-xs-6">
-                                            <h4>{{name}}</h4>
-                                        </div>
-                                        <div class="col-md-10 col-sm-9 col-xs-6">
-                                            <h5>{{mail}}</h5>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <!-- end exemple -->
-                                    <!-- Exemple of a student -->
-                                    <div class="container row">
-                                        <div class="col-md-2 col-sm-3 col-xs-6">
-                                            <img class="img-rounded" src="https://placehold.it/150x150?text=IMAGE" style="width:100%; max-width: 150px; min-width: 50px;"
-                                                alt="Image">
-                                        </div>
-                                        <div class="col-md-10 col-sm-9 col-xs-6">
-                                            <h4><small>{{course}}</small></h4>
-                                        </div>
-                                        <div class="col-md-10 col-sm-9 col-xs-6">
-                                            <h4>{{name}}</h4>
-                                        </div>
-                                        <div class="col-md-10 col-sm-9 col-xs-6">
-                                            <h5>{{mail}}</h5>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <!-- end exemple -->
-                                    <!-- Exemple of a student -->
-                                    <div class="container row">
-                                        <div class="col-md-2 col-sm-3 col-xs-6">
-                                            <img class="img-rounded" src="https://placehold.it/150x150?text=IMAGE" style="width:100%; max-width: 150px; min-width: 50px;"
-                                                alt="Image">
-                                        </div>
-                                        <div class="col-md-10 col-sm-9 col-xs-6">
-                                            <h4><small>{{course}}</small></h4>
-                                        </div>
-                                        <div class="col-md-10 col-sm-9 col-xs-6">
-                                            <h4>{{name}}</h4>
-                                        </div>
-                                        <div class="col-md-10 col-sm-9 col-xs-6">
-                                            <h5>{{mail}}</h5>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <!-- end exemple -->
-                                    <!-- Exemple of a student -->
-                                    <div class="container row">
-                                        <div class="col-md-2 col-sm-3 col-xs-6">
-                                            <img class="img-rounded" src="https://placehold.it/150x150?text=IMAGE" style="width:100%; max-width: 150px; min-width: 50px;"
-                                                alt="Image">
-                                        </div>
-                                        <div class="col-md-10 col-sm-9 col-xs-6">
-                                            <h4><small>{{course}}</small></h4>
-                                        </div>
-                                        <div class="col-md-10 col-sm-9 col-xs-6">
-                                            <h4>{{name}}</h4>
-                                        </div>
-                                        <div class="col-md-10 col-sm-9 col-xs-6">
-                                            <h5>{{mail}}</h5>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <!-- end exemple -->
-                                    <!-- Exemple of a student -->
-                                    <div class="container row">
-                                        <div class="col-md-2 col-sm-3 col-xs-6">
-                                            <img class="img-rounded" src="https://placehold.it/150x150?text=IMAGE" style="width:100%; max-width: 150px; min-width: 50px;"
-                                                alt="Image">
-                                        </div>
-                                        <div class="col-md-10 col-sm-9 col-xs-6">
-                                            <h4><small>{{course}}</small></h4>
-                                        </div>
-                                        <div class="col-md-10 col-sm-9 col-xs-6">
-                                            <h4>{{name}}</h4>
-                                        </div>
-                                        <div class="col-md-10 col-sm-9 col-xs-6">
-                                            <h5>{{mail}}</h5>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <!-- end exemple -->
-                                    <!-- Exemple of a student -->
-                                    <div class="container row">
-                                        <div class="col-md-2 col-sm-3 col-xs-6">
-                                            <img class="img-rounded" src="https://placehold.it/150x150?text=IMAGE" style="width:100%; max-width: 150px; min-width: 50px;"
-                                                alt="Image">
-                                        </div>
-                                        <div class="col-md-10 col-sm-9 col-xs-6">
-                                            <h4><small>{{course}}</small></h4>
-                                        </div>
-                                        <div class="col-md-10 col-sm-9 col-xs-6">
-                                            <h4>{{name}}</h4>
-                                        </div>
-                                        <div class="col-md-10 col-sm-9 col-xs-6">
-                                            <h5>{{mail}}</h5>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <!-- end exemple -->
-                                    <!-- Exemple of a student -->
-                                    <div class="container row">
-                                        <div class="col-md-2 col-sm-3 col-xs-6">
-                                            <img class="img-rounded" src="https://placehold.it/150x150?text=IMAGE" style="width:100%; max-width: 150px; min-width: 50px;"
-                                                alt="Image">
-                                        </div>
-                                        <div class="col-md-10 col-sm-9 col-xs-6">
-                                            <h4><small>{{course}}</small></h4>
-                                        </div>
-                                        <div class="col-md-10 col-sm-9 col-xs-6">
-                                            <h4>{{name}}</h4>
-                                        </div>
-                                        <div class="col-md-10 col-sm-9 col-xs-6">
-                                            <h5>{{mail}}</h5>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <!-- end exemple -->
-
-                                </td>
-                            </tr>
-                        </table>
+                                </li>
+                                <li role="presentation" class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <p>Ciclo de Estudo <span class="caret"></span></p>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">cTesp</a></li>
+                                        <li><a href="#">Licenciatura</a></li>
+                                        <li><a href="#">Mestrado</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-10 col-sm-8 col-xs-8">
+                            <!-- Exemple of a student -->
+                            <div class="container row">
+                                <div class="col-md-2 col-sm-3 col-xs-6">
+                                    <img class="img-rounded" src="https://placehold.it/150x150?text=IMAGE" style="width:100%; max-width: 150px; min-width: 70px;"
+                                        alt="Image">
+                                </div>
+                                <div class="col-md-10 col-sm-9 col-xs-6">
+                                    <h4><small>{{course}}</small></h4>
+                                </div>
+                                <div class="col-md-10 col-sm-9 col-xs-6">
+                                    <h4>{{name}}</h4>
+                                </div>
+                                <div class="col-md-10 col-sm-9 col-xs-6">
+                                    <h5>{{mail}}</h5>
+                                </div>
+                            </div>
+                            <br>
+                            <!-- end exemple -->
+                            <!-- Exemple of a student -->
+                            <div class="container row">
+                                <div class="col-md-2 col-sm-3 col-xs-6">
+                                    <img class="img-rounded" src="https://placehold.it/150x150?text=IMAGE" style="width:100%; max-width: 150px; min-width: 70px;"
+                                        alt="Image">
+                                </div>
+                                <div class="col-md-10 col-sm-9 col-xs-6">
+                                    <h4><small>{{course}}</small></h4>
+                                </div>
+                                <div class="col-md-10 col-sm-9 col-xs-6">
+                                    <h4>{{name}}</h4>
+                                </div>
+                                <div class="col-md-10 col-sm-9 col-xs-6">
+                                    <h5>{{mail}}</h5>
+                                </div>
+                            </div>
+                            <br>
+                            <!-- end exemple -->
+                        </div>
                     </div>
                     <div class="panel-footer" style="background-color: #252525;"></div>
                 </div>
