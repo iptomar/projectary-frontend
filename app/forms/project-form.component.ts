@@ -1,28 +1,29 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { ProjectFormService } from "./project-form.service";
 import { createProject } from "./form";
+import { ISchool } from "./schools";
+//import {} from "form.json";
 
 @Component({
     selector: "my-app",
     templateUrl: "app/forms/project-form.component.html",
     styleUrls: ["app/forms/project-form.component.css"],
-    providers: [createProject,ProjectFormService]
+    providers: [ProjectFormService]
 })
 
-export class ProjectFormComponent {
-    getData: string;
+export class ProjectFormComponent implements OnInit{
+    title = 'Projetos';
+    saudacao = '';
+    getSchools: ISchool[];
     postData: string;
 
-    //data para fazer fetch
-    objetivos: string;
-    nAlunos: string;
-    titulo: string;
-    escola: string;
-    curso: string;
-    orientadores: string;
-    requesitos: string;
-    project: createProject;
+    public project = new createProject();
 
+    ngOnInit() {
+        //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+        //Add 'implements OnInit' to the class.
+        this.onTestGet();
+    }
 
     pushMe() {
         //botão de finalizar o form, em que irá fazer fetch a todos os dados preenchidos
@@ -35,15 +36,13 @@ export class ProjectFormComponent {
         console.log("Requesitos::str: " + this.project.requesitos);
     }
 
-    constructor(private _projectFormService: ProjectFormService) {
-
-    }
+    constructor(private _projectFormService: ProjectFormService) { }
 
     //teste de get a um JSON do site referido no service respetivo
     onTestGet() {
-        this._projectFormService.getCurrentTime()
+        this._projectFormService.getSchool()
             .subscribe(
-            data => this.getData = JSON.stringify(data),
+            data => this.getSchools = data,
             error => alert(error),
             () => console.log("Finished")
             );
@@ -51,6 +50,7 @@ export class ProjectFormComponent {
 
     //teste de post a um JSON com os valores referidos no service respetivo
     onTestPost() {
+        this.sendData();
         this._projectFormService.postJSON()
             .subscribe(
             data => this.postData = JSON.stringify(data),
@@ -59,21 +59,11 @@ export class ProjectFormComponent {
             );
     }
 
-    /*sendData() {
+    sendData() {
         this._projectFormService.submit(
-            this.objetivos,
-            this.nAlunos,
-            this.titulo,
-            this.escola,
-            this.curso,
-            this.orientadores,
-            this.requesitos
+            this.project
         );
     }
 
-    bothFuc() {
-        this.sendData;
-        this.onTestPost();
-    }*/
 
 }
