@@ -1,55 +1,62 @@
-<button (click)="onTestGet()">Test GET request</button>
- <p>Output: {{getData}}</p>
-<button (click)="onTestPost()">Test POST request</button>
- <p>Output: {{postData}}</p>
- 
- <button (click)="pushMe()">Fetch dos dados preenchidos</button>
- 
- <div class="form-group">
-  <label for="sel1">Escola:</label>
-  <select class="form-control" id="sel1" [(ngModel)]="escola">
-    <option>IPT</option>
-  </select>
-</div>
- <div class="form-group">
-  <label for="sel1">Curso:</label>
-  <!--working-->
-  <select class="form-control" id="sel1" [(ngModel)]="curso">
-    <option>Engenharia Informátiva</option>
-  </select>
-</div>
-<div class="container">
-  <form>
-    <div class="form-group">
-      <label for="usr">Título:</label>
-      <!--working-->
-      <input type="text" class="form-control" id="inputArea" [(ngModel)]="titulo" name="title">
+<h1>{{title}}</h1>
+<p>{{saudacao}}</p>
+<hr>
+
+<div class="panel panel-default">
+  <div class="panel-heading">Submissão de Projetos</div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-6 form-group">
+        <label for="sel1">Escola:</label>
+        <select class="form-control" id="sel1" [(ngModel)]=project.escola>
+          <option value="" style="display:none;"></option>
+          <option *ngFor="let school of getSchools">{{school.name}}</option>       
+        </select>
+      </div>
+      <div class="col-md-6 form-group">
+        <label for="sel1">Curso:</label>
+        <select class="form-control" id="sel1" [(ngModel)]=project.curso>
+      <option>Meme 101</option>
+    </select>
+      </div>
     </div>
-  </form>
-</div>
-<div class="form-group">
-  <label for="sel2">Nº de Alunos:</label>
-  <!--working-->
-  <select class="form-control" id="sel2" ng-selected="5" [(ngModel)]="nAlunos">
-    <option>1</option>
-    <option>2</option>
-    <option>3</option>
-    <option>4</option>
-    <option>5</option>
-  </select>
-</div>
- <div class="form-group">
-  <label for="comment">Objetivos Específicos:</label>
-  <textarea class="form-control" rows="5" id="objetivos" [(ngModel)]="objetivos"></textarea>
-</div>
- <div class="form-group">
-  <label for="comment">Pré-requisitos:</label>
-  <textarea class="form-control" rows="5" id="requesitos" [(ngModel)]="requesitos"></textarea>
-</div>
-<div class="form-group">
-  <label for="sel2">Nº de Orientadores:</label>
-  <select class="form-control" id="sel2" [(ngModel)]="orientadores">
-    <option>1</option>
-    <option>2</option>
-  </select>
-</div>
+    <div class="row">
+      <div class="col-md-9 form-group">
+        <form>
+          <label for="usr">Título:</label>
+          <input type="text" class="form-control" id="inputArea" [(ngModel)]=project.titulo name="title">
+        </form>
+      </div>
+      <div class="col-md-3 form-group">
+        <label for="sel2">Nº de Alunos:</label>
+        <select class="form-control" id="sel2" ng-selected="5" [(ngModel)]=project.nAlunos>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 form-group">
+        <label for="comment">Objetivos Específicos:</label>
+        <textarea class="form-control" rows="5" id="objetivos" [(ngModel)]=project.objetivos></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-9 form-group">
+        <label for="comment">Pré-requisitos:</label>
+        <textarea class="form-control" rows="5" id="requesitos" [(ngModel)]=project.requesitos></textarea>
+      </div>
+      <div class="col-md-3 form-group">
+        <label for="sel2">Nº de Orientadores:</label>
+        <select class="form-control" id="sel2" [(ngModel)]=project.orientadores>
+        <option>1</option>
+        <option>2</option>
+      </select>
+        <br>
+        <button class="btn btn-primary" (click)="onTestPost()">Submeter Projecto</button>
+      </div>
+    </div>
+  </div>
