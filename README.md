@@ -11,7 +11,7 @@ The database can be found [here](https://github.com/iptomar/projectary-bd)
 
 ## API
 
-The database can be found [here](https://github.com/iptomar/projectary-api)
+The API can be found [here](https://github.com/iptomar/projectary-api)
 
 ## Installation
 
