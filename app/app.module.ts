@@ -34,8 +34,8 @@ import { ProjectFormService } from "./forms/project-form.service";
       	{path: 'projects',component: ProjectListComponent},
       	{path: 'projectform', component: ProjectFormComponent },
       	{path: 'student/:id', component: StudentProfileComponent},
-		{path: 'students', component: StudentListComponent},
-	{path: '**' ,component: NotFoundComponent},
+		    {path: 'students', component: StudentListComponent},
+	      {path: '**' ,component: NotFoundComponent},
     ])
   ], 
   exports: [ RouterModule ],
