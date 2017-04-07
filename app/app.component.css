@@ -1,7 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-    background: url('../assets/img/politecnico-tomar-fachada.jpg') no-repeat;
+    background: url('../assets/img/politecnico-tomar-fachada.jpg') no-repeat fixed;
     background-size: 100%;
+    padding-bottom: 30px;
 }
 
     .navbar {

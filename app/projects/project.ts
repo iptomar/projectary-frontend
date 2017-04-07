@@ -1,9 +1,12 @@
 export interface IProject{
-    projectId: number;
     projectName: string;
     releaseDate: string;
-    description: string;
-    starRating: number;
-    imageUrl: string;
+    summary: string;
+    anoLectivo: string;
+    curso: string;
+    preRequisitos: string[];
+    state: string;
+    attributionDate: string;
+    orientadores: string[];
 }
-//state(Por atribuir, atribuido, cancelado), title, releaseDate, attributionDate, Orientador???
+//state(Por Atribuir, Atribuido, cancelado), title, releaseDate, attributionDate, Orientador???
