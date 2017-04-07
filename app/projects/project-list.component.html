@@ -1,36 +1,87 @@
 <h1>{{title}}</h1>
 <p>{{saudacao}}</p>
 <hr>
-      <div class="row">        
-        <div class="col-md-12">
-          <form>
+<div class="row">
+    <div class="col-md-9">
+        <form>
             <div class="form-group">
-              <input class="form-control" type="text" placeholder="Enter a project name..." [(ngModel)]="searchFilter" name="searchFilter">
+                <input class="form-control" type="text" placeholder="Enter a project name..." [(ngModel)]="searchFilter" name="searchFilter">
             </div>
-          </form>
-        </div>
-      </div>
+        </form>
+    </div>
+    <div class="col-md-3">
+        <a routerLink="/projectform" routerLinkActive="active" class="btn btn-primary col-md-12">Submeter Projeto</a>
+    </div>
+</div>
 
 <!--*ngIf="projects && products.length"-->
-      <div class="panel panel-default" >
-        <div class="panel-heading">
-          <h3 class="panel-title">Projetos</h3>
-        </div>
-        <div class="panel-body">
-          <div *ngFor="let project of projects | projectFilter:searchFilter">
-            <div class="row">
-              <div class="col-md-9">
-                <p>description</p>
-              </div>
-              <div class="col-md-3">
-                <span class="label label-primary">ewewq</span>
-                <span class="label label-success">eqwewq</span>
-              </div>
+<div class="panel panel-default" *ngFor="let project of projects | projectFilter:searchFilter">
+    <div class="panel-heading">
+        <h2 class="panel-title">{{project.projectName}}</h2>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-9">
+                <p><b>{{project.curso}}</b></p>
+                <p>Ano Letivo: {{project.anoLectivo}}</p>
             </div>
-            <hr>
-          </div>
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col-md-6">
+                        Lançamento:
+                    </div>
+                    <div class="col-md-6">
+                        <span class="label label-primary col-md-12">{{project.releaseDate}}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        Estado:
+                    </div>
+                    <div class="col-md-6">
+                        <span *ngIf="project.state=='Por Atribuir'" class="label label-success col-md-12">{{project.state}}</span>
+                        <span *ngIf="project.state=='Atribuido'" class="label label-danger col-md-12">{{project.state}}</span>
+                    </div>
+                </div>
+                <div *ngIf="project.state=='Atribuido'" class="row">
+                    <div class="col-md-6">
+                        Atribuição:
+                    </div>
+                    <div class="col-md-6">
+                        <span class="label label-success col-md-12">{{project.attributionDate}}</span>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <p><b>Descrição:</b></p>
+                <div class="col-md-12">
+                    <p>{{project.summary}}</p>
+                </div>
+            </div>
+        </div>
+        <hr *ngIf="project.state=='Por Atribuir'">
+        <div *ngIf="project.state=='Por Atribuir'">
+            <p><b>Pré Requisitos:</b></p>
+            <ul>
+                <li *ngFor="let requisito of project.preRequisitos">
+                    {{requisito}}
+                </li>
+            </ul>
+        </div>
+        <hr>
+        <div>
+            <p><b>Orientadores:</b></p>
+            <ul>
+                <li *ngFor="let orientador of project.orientadores">
+                    {{orientador}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
 
 
 
