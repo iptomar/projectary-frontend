@@ -14,9 +14,13 @@ import { NotFoundComponent } from "./notFound/nfound.component";
 import { LoginComponent } from "./menu/login/login.component";
 import { OptionPublicComponent } from "./menu/options/optionPublic.component";
 import {ProjectFormComponent} from "./forms/project-form.component";
+
 import { StudentProfileComponent } from "./profiles/student-profile.component";
 import { StudentService } from "./profiles/users.service";
 import { StudentListComponent } from "./profiles/student-list.component";
+import { ProfileComponent } from "./profiles/profile-detail.component";
+import { ProjectFormService } from "./forms/project-form.service";
+
 
 
 @NgModule({
@@ -51,7 +55,8 @@ import { StudentListComponent } from "./profiles/student-list.component";
   ],
   providers: [
       ProjectService,
-	  StudentService
+	    StudentService,
+      ProjectFormService
   ],
   bootstrap: [ AppComponent ]
 })
