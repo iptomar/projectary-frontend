@@ -5,6 +5,27 @@ Como eu não fiz o upload do node_modules para executarem façam npm install, e 
 
 Luis Nunes
 
+## Database
+
+The database can be found [here](https://github.com/iptomar/projectary-bd)
+
+## API
+
+The database can be found [here](https://github.com/iptomar/projectary-api)
+
+## Installation
+
+```bash
+$ cd \projectary-api
+$ npm install 
+```
+## Start Frontend Server
+```bash
+$ cd \projectary-api
+$ npm start 
+```
+
+
 | Frontend Team       |
 | ------------------- |
 | Luis Nunes          |
