@@ -1,5 +1,6 @@
-export class Student {
-  nome: number;
+export interface Student {
+  id: string;
+  nome: string;
   username: string;
   num_aluno: number; 
   foto: string;
@@ -11,8 +12,9 @@ export class Student {
   perfil_publico: boolean;
 }
 
-export class Teacher {
-  nome: number;
+export interface Teacher {
+  id: string;
+  nome: string;
   username: string;
   foto: string;
   link: string;
