@@ -1,0 +1,47 @@
+[   
+    {
+        "id": "1",
+        "nome": "Antoino Cashmire1",
+        "username": "kxmir",
+        "num_aluno": 18940,
+        "foto": "fotoAKI.png",
+        "escola": "escola",
+        "curso": "curso",
+        "mail": "mail@a.a",
+        "telefone": "tele",
+        "area_interesse":[
+            "info","eletrao","mecas"
+        ],
+        "perfil_publico": true
+    },
+    {
+        "id": "2",
+        "nome": "Antoino Cashmire2",
+        "username": "kxmir",
+        "num_aluno": 18940,
+        "foto": "fotoAKI.png",
+        "escola": "escola",
+        "curso": "curso",
+        "mail": "mail@a.a",
+        "telefone": "tele",
+        "area_interesse":[
+            "info","eletrao","mecas"
+        ],
+        "perfil_publico": true
+    },
+    {
+        "id": "3",
+        "nome": "Antoino Cashmire3",
+        "username": "kxmir",
+        "num_aluno": 18940,
+        "foto": "fotoAKI.png",
+        "escola": "escola",
+        "curso": "curso",
+        "mail": "mail@a.a",
+        "telefone": "tele",
+        "area_interesse":[
+            "info","eletrao","mecas"
+        ],
+        "perfil_publico": true
+    }
+]
