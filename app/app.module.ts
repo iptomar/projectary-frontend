@@ -18,7 +18,6 @@ import {ProjectFormComponent} from "./forms/project-form.component";
 import { StudentProfileComponent } from "./profiles/student-profile.component";
 import { StudentService } from "./profiles/users.service";
 import { StudentListComponent } from "./profiles/student-list.component";
-
 import { ProjectFormService } from "./forms/project-form.service";
 
 
@@ -35,8 +34,8 @@ import { ProjectFormService } from "./forms/project-form.service";
       	{path: 'projects',component: ProjectListComponent},
       	{path: 'projectform', component: ProjectFormComponent },
       	{path: 'student/:id', component: StudentProfileComponent},
-		{path: 'students', component: StudentListComponent},
-	{path: '**' ,component: NotFoundComponent},
+		    {path: 'students', component: StudentListComponent},
+	      {path: '**' ,component: NotFoundComponent},
     ])
   ], 
   exports: [ RouterModule ],
