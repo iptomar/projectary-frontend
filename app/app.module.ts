@@ -15,7 +15,8 @@ import { LoginComponent } from "./menu/login/login.component";
 import { OptionPublicComponent } from "./menu/options/optionPublic.component";
 import {ProjectFormComponent} from "./forms/project-form.component";
 import { StudentProfileComponent } from "./profiles/student-profile.component";
-import { StudentProfileService } from "./profiles/users.service";
+import { StudentService } from "./profiles/users.service";
+import { StudentListComponent } from "./profiles/student-list.component";
 
 
 @NgModule({
@@ -30,9 +31,11 @@ import { StudentProfileService } from "./profiles/users.service";
       	{path: 'projects',component: ProjectListComponent},
       	{path: 'projectform', component: ProjectFormComponent },
       	{path: 'student/:id', component: StudentProfileComponent},
+		{path: 'students', component: StudentListComponent},
 	{path: '**' ,component: NotFoundComponent},
     ])
   ], 
+  exports: [ RouterModule ],
   declarations: [ 
     	AppComponent,
     	HomeComponent,
@@ -43,11 +46,12 @@ import { StudentProfileService } from "./profiles/users.service";
     	LoginComponent,
     	OptionPublicComponent,
     	ProjectFormComponent,
-		StudentProfileComponent
+		StudentProfileComponent,
+		StudentListComponent
   ],
   providers: [
       ProjectService,
-	  StudentProfileService
+	  StudentService
   ],
   bootstrap: [ AppComponent ]
 })
