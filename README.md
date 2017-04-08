@@ -1,10 +1,3 @@
-# projectary-frontend
-
-Pessoal fiz um boiler-plate com mais organização (pasta projectaryApp).
-Como eu não fiz o upload do node_modules para executarem façam npm install, e depois npm start.
-
-Luis Nunes
-
 ## Database
 
 The database can be found [here](https://github.com/iptomar/projectary-bd)
