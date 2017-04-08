@@ -1,9 +1,23 @@
-# projectary-frontend
+## Database
 
-Pessoal fiz um boiler-plate com mais organização (pasta projectaryApp).
-Como eu não fiz o upload do node_modules para executarem façam npm install, e depois npm start.
+The database can be found [here](https://github.com/iptomar/projectary-bd)
 
-Luis Nunes
+## API
+
+The API can be found [here](https://github.com/iptomar/projectary-api)
+
+## Installation
+
+```bash
+$ cd \projectary-api
+$ npm install 
+```
+## Start Frontend Server
+```bash
+$ cd \projectary-api
+$ npm start 
+```
+
 
 | Frontend Team       |
 | ------------------- |
