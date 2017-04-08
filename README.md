@@ -27,3 +27,9 @@ $ npm start
 | Rui Marques         |  
 | Rui Barcelos        |
 | Florêncio Alexandre |
+
+
+## Agenda
+(8/4/2017) -> Diogo Mendes/ Rui Barcelos
+	AsIs: There is no group creation form
+	ToDo: Create the submission form, component and service for creating a group
