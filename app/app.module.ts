@@ -3,7 +3,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
-//Components
+//Component
 import { AppComponent } from "./app.component";
 import { HomeComponent } from "./home/home.component";
 import { ProjectComponent } from "./projects/project-detail.component";
@@ -34,29 +34,32 @@ import { StudentFilterPipe } from "./profiles/student-filter.pipe";
       	{path: 'projects',component: ProjectListComponent},
       	{path: 'projectform', component: ProjectFormComponent },
       	{path: 'student/:id', component: StudentProfileComponent},
-		{path: 'students', component: StudentListComponent},
-	    {path: '**' ,component: NotFoundComponent},
+		    {path: 'students', component: StudentListComponent},
+	      {path: '**' ,component: NotFoundComponent},
     ])
   ], 
   exports: [ RouterModule ],
   declarations: [ 
+	    //Component
     	AppComponent,
     	HomeComponent,
     	ProjectComponent,
     	ProjectListComponent,
-		NotFoundComponent,
+		  NotFoundComponent,
     	LoginComponent,
     	OptionPublicComponent,
     	ProjectFormComponent,
-		StudentProfileComponent,
-		StudentListComponent,
-		ProjectFilterPipe,
-		StudentFilterPipe
+		  StudentProfileComponent,
+		  StudentListComponent,
+      //Pipe
+		  ProjectFilterPipe,
+		  StudentFilterPipe
   ],
   providers: [
-		ProjectService,
-		StudentService,
-      	ProjectFormService
+      //Service
+		  ProjectService,
+		  StudentService,
+      ProjectFormService
   ],
   bootstrap: [ AppComponent ]
 })
