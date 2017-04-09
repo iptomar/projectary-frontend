@@ -25,8 +25,11 @@ export class StudentService {
     }
 
     getStudents(): Observable<Student[]> {
-        return this._http.get(this._student_list_url)
-            .map((res: Response) => res.json())
-            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+        return this._http.get(this._student_list_url).map(
+            (response: Response) => <Student[]> response.json())
+    }
+    private handleError(error: Response){
+        console.error(error);
+        return Observable.throw(error.json().error || "Server error");
     }
 }

@@ -1,5 +1,4 @@
-<h1>{{title}}</h1>
-<p>{{saudacao}}</p>
+<h2>{{title}}</h2>
 <hr>
 <div class="row">
     <div class="col-md-9">
@@ -53,32 +52,36 @@
                 </div>
             </div>
         </div>
-        <hr>
-        <div class="row">
-            <div class="col-md-12">
-                <p><b>Descrição:</b></p>
+        <button class="btn btn-primary" data-toggle="collapse" [attr.data-target]="'#'+ project.id">Ver mais...</button>
+        <br>
+        <div #elem [id]="project.id" class="collapse">
+            <hr>
+            <div class="row">
                 <div class="col-md-12">
-                    <p>{{project.summary}}</p>
+                    <p><b>Descrição:</b></p>
+                    <div class="col-md-12">
+                        <p>{{project.summary}}</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <hr *ngIf="project.state=='Por Atribuir'">
-        <div *ngIf="project.state=='Por Atribuir'">
-            <p><b>Pré Requisitos:</b></p>
-            <ul>
-                <li *ngFor="let requisito of project.preRequisitos">
-                    {{requisito}}
-                </li>
-            </ul>
-        </div>
-        <hr>
-        <div>
-            <p><b>Orientadores:</b></p>
-            <ul>
-                <li *ngFor="let orientador of project.orientadores">
-                    {{orientador}}
-                </li>
-            </ul>
+            <hr *ngIf="project.state=='Por Atribuir'">
+            <div *ngIf="project.state=='Por Atribuir'">
+                <p><b>Pré Requisitos:</b></p>
+                <ul>
+                    <li *ngFor="let requisito of project.preRequisitos">
+                        {{requisito}}
+                    </li>
+                </ul>
+            </div>
+            <hr>
+            <div>
+                <p><b>Orientadores:</b></p>
+                <ul>
+                    <li *ngFor="let orientador of project.orientadores">
+                        {{orientador}}
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

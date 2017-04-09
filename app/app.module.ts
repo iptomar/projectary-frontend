@@ -3,24 +3,24 @@ import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
-
+//Components
 import { AppComponent } from "./app.component";
 import { HomeComponent } from "./home/home.component";
 import { ProjectComponent } from "./projects/project-detail.component";
 import { ProjectListComponent } from "./projects/project-list.component";
-import { ProjectService } from "./projects/project.service";
-import { ProjectFilterPipe } from "./projects/project-filter.pipe";
 import { NotFoundComponent } from "./notFound/nfound.component";
 import { LoginComponent } from "./menu/login/login.component";
 import { OptionPublicComponent } from "./menu/options/optionPublic.component";
-import {ProjectFormComponent} from "./forms/project-form.component";
-
+import { ProjectFormComponent} from "./forms/project-form.component";
 import { StudentProfileComponent } from "./profiles/student-profile.component";
-import { StudentService } from "./profiles/users.service";
 import { StudentListComponent } from "./profiles/student-list.component";
+//Service
+import { StudentService } from "./profiles/users.service";
 import { ProjectFormService } from "./forms/project-form.service";
-
-
+import { ProjectService } from "./projects/project.service";
+//Pipes
+import { ProjectFilterPipe } from "./projects/project-filter.pipe";
+import { StudentFilterPipe } from "./profiles/student-filter.pipe";
 
 @NgModule({
   imports: [ 
@@ -34,8 +34,8 @@ import { ProjectFormService } from "./forms/project-form.service";
       	{path: 'projects',component: ProjectListComponent},
       	{path: 'projectform', component: ProjectFormComponent },
       	{path: 'student/:id', component: StudentProfileComponent},
-		    {path: 'students', component: StudentListComponent},
-	      {path: '**' ,component: NotFoundComponent},
+		{path: 'students', component: StudentListComponent},
+	    {path: '**' ,component: NotFoundComponent},
     ])
   ], 
   exports: [ RouterModule ],
@@ -44,18 +44,19 @@ import { ProjectFormService } from "./forms/project-form.service";
     	HomeComponent,
     	ProjectComponent,
     	ProjectListComponent,
-    	ProjectFilterPipe,
 		NotFoundComponent,
     	LoginComponent,
     	OptionPublicComponent,
     	ProjectFormComponent,
 		StudentProfileComponent,
-		StudentListComponent
+		StudentListComponent,
+		ProjectFilterPipe,
+		StudentFilterPipe
   ],
   providers: [
-      ProjectService,
-	    StudentService,
-      ProjectFormService
+		ProjectService,
+		StudentService,
+      	ProjectFormService
   ],
   bootstrap: [ AppComponent ]
 })
