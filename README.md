@@ -1,9 +1,23 @@
-# projectary-frontend
+## Database
 
-Pessoal fiz um boiler-plate com mais organização (pasta projectaryApp).
-Como eu não fiz o upload do node_modules para executarem façam npm install, e depois npm start.
+The database can be found [here](https://github.com/iptomar/projectary-bd)
 
-Luis Nunes
+## API
+
+The API can be found [here](https://github.com/iptomar/projectary-api)
+
+## Installation
+
+```bash
+$ cd \projectary-api
+$ npm install 
+```
+## Start Frontend Server
+```bash
+$ cd \projectary-api
+$ npm start 
+```
+
 
 | Frontend Team       |
 | ------------------- |
@@ -13,3 +27,9 @@ Luis Nunes
 | Rui Marques         |  
 | Rui Barcelos        |
 | Florêncio Alexandre |
+
+
+## Agenda
+(8/4/2017) -> Diogo Mendes/ Rui Barcelos
+	AsIs: There is no group creation form
+	ToDo: Create the submission form, component and service for creating a group
