@@ -7,8 +7,5 @@ import { Component } from "@angular/core";
  
 export class ProjectComponent{
 	title = 'Projectos';
-    saudacao = 'Aqui Estão os projectos'
-    fim='DevPSI'
-    today: number = Date.now();
 }
  

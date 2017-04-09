@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { Location } from '@angular/common';
-
 import { StudentService } from './users.service';
 import { Student } from './users';
 
@@ -12,14 +11,12 @@ import 'rxjs/add/operator/switchMap';
 })
 
 export class StudentListComponent implements OnInit {
-
-    // 
-    title = 'Lista de utilizadores';
-    saudacao = 'Olhem-me estes marmanjos';
-
     // Structure that will be used on views
     students: Student[];
-
+    errorMessage: string;
+    searchFilter: string;
+    // 
+    title = 'Lista de utilizadores';
     constructor(
         private _service: StudentService,
         private _location: Location
@@ -28,10 +25,8 @@ export class StudentListComponent implements OnInit {
     // Method that is called on initialization of the page
     ngOnInit(): void {
         this._service.getStudents()
-            .subscribe(
-                students => this.students = students, 
-                err => {console.log(err);}
-            );
+            .subscribe(students => this.students = students, 
+                error => this.errorMessage = <any> error);
     }
 
     // Method that navigates backward one step in the browser's history
