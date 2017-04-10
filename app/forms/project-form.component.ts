@@ -5,7 +5,6 @@ import { ISchool } from "./schools";
 //import {} from "form.json";
 
 @Component({
-    selector: "my-app",
     templateUrl: "app/forms/project-form.component.html",
     styleUrls: ["app/forms/project-form.component.css"],
     providers: [ProjectFormService]
@@ -13,7 +12,6 @@ import { ISchool } from "./schools";
 
 export class ProjectFormComponent implements OnInit{
     title = 'Projetos';
-    saudacao = '';
     getSchools: ISchool[];
     postData: string;
 

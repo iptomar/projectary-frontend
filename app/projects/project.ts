@@ -1,4 +1,5 @@
 export interface IProject{
+    id: string;
     projectName: string;
     releaseDate: string;
     summary: string;

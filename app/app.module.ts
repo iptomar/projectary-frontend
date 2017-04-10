@@ -20,6 +20,7 @@ import { ProjectFormService } from "./forms/project-form.service";
 import { ProjectService } from "./projects/project.service";
 //Pipes
 import { ProjectFilterPipe } from "./projects/project-filter.pipe";
+import { StudentFilterPipe } from "./profiles/student-filter.pipe";
 
 @NgModule({
   imports: [ 
@@ -39,25 +40,26 @@ import { ProjectFilterPipe } from "./projects/project-filter.pipe";
   ], 
   exports: [ RouterModule ],
   declarations: [ 
-	//Component
+	    //Component
     	AppComponent,
     	HomeComponent,
     	ProjectComponent,
     	ProjectListComponent,
-	NotFoundComponent,
+		  NotFoundComponent,
     	LoginComponent,
     	OptionPublicComponent,
     	ProjectFormComponent,
-	StudentProfileComponent,
-	StudentListComponent,
-	//Pipe
-	ProjectFilterPipe
+		  StudentProfileComponent,
+		  StudentListComponent,
+      //Pipe
+		  ProjectFilterPipe,
+		  StudentFilterPipe
   ],
   providers: [
-      	//service
-	ProjectService,
-	StudentService,
-      	ProjectFormService
+      //Service
+		  ProjectService,
+		  StudentService,
+      ProjectFormService
   ],
   bootstrap: [ AppComponent ]
 })
