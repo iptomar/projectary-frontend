@@ -13,7 +13,6 @@ export class ProjectListComponent implements OnInit{
     errorMessage: string;
     searchFilter: string;
     title = 'Projetos Públicos';
-    saudacao = ''
 
     constructor(private _projectService : ProjectService){}
 

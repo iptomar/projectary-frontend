@@ -3,6 +3,6 @@ import {Component} from "@angular/core"
   templateUrl: "app/home/home.component.html"
 })
 export class HomeComponent{
-    title = 'Projectory';
+    title = 'Projectary';
     saudacao = 'Bem vindo à Base de Dados de Projectos Finais'
 }
