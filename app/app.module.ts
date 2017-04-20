@@ -14,7 +14,8 @@ import { OptionPublicComponent } from "./menu/options/optionPublic.component";
 import { ProjectFormComponent} from "./forms/project-form.component";
 import { StudentProfileComponent } from "./profiles/student-profile.component";
 import { StudentListComponent } from "./profiles/student-list.component";
-import { SignInComponent } from "./signIn/signIn.component";
+import { SignInStudentComponent } from "./signIn/signIn-student.component";
+import { SignInTeacherComponent } from "./signIn/signIn-teacher.component";
 //Service
 import { StudentService } from "./profiles/users.service";
 import { ProjectFormService } from "./forms/project-form.service";
@@ -36,7 +37,8 @@ import { StudentFilterPipe } from "./profiles/student-filter.pipe";
       	{path: 'projectform', component: ProjectFormComponent },
       	{path: 'student/:id', component: StudentProfileComponent},
 		{path: 'students', component: StudentListComponent},
-		{path: 'signin', component: SignInComponent},
+		{path: 'signinstudent', component: SignInStudentComponent},
+		{path: 'signinteacher', component: SignInTeacherComponent},
 	    {path: '**' ,component: NotFoundComponent},
     ])
   ], 
@@ -53,7 +55,8 @@ import { StudentFilterPipe } from "./profiles/student-filter.pipe";
     	ProjectFormComponent,
 		StudentProfileComponent,
 		StudentListComponent,
-		SignInComponent,
+		SignInStudentComponent,
+		SignInTeacherComponent,
       	//Pipe
 		ProjectFilterPipe,
 		StudentFilterPipe
