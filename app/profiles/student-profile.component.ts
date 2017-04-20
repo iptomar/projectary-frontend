@@ -18,8 +18,6 @@ export class StudentProfileComponent implements OnInit {
 
     // 
     title = 'Perfil de um utilizador';
-    saudacao = 'QUE FAZEM AQUI CUSCOS??';
-
     // Structure that will be used on views
     student: Student;
 

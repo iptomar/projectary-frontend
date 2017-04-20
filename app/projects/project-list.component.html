@@ -1,121 +1,155 @@
 <h2>{{title}}</h2>
 <hr>
-<div class="row">
-    <div class="col-md-9">
-        <form>
-            <div class="form-group">
-                <input class="form-control" type="text" placeholder="Enter a project name..." [(ngModel)]="searchFilter" name="searchFilter">
-            </div>
-        </form>
-    </div>
-    <div class="col-md-3">
-        <a routerLink="/projectform" routerLinkActive="active" class="btn btn-primary col-md-12">Submeter Projeto</a>
-    </div>
-</div>
-
 <!--*ngIf="projects && products.length"-->
-<div class="panel panel-default" *ngFor="let project of projects | projectFilter:searchFilter">
+<div class="panel panel-default">
     <div class="panel-heading">
-        <h2 class="panel-title">{{project.projectName}}</h2>
+        <h2 class="panel-title">Projectos</h2>
     </div>
     <div class="panel-body">
         <div class="row">
-            <div class="col-md-9">
-                <p><b>{{project.curso}}</b></p>
-                <p>Ano Letivo: {{project.anoLectivo}}</p>
-            </div>
             <div class="col-md-3">
-                <div class="row">
-                    <div class="col-md-6">
-                        Lançamento:
-                    </div>
-                    <div class="col-md-6">
-                        <span class="label label-primary col-md-12">{{project.releaseDate}}</span>
+                <div class="form-group input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                    <input class="form-control" type="text" placeholder="Enter a project name..." [(ngModel)]="searchFilter" name="searchFilter">
+                </div>
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" data-toggle="collapse" href="#Departamento">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <h4 class="panel-title">Departamento</h4>
+                                </div>
+                                <div class="col-md-2">
+                                    <span class="caret"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="Departamento" class="panel-collapse collapse">
+                            <ul class="list-group">
+                                <a href="#">
+                                    <li class="list-group-item">Informática</li>
+                                </a>
+                                <a href="#">
+                                    <li class="list-group-item">Eletrotécnica e Computadores</li>
+                                </a>
+                                <a href="#">
+                                    <li class="list-group-item">Química e Bioquímica</li>
+                                </a>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        Estado:
-                    </div>
-                    <div class="col-md-6">
-                        <span *ngIf="project.state=='Por Atribuir'" class="label label-success col-md-12">{{project.state}}</span>
-                        <span *ngIf="project.state=='Atribuido'" class="label label-danger col-md-12">{{project.state}}</span>
-                    </div>
-                </div>
-                <div *ngIf="project.state=='Atribuido'" class="row">
-                    <div class="col-md-6">
-                        Atribuição:
-                    </div>
-                    <div class="col-md-6">
-                        <span class="label label-success col-md-12">{{project.attributionDate}}</span>
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" data-toggle="collapse" href="#Estudo">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <h4 class="panel-title">Ciclo de Estudo</h4>
+                                </div>
+                                <div class="col-md-2">
+                                    <span class="caret"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="Estudo" class="panel-collapse collapse">
+                            <ul class="list-group">
+                                <a href="#">
+                                    <li class="list-group-item">cTesp</li>
+                                </a>
+                                <a href="#">
+                                    <li class="list-group-item">Licenciatura</li>
+                                </a>
+                                <a href="#">
+                                    <li class="list-group-item">Mestrado</li>
+                                </a>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <button class="btn btn-primary" data-toggle="collapse" [attr.data-target]="'#'+ project.id">Ver mais...</button>
-        <br>
-        <div #elem [id]="project.id" class="collapse">
-            <hr>
-            <div class="row">
-                <div class="col-md-12">
-                    <p><b>Descrição:</b></p>
-                    <div class="col-md-12">
-                        <p>{{project.summary}}</p>
+            <div class="col-md-9">
+                <div class="row" *ngFor="let project of projects | projectFilter:searchFilter">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>{{project.projectName}}</h2>
+                        </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <p><b>{{project.curso}}</b></p>
+                            <p>Ano Letivo: {{project.anoLectivo}}</p>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    Lançamento:
+                                </div>
+                                <div class="col-md-6">
+                                    <span class="label label-primary col-md-12">{{project.releaseDate}}</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    Estado:
+                                </div>
+                                <div class="col-md-6">
+                                    <span *ngIf="project.state=='Por Atribuir'" class="label label-success col-md-12">{{project.state}}</span>
+                                    <span *ngIf="project.state=='Atribuido'" class="label label-danger col-md-12">{{project.state}}</span>
+                                </div>
+                            </div>
+                            <div *ngIf="project.state=='Atribuido'" class="row">
+                                <div class="col-md-6">
+                                    Atribuição:
+                                </div>
+                                <div class="col-md-6">
+                                    <span class="label label-success col-md-12">{{project.attributionDate}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <button class="btn btn-primary col-md-12" data-toggle="collapse" [attr.data-target]="'#'+ project.id">Ver mais...</button>
+                        </div>
+                        <div class="col-md-7"></div>
+                        <div class="col-md-3">
+                            <button class="btn btn-primary col-md-12" *ngIf="project.state=='Por Atribuir'">Candidatar ao Projeto</button>
+                        </div>
+                    </div>
+                    <br>
+                    <div #elem [id]="project.id" class="collapse">
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p><b>Descrição:</b></p>
+                                <div class="col-md-12">
+                                    <p>{{project.summary}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr *ngIf="project.state=='Por Atribuir'">
+                        <div *ngIf="project.state=='Por Atribuir'">
+                            <p><b>Pré Requisitos:</b></p>
+                            <ul>
+                                <li *ngFor="let requisito of project.preRequisitos">
+                                    {{requisito}}
+                                </li>
+                            </ul>
+                        </div>
+                        <hr>
+                        <div>
+                            <p><b>Orientadores:</b></p>
+                            <ul>
+                                <li *ngFor="let orientador of project.orientadores">
+                                    {{orientador}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <hr>
                 </div>
-            </div>
-            <hr *ngIf="project.state=='Por Atribuir'">
-            <div *ngIf="project.state=='Por Atribuir'">
-                <p><b>Pré Requisitos:</b></p>
-                <ul>
-                    <li *ngFor="let requisito of project.preRequisitos">
-                        {{requisito}}
-                    </li>
-                </ul>
-            </div>
-            <hr>
-            <div>
-                <p><b>Orientadores:</b></p>
-                <ul>
-                    <li *ngFor="let orientador of project.orientadores">
-                        {{orientador}}
-                    </li>
-                </ul>
             </div>
         </div>
     </div>
 </div>
-
-
-
-<!--<div *ngIf="user">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">{{user.name}}</h3>
-        </div>
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-md-4">
-                    <img class="profile-img img-thumbnail" src="{{user.avatar_url}}">
-                    <a class="btn btn-default btn-block" href="{{user.html_url}}" target="_blank">View Profile</a>
-                </div>   
-                <div class="col-md-8">
-                    <div class="stats">
-                        <span class="label label-primary">{{user.public_repos}} Public Repos</span>
-                        <span class="label label-success">{{user.public_gists}} Public Gists</span>
-                        <span class="label label-info">{{user.followers}} Followers</span>
-                        <span class="label label-warning">{{user.following}} Following</span>
-                    </div>
-                    <br>
-                    <ul class="list-group">
-                        <li class="list-group-item"><strong>Username: </strong>{{user.login}}</li> 
-                        <li class="list-group-item"><strong>Location: </strong>{{user.location}}</li>
-                        <li class="list-group-item"><strong>Email: </strong>{{user.email}}</li>
-                        <li class="list-group-item"><strong>Blog: </strong>{{user.blog}}</li>
-                        <li class="list-group-item"><strong>Member Since: </strong>{{user.created_at}}</li>   
-                    </ul>
-                </div>   
-            </div>
-        </div>
-    </div>
-    -->
