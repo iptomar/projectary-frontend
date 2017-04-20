@@ -14,6 +14,7 @@ import { OptionPublicComponent } from "./menu/options/optionPublic.component";
 import { ProjectFormComponent} from "./forms/project-form.component";
 import { StudentProfileComponent } from "./profiles/student-profile.component";
 import { StudentListComponent } from "./profiles/student-list.component";
+import { SignInComponent } from "./signIn/signIn.component";
 //Service
 import { StudentService } from "./profiles/users.service";
 import { ProjectFormService } from "./forms/project-form.service";
@@ -34,8 +35,9 @@ import { StudentFilterPipe } from "./profiles/student-filter.pipe";
       	{path: 'projects',component: ProjectListComponent},
       	{path: 'projectform', component: ProjectFormComponent },
       	{path: 'student/:id', component: StudentProfileComponent},
-		    {path: 'students', component: StudentListComponent},
-	      {path: '**' ,component: NotFoundComponent},
+		{path: 'students', component: StudentListComponent},
+		{path: 'signin', component: SignInComponent},
+	    {path: '**' ,component: NotFoundComponent},
     ])
   ], 
   exports: [ RouterModule ],
@@ -45,21 +47,22 @@ import { StudentFilterPipe } from "./profiles/student-filter.pipe";
     	HomeComponent,
     	ProjectComponent,
     	ProjectListComponent,
-		  NotFoundComponent,
+		NotFoundComponent,
     	LoginComponent,
     	OptionPublicComponent,
     	ProjectFormComponent,
-		  StudentProfileComponent,
-		  StudentListComponent,
-      //Pipe
-		  ProjectFilterPipe,
-		  StudentFilterPipe
+		StudentProfileComponent,
+		StudentListComponent,
+		SignInComponent,
+      	//Pipe
+		ProjectFilterPipe,
+		StudentFilterPipe
   ],
   providers: [
-      //Service
-		  ProjectService,
-		  StudentService,
-      ProjectFormService
+      	//Service
+		ProjectService,
+		StudentService,
+      	ProjectFormService
   ],
   bootstrap: [ AppComponent ]
 })
