@@ -18,7 +18,7 @@ export class LoginService {
             headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
             let body = `username=${username}&password=${password}`;
-            return this._http.post('http://192.168.1.180:8080/login', body, {headers:headers})
+            return this._http.post('http://192.168.10.117:8080/login', body, {headers:headers})
             .map((res: Response) => <ILogin> res.json())
             .catch(this.handleError);
         }
