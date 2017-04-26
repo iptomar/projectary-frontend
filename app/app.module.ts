@@ -11,18 +11,19 @@ import { ProjectListComponent } from "./projects/project-list.component";
 import { NotFoundComponent } from "./notFound/nfound.component";
 import { LoginComponent } from "./menu/login/login.component";
 import { OptionPublicComponent } from "./menu/options/optionPublic.component";
-import { ProjectFormComponent} from "./forms/project-form.component";
+import { ProjectFormComponent} from "./projects/project-form/project-form.component";
 import { StudentProfileComponent } from "./profiles/student-profile.component";
 import { StudentListComponent } from "./profiles/student-list.component";
 import { SignInStudentComponent } from "./signIn/signIn-student.component";
 import { SignInTeacherComponent } from "./signIn/signIn-teacher.component";
 //Service
 import { StudentService } from "./profiles/users.service";
-import { ProjectFormService } from "./forms/project-form.service";
+import { ProjectFormService } from "./projects/project-form/project-form.service";
 import { ProjectService } from "./projects/project.service";
 //Pipes
 import { ProjectFilterPipe } from "./projects/project-filter.pipe";
 import { StudentFilterPipe } from "./profiles/student-filter.pipe";
+import { AuthGuard } from "./auth.guard";
 
 @NgModule({
   imports: [ 
@@ -62,6 +63,7 @@ import { StudentFilterPipe } from "./profiles/student-filter.pipe";
 		StudentFilterPipe
   ],
   providers: [
+	  	AuthGuard,
       	//Service
 		ProjectService,
 		StudentService,

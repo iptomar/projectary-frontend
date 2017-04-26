@@ -9,23 +9,48 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 @Injectable()
 export class LoginService {
+    public token: string;
 
-    constructor(private _http: Http){}
-    //'appDataTeste/usersTest.json'
-    login(username: string, password:string): Observable<ILogin>{ 
-           
-            var headers = new Headers();
-            headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    constructor(private _http: Http){
+        // set token if saved in local storage
+        var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        this.token = currentUser && currentUser.token;
+    }
 
-            let body = `username=${username}&password=${password}`;
-            return this._http.post('http://192.168.10.117:8080/login', body, {headers:headers})
-            .map((res: Response) => <ILogin> res.json())
-            .catch(this.handleError);
-        }
+    login(username: string, password:string): Observable<boolean>{ 
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-        private handleError(error: Response) {
-            console.error(error);
+        let body = `username=${username}&password=${password}`;
+        return this._http.post('http://192.168.1.191:8080/login', body, {headers:headers})
+        .map((res: Response) =>{
+            let data = <ILogin> res.json();
+            let token = res.json() && res.json().token;
+            if (token) {
+                // set token property
+                this.token = token;
+
+                // store username and jwt token in local storage to keep user logged in between page refreshes
+                localStorage.setItem('currentUser', JSON.stringify(data));
+
+                // return true to indicate successful login
+                return true;
+            } else {
+                // return false to indicate failed login
+                return false;
+            }
+        }).catch(this.handleError);
+    }
+
+    private handleError(error: Response) {
+        console.error(error);
         return Observable.throw(error.json().error || 'Server Error');
+    }
+
+    public logout(): void {
+        // clear token remove user from local storage to log user out
+        this.token = null;
+        localStorage.removeItem('currentUser');
     }
 
 }
