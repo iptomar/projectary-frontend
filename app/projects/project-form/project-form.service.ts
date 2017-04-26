@@ -20,7 +20,7 @@ export class ProjectFormService {
     }
 
     getSchool(): Observable<ISchool[]> {
-        return this._http.get('app/forms/form.json')
+        return this._http.get('app/projects/project-form/form.json')
             .map((res: Response) => <ISchool[]> res.json());
     }
 

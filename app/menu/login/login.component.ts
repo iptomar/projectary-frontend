@@ -12,26 +12,39 @@ import { ILogin } from "./login";
 
 export class LoginComponent implements OnInit {
 
-  login: ILogin;
-  username: string;
-  password: string;
-  error: Boolean;
-
+  private username: string;
+  private password: string;
+  private loading = false;
+  private error = false;
+  private autenticated = false;
   constructor(private _httpService: LoginService) { }
 
-  getLogin() {
+  ngOnInit() {
+    // reset login status
+    this._httpService.logout();
+    this.autenticated = false;
+  }
+
+  login() {
+    this.loading = true;
     this._httpService.login(this.username, this.password).subscribe(
-      login => this.login = login,
-      error => this.error = true,
-      () => console.log(this.login)
+      result => {
+        this.error = false;
+        this.autenticated = true;
+        console.log(localStorage.getItem('currentUser'));
+      },
+      error => {
+        this.error = true;
+        this.loading = false;
+        console.log("Dados incorrectos");
+      }
     );
   }
-
-  ngOnInit() {
-    this.error = false;
+  
+  logout(){
+    this._httpService.logout();
+    this.autenticated = false;
   }
-
-
 
 }
 

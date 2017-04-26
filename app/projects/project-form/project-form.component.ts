@@ -5,8 +5,8 @@ import { ISchool } from "./schools";
 //import {} from "form.json";
 
 @Component({
-    templateUrl: "app/forms/project-form.component.html",
-    styleUrls: ["app/forms/project-form.component.css"],
+    templateUrl: "app/projects/project-form/project-form.component.html",
+    styleUrls: ["app/projects/project-form/project-form.component.css"],
     providers: [ProjectFormService]
 })
 
