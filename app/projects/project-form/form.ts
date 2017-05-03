@@ -1,4 +1,4 @@
-export class createProject{
+export class IProject{
     objetivos: string;
     nAlunos: string;
     titulo: string;

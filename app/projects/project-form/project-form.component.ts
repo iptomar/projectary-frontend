@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { ProjectFormService } from "./project-form.service";
-import { createProject } from "./form";
+import { IProject } from "./form";
 import { ISchool } from "./schools";
 //import {} from "form.json";
 
@@ -14,8 +14,7 @@ export class ProjectFormComponent implements OnInit{
     title = 'Projetos';
     getSchools: ISchool[];
     postData: string;
-
-    public project = new createProject();
+    project: IProject;
 
     ngOnInit() {
         //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -48,20 +47,11 @@ export class ProjectFormComponent implements OnInit{
 
     //teste de post a um JSON com os valores referidos no service respetivo
     onTestPost() {
-        this.sendData();
-        this._projectFormService.postJSON()
+        this._projectFormService.postJSON(this.project)
             .subscribe(
-            data => this.postData = JSON.stringify(data),
-            error => alert(error),
-            () => console.log("Finished")
+                data => this.postData = JSON.stringify(data),
+                error => alert(error),
+                () => console.log("Finished")
             );
     }
-
-    sendData() {
-        this._projectFormService.submit(
-            this.project
-        );
-    }
-
-
 }

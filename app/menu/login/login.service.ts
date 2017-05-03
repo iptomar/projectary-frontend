@@ -19,7 +19,7 @@ export class LoginService {
         var headers = new Headers();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
 		    headers.append("Authorization", "Basic " + btoa(username + ":" + password));
-        return this._http.post('http://192.168.1.191:8080/login',"",{headers:headers})
+        return this._http.post('http://192.168.1.176:8080/login',"",{headers:headers})
         .map((res: Response) =>{
             let data =  res.json();
             if (data.result=="ok") {
