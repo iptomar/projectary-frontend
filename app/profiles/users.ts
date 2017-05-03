@@ -1,15 +1,7 @@
-export interface Student {
-  id: string;
-  nome: string;
-  username: string;
-  num_aluno: number; 
-  foto: string;
-  escola: string;
-  curso: string;
-  mail: string;
-  telefone: string;
-  area_interesse: string[];
-  perfil_publico: boolean;
+export interface IStudent {
+    name: string;
+    email:string;
+    phonenumber:string;
 }
 
 export interface Teacher {

@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
   logout(){
     this._httpService.logout();
     this.autenticated = false;
+    this.loading = false;
   }
 
 }

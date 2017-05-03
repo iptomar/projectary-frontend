@@ -10,7 +10,7 @@ import { IProject } from "./project";
 
 @Injectable()
 export class ProjectService {
-    private _productUrl ="app/projects/projects.json";
+    private _productUrl ="http://192.168.1.191:8080/project";
 
     constructor(private _http: Http){}
 

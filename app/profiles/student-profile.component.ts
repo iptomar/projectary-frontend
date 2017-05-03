@@ -4,7 +4,7 @@ import { Location } from '@angular/common';
 
 import { IProject } from "../projects/project";
 import { StudentService } from './users.service';
-import { Student } from './users';
+import { IStudent } from './users';
 
 import 'rxjs/add/operator/switchMap';
 
@@ -19,7 +19,7 @@ export class StudentProfileComponent implements OnInit {
     // 
     title = 'Perfil de um utilizador';
     // Structure that will be used on views
-    student: Student;
+    student: IStudent;
 
     constructor(
         private _service: StudentService,   //
