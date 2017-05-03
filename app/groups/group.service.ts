@@ -15,7 +15,7 @@ export class GroupService {
     postGroup(name: string, password: string): Observable<boolean>{
         
         var json = JSON.stringify({
-            name: name 
+            name: name,
             password: password
         });
 
