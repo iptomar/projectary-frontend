@@ -7,6 +7,7 @@ import 'rxjs/add/operator/toPromise';
 import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
+import { API } from '../../main';
 @Injectable()
 export class LoginService {
 
@@ -15,11 +16,13 @@ export class LoginService {
         var currentUser = JSON.parse(localStorage.getItem('currentUser'));
     }
 
+    apiURL = API.url;
+
     login(username: string, password:string): Observable<boolean>{
         var headers = new Headers();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
 		    headers.append("Authorization", "Basic " + btoa(username + ":" + password));
-        return this._http.post('http://192.168.1.191:8080/login',"",{headers:headers})
+        return this._http.post(this.apiURL+'/login',"",{headers:headers})
         .map((res: Response) =>{
             let data =  res.json();
             if (data.result=="ok") {
