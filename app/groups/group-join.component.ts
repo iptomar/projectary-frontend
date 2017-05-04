@@ -8,7 +8,7 @@ import { GroupService } from "./group.service";
     providers: [GroupService]
 })
 
-export class GroupCreationComponent{
+export class GroupJoinComponent{
 
     // Structure that will be used on views
     private error: boolean;
@@ -16,10 +16,10 @@ export class GroupCreationComponent{
     private pass: string;
     // 
     title = 'Lista de utilizadores';
-    constructor( private _service: GroupService ) { }
+    constructor(private _service: GroupService) { }
 
-    creation(){
-        this._service.postGroupCreation(this.name, this.pass).subscribe(
+    join(){
+        this._service.postGroupJoin(this.name, this.pass).subscribe(
             result => { this.error = false; },
             error => { this.error = true; }
         );

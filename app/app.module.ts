@@ -16,10 +16,13 @@ import { StudentProfileComponent } from "./profiles/student-profile.component";
 import { StudentListComponent } from "./profiles/student-list.component";
 import { SignInStudentComponent } from "./signIn/signIn-student.component";
 import { SignInTeacherComponent } from "./signIn/signIn-teacher.component";
+import { GroupJoinComponent } from "./groups/group-join.component";
+import { GroupCreationComponent } from "./groups/group-creation.component";
 //Service
 import { StudentService } from "./profiles/users.service";
 import { ProjectFormService } from "./projects/project-form/project-form.service";
 import { ProjectService } from "./projects/project.service";
+import { GroupService } from "./groups/group.service";
 //Pipes
 import { ProjectFilterPipe } from "./projects/project-filter.pipe";
 import { StudentFilterPipe } from "./profiles/student-filter.pipe";
@@ -40,6 +43,8 @@ import { AuthGuard } from "./auth.guard";
 		{path: 'students', component: StudentListComponent},
 		{path: 'signinstudent', component: SignInStudentComponent},
 		{path: 'signinteacher', component: SignInTeacherComponent},
+		{path: 'group/creation', component: GroupCreationComponent},
+		{path: 'group/join', component: GroupJoinComponent},
 	    {path: '**' ,component: NotFoundComponent},
     ])
   ], 
@@ -58,6 +63,8 @@ import { AuthGuard } from "./auth.guard";
 		StudentListComponent,
 		SignInStudentComponent,
 		SignInTeacherComponent,
+		GroupCreationComponent,
+		GroupJoinComponent,
       	//Pipe
 		ProjectFilterPipe,
 		StudentFilterPipe
@@ -67,7 +74,8 @@ import { AuthGuard } from "./auth.guard";
       	//Service
 		ProjectService,
 		StudentService,
-      	ProjectFormService
+      	ProjectFormService,
+		GroupService
   ],
   bootstrap: [ AppComponent ]
 })
