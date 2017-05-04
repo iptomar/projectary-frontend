@@ -3,8 +3,7 @@ import { GroupService } from "./group.service";
 
 
 @Component({
-    templateUrl: "app/groups/group-creation.component.html",
-    styleUrls: ["app/groups/group-creation.component.css"],
+    templateUrl: "app/groups/group-join.component.html",
     providers: [GroupService]
 })
 
@@ -15,7 +14,7 @@ export class GroupJoinComponent{
     private name: string;
     private pass: string;
     // 
-    title = 'Lista de utilizadores';
+    title = 'Juntar a Grupo';
     constructor(private _service: GroupService) { }
 
     join(){

@@ -15,7 +15,7 @@ export class GroupCreationComponent{
     private name: string;
     private pass: string;
     // 
-    title = 'Lista de utilizadores';
+    title = 'Criar Grupo';
     constructor( private _service: GroupService ) { }
 
     creation(){
