@@ -10,13 +10,10 @@ export class OptionPublicComponent implements OnInit {
         role: string;
 
         ngOnInit(): void {
-            // var user_data = JSON.parse(localStorage.getItem('currentUser'));
-            // if(user_data != null){
-            //     this.role = user_data.role;
-            // }
-            
+            var user_data = JSON.parse(localStorage.getItem('currentUser'));
+            if(user_data != null){
+                this.role = user_data.role;
+            }          
         }
 
-
-    
 }

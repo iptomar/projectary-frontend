@@ -6,7 +6,7 @@
         <ul class="dropdown-menu">
             <li><a routerLink="/projects" routerLinkActive="active">Lista de Projectos</a></li>
             
-            <li [(ngModel)]="role"  *ngIf="role=='student'"><a routerLink="/projectform" routerLinkActive="active">Submeter Projeto</a></li>
+            <li [(ngModel)]="role"  *ngIf="!(role == '')|| role=='teacher'"><a routerLink="/projectform" routerLinkActive="active">Submeter Projeto</a></li>
         </ul>
       </li>
     <li><a routerLink="/students" routerLinkActive="active">Perfis Públicos</a></li>
