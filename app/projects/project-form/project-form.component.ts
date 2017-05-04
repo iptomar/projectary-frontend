@@ -50,7 +50,7 @@ export class ProjectFormComponent implements OnInit{
     onTestPost() {
         this._projectFormService.postJSON(this.project)
             .subscribe(
-                data => this.postData = JSON.stringify(data),
+                data => this.postData = data,
                 error => alert(error),
                 () => console.log("Finished")
             );
