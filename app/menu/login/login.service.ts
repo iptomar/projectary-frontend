@@ -19,13 +19,19 @@ export class LoginService {
         var headers = new Headers();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
 		    headers.append("Authorization", "Basic " + btoa(username + ":" + password));
-        return this._http.post('http://192.168.1.176:8080/login',"",{headers:headers})
+        return this._http.post('http://192.168.1.191:8080/login',"",{headers:headers})
         .map((res: Response) =>{
             let data =  res.json();
             if (data.result=="ok") {
 
                 // store username and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('currentUser', JSON.stringify({"username":username,"password":password}));
+                localStorage.setItem('currentUser', JSON.stringify({
+                    "username":username,
+                    "password":password,
+                    "user_id":data.data[0].user_id,
+                    "role":data.data[0].role,
+                    "name":data.data[0].name
+                }));
 
                 // return true to indicate successful login
                 return true;

@@ -19,7 +19,7 @@ export class StudentService {
         var headers = new Headers();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
         headers.append("Authorization", "Basic " + btoa(user_data.username + ":" + user_data.password)); 
-        return this._http.get('http://192.168.1.176:8080/user/:id', {headers: headers})
+        return this._http.get('http://192.168.1.191:8080/user/:id', {headers: headers})
             .map((res: Response) => res.json())
             .catch(this.handleError);
     }
@@ -30,12 +30,11 @@ export class StudentService {
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
         headers.append("Authorization", "Basic " + btoa(user_data.username + ":" + user_data.password)); 
   
-        return this._http.get('http://192.168.1.176:8080/user', {headers: headers}).map(
+        return this._http.get('http://192.168.1.191:8080/user', {headers: headers}).map(
             (response: Response) =><IStudent[]> response.json().data )
             .catch(this.handleError);
     }
     private handleError(error: Response){
-        console.error(error);
         return Observable.throw(error.json().error || "Server error");
     }
 }

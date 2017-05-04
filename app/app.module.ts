@@ -16,13 +16,11 @@ import { StudentProfileComponent } from "./profiles/student-profile.component";
 import { StudentListComponent } from "./profiles/student-list.component";
 import { SignInStudentComponent } from "./signIn/signIn-student.component";
 import { SignInTeacherComponent } from "./signIn/signIn-teacher.component";
-import { GroupJoinComponent } from "./groups/group-join.component";
 import { GroupCreationComponent } from "./groups/group-creation.component";
 //Service
 import { StudentService } from "./profiles/users.service";
 import { ProjectFormService } from "./projects/project-form/project-form.service";
 import { ProjectService } from "./projects/project.service";
-import { GroupService } from "./groups/group.service";
 //Pipes
 import { ProjectFilterPipe } from "./projects/project-filter.pipe";
 import { StudentFilterPipe } from "./profiles/student-filter.pipe";
@@ -33,19 +31,18 @@ import { AuthGuard } from "./auth.guard";
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot([
-      	{path: '',component: HomeComponent},
-      	{path: 'home',component: HomeComponent},
-      	{path: 'project/:id',component: ProjectComponent},
-      	{path: 'projects',component: ProjectListComponent},
-      	{path: 'projectform', component: ProjectFormComponent },
-      	{path: 'student/:id', component: StudentProfileComponent},
-		{path: 'students', component: StudentListComponent},
+	RouterModule.forRoot([
+		{path: '',component: HomeComponent},
+		{path: 'home',component: HomeComponent},
+		{path: 'project/:id',component: ProjectComponent},
+		{path: 'projects',component: ProjectListComponent, canActivate: [AuthGuard], data: { roles: ['student','teacher'] } },
+		{path: 'projectform', component: ProjectFormComponent, canActivate: [AuthGuard], data: { roles: ['teacher'] } },
+		{path: 'student/:id', component: StudentProfileComponent, canActivate: [AuthGuard], data: { roles: ['teacher'] }},
+		{path: 'students', component: StudentListComponent, canActivate: [AuthGuard], data: { roles: ['teacher'] }},
 		{path: 'signinstudent', component: SignInStudentComponent},
 		{path: 'signinteacher', component: SignInTeacherComponent},
 		{path: 'group/creation', component: GroupCreationComponent},
-		{path: 'group/join', component: GroupJoinComponent},
-	    {path: '**' ,component: NotFoundComponent},
+		{path: '**' ,component: NotFoundComponent},
     ])
   ], 
   exports: [ RouterModule ],
@@ -64,7 +61,6 @@ import { AuthGuard } from "./auth.guard";
 		SignInStudentComponent,
 		SignInTeacherComponent,
 		GroupCreationComponent,
-		GroupJoinComponent,
       	//Pipe
 		ProjectFilterPipe,
 		StudentFilterPipe
@@ -74,8 +70,7 @@ import { AuthGuard } from "./auth.guard";
       	//Service
 		ProjectService,
 		StudentService,
-      	ProjectFormService,
-		GroupService
+      	ProjectFormService
   ],
   bootstrap: [ AppComponent ]
 })

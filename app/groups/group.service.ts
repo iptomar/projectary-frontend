@@ -12,40 +12,23 @@ export class GroupService {
 
     constructor(private _http: Http) { }
 
-    postGroupCreation(name: string, pass: string): Observable<boolean>{
-        // create the json to post
+    postGroup(name: string, password: string): Observable<boolean>{
+        
         var json = JSON.stringify({
-            desc: name,
-            password: pass
+            name: name,
+            password: password
         });
+
         console.log(json);
-        // define the authenticated user to identify the post 
+        var params = 'json=' + json;
+
         let user_data = <ILogin> JSON.parse(localStorage.getItem('currentUser'));
         var headers = new Headers();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
         headers.append("Authorization", "Basic " + btoa(user_data.username + ":" + user_data.password)); 
-        // return the post 
-        return this._http.post('192.168.1.180:8080/group/create', json, { headers: headers })
-            .map(res => res.json())
-            .catch(this.handleError);
-    }
-    
-    postGroupJoin(name: string, pass: string): Observable<boolean>{
-        // create the json to post
-        var json = JSON.stringify({
-            desc: name,
-            password: pass
-        });
-        console.log(json);
-        // define the authenticated user to identify the post 
-        let user_data = <ILogin> JSON.parse(localStorage.getItem('currentUser'));
-        var headers = new Headers();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded');
-        headers.append("Authorization", "Basic " + btoa(user_data.username + ":" + user_data.password)); 
-        // return the post 
-        return this._http.post('192.168.1.180:8080/group/join', json, { headers: headers })
-            .map(res => res.json())
-            .catch(this.handleError);
+
+        return this._http.post('http://192.168.1.191:8080', params, { headers: headers })
+            .map(res => res.json());
     }
 
     private handleError(error: Response){

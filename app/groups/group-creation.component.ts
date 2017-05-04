@@ -8,20 +8,14 @@ import { GroupService } from "./group.service";
     providers: [GroupService]
 })
 
-export class GroupCreationComponent{
+export class GroupCreationComponent implements OnInit{
+    title = 'Projetos';
 
-    // Structure that will be used on views
-    private error: boolean;
-    private name: string;
-    private pass: string;
-    // 
-    title = 'Lista de utilizadores';
-    constructor( private _service: GroupService ) { }
-
-    creation(){
-        this._service.postGroupCreation(this.name, this.pass).subscribe(
-            result => { this.error = false; },
-            error => { this.error = true; }
-        );
+    ngOnInit() {
+        //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+        //Add 'implements OnInit' to the class.
+        
     }
+
+
 }
