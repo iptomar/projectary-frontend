@@ -19,10 +19,11 @@ export class ProjectFormComponent implements OnInit{
     ngOnInit() {
         //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
         //Add 'implements OnInit' to the class.
+        this.project = new IProject();
         this.onTestGet();
     }
 
-    pushMe() {
+    /*pushMe() {
         //botão de finalizar o form, em que irá fazer fetch a todos os dados preenchidos
         console.log("Objetivos::str: " + this.project.objetivos);
         console.log("NúmeroDeAlunos::str: " + this.project.nAlunos);
@@ -31,7 +32,7 @@ export class ProjectFormComponent implements OnInit{
         console.log("Curso::str: " + this.project.curso);
         console.log("Orientadores::str: " + this.project.orientadores);
         console.log("Requesitos::str: " + this.project.requesitos);
-    }
+    }*/
 
     constructor(private _projectFormService: ProjectFormService) { }
 
