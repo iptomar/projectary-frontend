@@ -55,7 +55,10 @@
 			</ul>
 		</li>
 		<li *ngIf="autenticated">
-			<p> Bem vindo {{username}}. </p> <button class="btn btn-primary" (click)="logout()">Logout</button>
+			<a>Bem vindo {{username}}</a>
+		</li>
+		<li *ngIf="autenticated">
+			<a (click)="logout()"><span class="glyphicon glyphicon-log-out"></span> Logout </a>
 		</li>
 	<!-- </ng-template> -->
 </ul>
