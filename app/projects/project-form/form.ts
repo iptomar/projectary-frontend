@@ -1,9 +1,9 @@
 export class IProject{
-    objetivos: string;
-    nAlunos: string;
-    titulo: string;
-    escola: string;
-    curso: string;
-    orientadores: string;
-    requesitos: string;
+    //objetivos: string;
+    //nAlunos: string;
+    name: string;
+    description: string;
+    id: number;
+    course: number;
+    //orientadores: string;
 }

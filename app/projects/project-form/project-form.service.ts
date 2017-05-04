@@ -24,12 +24,11 @@ export class ProjectFormService {
     }
 
     postJSON(data: IProject) {
-
         console.log(data);
         let user_data = <ILogin> JSON.parse(localStorage.getItem('currentUser'));
         var headers = new Headers();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
-        headers.append("Authorization", "Basic " + btoa(user_data.username + ":" + user_data.password)); 
+        headers.append("Authorization", "Basic " + btoa(user_data.username + ":" + user_data.password));
         return this._http.post('192.168.1.176:8080/project', data, { headers: headers })
             .map(res => res.json());
     }
