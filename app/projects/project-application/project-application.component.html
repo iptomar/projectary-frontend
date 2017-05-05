@@ -1,0 +1,65 @@
+<h2>{{title}}</h2>
+<hr>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">Aplicação para projeto</h2>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-6 form-group">
+        <label for="sel1">Escola:</label>
+        <select class="form-control" id="sel1">
+          <option value="" style="display:none;"></option>
+          <option value="">Teste</option>
+          <!--<option !*ngFor="let school of getSchools">{{school.name}}</option>-->       
+        </select>
+      </div>
+      <div class="col-md-6 form-group">
+        <label for="sel1">Curso:</label>
+        <select class="form-control" id="sel1">
+      <option>Meme 101</option>
+    </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-9 form-group">
+        <form>
+          <label for="usr">Título:</label>
+          <input type="text" class="form-control" id="inputArea" [(ngModel)]=project.name name="title">
+        </form>
+      </div>
+      <div class="col-md-3 form-group">
+        <label for="sel2">Nº de Alunos:</label>
+        <select class="form-control" id="sel2" ng-selected="5" [(ngModel)]=project.id>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 form-group">
+        <label for="comment">Objetivos Específicos:</label>
+        <textarea class="form-control" rows="5" id="objetivos" [(ngModel)]=project.description></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-9 form-group">
+        <label for="comment">Pré-requisitos:</label>
+        <textarea class="form-control" rows="5" id="requesitos"></textarea>
+      </div>
+      <div class="col-md-3 form-group">
+        <label for="sel2">Nº de Orientadores:</label>
+        <select class="form-control" id="sel2" [(ngModel)]=project.course>
+        <option>1</option>
+        <option>2</option>
+      </select>
+        <br>
+        <button class="btn btn-primary" (click)="onTestPost()">Submeter Projecto</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -18,11 +18,13 @@ import { SignInStudentComponent } from "./signIn/signIn-student.component";
 import { SignInTeacherComponent } from "./signIn/signIn-teacher.component";
 import { GroupJoinComponent } from "./groups/group-join.component";
 import { GroupCreationComponent } from "./groups/group-creation.component";
+import { ProjectApplicationComponent } from "./projects/project-application/project-application.component";
 //Service
 import { StudentService } from "./profiles/users.service";
 import { ProjectFormService } from "./projects/project-form/project-form.service";
 import { ProjectService } from "./projects/project.service";
 import { GroupService } from "./groups/group.service";
+import { ProjectApplicationService } from "./projects/project-application/project-application.service";
 //Pipes
 import { ProjectFilterPipe } from "./projects/project-filter.pipe";
 import { StudentFilterPipe } from "./profiles/student-filter.pipe";
@@ -40,6 +42,7 @@ import { LoginService } from "./menu/login/login.service";
 		{path: 'project/:id',component: ProjectComponent},
 		{path: 'projects',component: ProjectListComponent, canActivate: [AuthGuard], data: { roles: ['student','teacher'] } },
 		{path: 'projectform', component: ProjectFormComponent, canActivate: [AuthGuard], data: { roles: ['teacher'] } },
+		{path: 'projectapplication', component: ProjectApplicationComponent/*, canActivate: [AuthGuard], data: { roles: ['student'] }*/ },
 		{path: 'student/:id', component: StudentProfileComponent, canActivate: [AuthGuard], data: { roles: ['teacher'] }},
 		{path: 'students', component: StudentListComponent, canActivate: [AuthGuard], data: { roles: ['teacher'] }},
 		{path: 'signinstudent', component: SignInStudentComponent},
@@ -60,6 +63,7 @@ import { LoginService } from "./menu/login/login.service";
     	LoginComponent,
     	OptionPublicComponent,
     	ProjectFormComponent,
+		ProjectApplicationComponent,
 		StudentProfileComponent,
 		StudentListComponent,
 		SignInStudentComponent,
@@ -76,6 +80,7 @@ import { LoginService } from "./menu/login/login.service";
 		ProjectService,
 		StudentService,
       	ProjectFormService,
+		ProjectApplicationService,
 		GroupService,
 		LoginService
   ],
