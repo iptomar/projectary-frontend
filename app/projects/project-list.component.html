@@ -3,7 +3,7 @@
 <!--*ngIf="projects && products.length"-->
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h2 class="panel-title">Projectos</h2>
+        <h2 class="panel-title">Projetos</h2>
     </div>
     <div class="panel-body">
         <div class="row">
@@ -72,13 +72,13 @@
                 <div class="row" *ngFor="let project of projects | projectFilter:searchFilter">
                     <div class="row">
                         <div class="col-md-12">
-                            <h2>{{project.projectName}}</h2>
+                            <h2>{{project.name}}</h2>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-9">
-                            <p><b>{{project.curso}}</b></p>
-                            <p>Ano Letivo: {{project.anoLectivo}}</p>
+                            <p><b>{{project.courseid}}</b></p>
+                            <p>Ano Letivo: {{project.year}}</p>
                         </div>
                         <div class="col-md-3">
                             <div class="row">
@@ -86,10 +86,10 @@
                                     Lançamento:
                                 </div>
                                 <div class="col-md-6">
-                                    <span class="label label-primary col-md-12">{{project.releaseDate}}</span>
+                                    <span class="label label-primary col-md-12">{{project.created}}</span>
                                 </div>
                             </div>
-                            <div class="row">
+                            <!--<div class="row">
                                 <div class="col-md-6">
                                     Estado:
                                 </div>
@@ -105,7 +105,7 @@
                                 <div class="col-md-6">
                                     <span class="label label-success col-md-12">{{project.attributionDate}}</span>
                                 </div>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                     <div class="row">
@@ -113,9 +113,9 @@
                             <button class="btn btn-primary col-md-12" data-toggle="collapse" [attr.data-target]="'#'+ project.id">Ver mais...</button>
                         </div>
                         <div class="col-md-7"></div>
-                        <div class="col-md-3">
+                        <!--<div class="col-md-3">
                             <button class="btn btn-primary col-md-12" *ngIf="project.state=='Por Atribuir'">Candidatar ao Projeto</button>
-                        </div>
+                        </div>-->
                     </div>
                     <br>
                     <div #elem [id]="project.id" class="collapse">
@@ -124,11 +124,11 @@
                             <div class="col-md-12">
                                 <p><b>Descrição:</b></p>
                                 <div class="col-md-12">
-                                    <p>{{project.summary}}</p>
+                                    <p>{{project.description}}</p>
                                 </div>
                             </div>
                         </div>
-                        <hr *ngIf="project.state=='Por Atribuir'">
+                        <!--<hr *ngIf="project.state=='Por Atribuir'">
                         <div *ngIf="project.state=='Por Atribuir'">
                             <p><b>Pré Requisitos:</b></p>
                             <ul>
@@ -145,7 +145,7 @@
                                     {{orientador}}
                                 </li>
                             </ul>
-                        </div>
+                        </div>-->
                     </div>
                     <hr>
                 </div>

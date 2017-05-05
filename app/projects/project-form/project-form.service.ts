@@ -9,6 +9,7 @@ import { ProjectFormComponent } from "./project-form.component";
 import { IProject } from "./form";
 import { ISchool } from "./schools";
 import { ILogin } from "../../menu/login/login";
+import { API } from "../../main";
 
 
 @Injectable()
@@ -17,6 +18,7 @@ export class ProjectFormService {
     constructor(private _http: Http) {
 
     }
+    apiURL = API.url;
 
     getSchool(): Observable<ISchool[]> {
         return this._http.get('app/projects/project-form/form.json')
@@ -27,9 +29,9 @@ export class ProjectFormService {
         console.log(data);
         let user_data = <ILogin> JSON.parse(localStorage.getItem('currentUser'));
         var headers = new Headers();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded');
+        headers.append('Content-Type', 'application/json');
         headers.append("Authorization", "Basic " + btoa(user_data.username + ":" + user_data.password));
-        return this._http.post('http://192.168.1.191:8080/project', JSON.stringify(data), { headers: headers })
+        return this._http.post(this.apiURL+'/project', JSON.stringify(data), { headers: headers })
             .map(res => res.json());
     }
 

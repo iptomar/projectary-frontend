@@ -1,28 +1,35 @@
+// Imports
+import { Injectable } from '@angular/core';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
 
-import { Injectable } from "@angular/core";
-import {Http, Response} from "@angular/http";
-import {Observable} from "rxjs/Observable";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/do";
 import "rxjs/add/operator/catch";
 
+
 import { IProject } from "./project";
+import { ILogin } from "../menu/login/login";
+import { API } from '../main';
 
 @Injectable()
 export class ProjectService {
-    private _productUrl ="http://192.168.1.191:8080/project";
 
     constructor(private _http: Http){}
+    apiURL = API.url;
 
-    getProducts(): Observable<IProject[]>{
-        return this._http.get(this._productUrl).map(
-            (response: Response) => <IProject[]> response.json())
-        // .do(data => console.log("All: " + JSON.stringify(data)))
-        // .catch(this.handleError);
+    getProjects(): Observable<IProject[]>{
+        let user_data = <ILogin> JSON.parse(localStorage.getItem('currentUser'));
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded');
+        headers.append("Authorization", "Basic " + btoa(user_data.username + ":" + user_data.password)); 
+        
+        return this._http.get(this.apiURL+'/project', {headers: headers})
+            .map((response: Response) => <IProject[]> response.json().data)
+            .catch(this.handleError);
     }
 
     private handleError(error: Response){
-        console.error(error);
         return Observable.throw(error.json().error || "Server error");
     }
 

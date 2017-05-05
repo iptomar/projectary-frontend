@@ -4,5 +4,5 @@ import {Component} from "@angular/core"
 })
 export class HomeComponent{
     title = 'Projectary';
-    saudacao = 'Bem vindo à Base de Dados de Projectos Finais'
+    saudacao = 'Bem vindo à Base de Dados de Projetos Finais'
 }
