@@ -27,6 +27,7 @@ import { GroupService } from "./groups/group.service";
 import { ProjectFilterPipe } from "./projects/project-filter.pipe";
 import { StudentFilterPipe } from "./profiles/student-filter.pipe";
 import { AuthGuard } from "./auth.guard";
+import { LoginService } from "./menu/login/login.service";
 
 @NgModule({
   imports: [ 
@@ -75,7 +76,8 @@ import { AuthGuard } from "./auth.guard";
 		ProjectService,
 		StudentService,
       	ProjectFormService,
-		GroupService
+		GroupService,
+		LoginService
   ],
   bootstrap: [ AppComponent ]
 })

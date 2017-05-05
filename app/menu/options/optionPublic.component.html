@@ -1,12 +1,11 @@
 <ul class="nav navbar-nav">
     <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
     <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Projetos Públicos
+        <a (click)="load()" class="dropdown-toggle" data-toggle="dropdown" href="#">Projetos Públicos
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
             <li><a routerLink="/projects" routerLinkActive="active">Lista de Projetos</a></li>
-            
-            <li *ngIf="role != null|| role=='teacher'"><a routerLink="/projectform" routerLinkActive="active">Submeter Projeto</a></li>
+            <li *ngIf="role=='teacher' && role != null"><a routerLink="/projectform" routerLinkActive="active">Submeter Projeto</a></li>
         </ul>
       </li>
     <li><a routerLink="/students" routerLinkActive="active">Perfis Públicos</a></li>
