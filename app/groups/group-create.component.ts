@@ -3,22 +3,22 @@ import { GroupService } from "./group.service";
 
 
 @Component({
-    templateUrl: "app/groups/group-join.component.html",
+    templateUrl: "app/groups/group-create.component.html",
     providers: [GroupService]
 })
 
-export class GroupJoinComponent{
+export class GroupCreateComponent{
 
     // Attributes that will be used on views
     private name: string;
     private password: string;
-    title = 'Juntar a Grupo';
+    title = 'Criar Grupo';
 
-    constructor(private _service: GroupService) { }
+    constructor( private _service: GroupService ) { }
 
-    join(){
+    create(){
         this._service
             .postGroup(this.name, this.password)
-            .subscribe( error =>  console.log("Impossível juntar ao grupo") );
+            .subscribe( error =>  console.log("Impossível criar grupo") );
     }
 }

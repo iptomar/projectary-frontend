@@ -10,33 +10,28 @@ import 'rxjs/add/operator/switchMap';
 
 @Component({
     selector: "student-profile",
-    templateUrl: "app/profiles/student-profile.component.html",
+    templateUrl: "app/users/student-profile.component.html",
     providers: [StudentService]
 })
 
 export class StudentProfileComponent implements OnInit {
 
-    // 
+    // Attributes that will be used on views
     title = 'Perfil de um utilizador';
-    // Structure that will be used on views
     student: IStudent;
 
     constructor(
         private _service: StudentService,   //
-        private _route: ActivatedRoute,
-        private _location: Location
+        private _route: ActivatedRoute
     ) { }
 
     // Method that is called on initialization of the page
     ngOnInit(): void {
         this._route.params
             .switchMap((params: Params) => this._service.getStudent(+params['id']))
-            .subscribe(student => this.student = student);
-    }
-
-    // Method that navigates backward one step in the browser's history
-    // ?? Not in use yet
-    goBack(): void {
-        this._location.back();
+            .subscribe(
+                student => this.student = student,
+                error =>  console.log("Impossível carregar perfil do estudante")
+            );
     }
 }
