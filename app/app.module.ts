@@ -12,22 +12,24 @@ import { NotFoundComponent } from "./notFound/nfound.component";
 import { LoginComponent } from "./menu/login/login.component";
 import { OptionPublicComponent } from "./menu/options/optionPublic.component";
 import { ProjectFormComponent} from "./projects/project-form/project-form.component";
-import { StudentProfileComponent } from "./profiles/student-profile.component";
-import { StudentListComponent } from "./profiles/student-list.component";
+import { StudentProfileComponent } from "./users/student-profile.component";
+import { StudentListComponent } from "./users/student-list.component";
 import { SignInStudentComponent } from "./signIn/signIn-student.component";
 import { SignInTeacherComponent } from "./signIn/signIn-teacher.component";
 import { GroupJoinComponent } from "./groups/group-join.component";
-import { GroupCreationComponent } from "./groups/group-creation.component";
+import { GroupCreateComponent } from "./groups/group-create.component";
+import { GroupListComponent } from "./groups/group-list.component";
+import { GroupProfileComponent } from "./groups/group-profile.component";
 import { ProjectApplicationComponent } from "./projects/project-application/project-application.component";
 //Service
-import { StudentService } from "./profiles/users.service";
+import { StudentService } from "./users/users.service";
 import { ProjectFormService } from "./projects/project-form/project-form.service";
 import { ProjectService } from "./projects/project.service";
 import { GroupService } from "./groups/group.service";
 import { ProjectApplicationService } from "./projects/project-application/project-application.service";
 //Pipes
 import { ProjectFilterPipe } from "./projects/project-filter.pipe";
-import { StudentFilterPipe } from "./profiles/student-filter.pipe";
+import { StudentFilterPipe } from "./users/student-filter.pipe";
 import { AuthGuard } from "./auth.guard";
 import { LoginService } from "./menu/login/login.service";
 
@@ -47,8 +49,10 @@ import { LoginService } from "./menu/login/login.service";
 		{path: 'students', component: StudentListComponent, canActivate: [AuthGuard], data: { roles: ['teacher'] }},
 		{path: 'signinstudent', component: SignInStudentComponent},
 		{path: 'signinteacher', component: SignInTeacherComponent},
-		{path: 'group/creation', component: GroupCreationComponent},
-		{path: 'group/join', component: GroupJoinComponent},
+		{path: 'group/create', component: GroupCreateComponent, canActivate: [AuthGuard], data: { roles: ['student']}},
+		{path: 'group/join', component: GroupJoinComponent, canActivate: [AuthGuard], data: { roles: ['student']}},
+		{path: 'group/list', component: GroupListComponent, canActivate: [AuthGuard], data: { roles: ['admin']}},
+		{path: 'group/profile/:id', component: GroupProfileComponent, canActivate: [AuthGuard], data: { roles: ['admin']}},
 		{path: '**' ,component: NotFoundComponent},
     ])
   ], 
@@ -68,8 +72,10 @@ import { LoginService } from "./menu/login/login.service";
 		StudentListComponent,
 		SignInStudentComponent,
 		SignInTeacherComponent,
-		GroupCreationComponent,
+		GroupCreateComponent,
 		GroupJoinComponent,
+		GroupListComponent,
+		GroupProfileComponent,
       	//Pipe
 		ProjectFilterPipe,
 		StudentFilterPipe
