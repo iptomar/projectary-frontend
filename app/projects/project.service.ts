@@ -27,7 +27,7 @@ export class ProjectService {
             .map((response: Response) => <IProject[]> response.json().data)
             .catch(this.handleError);
     }
-
+    
     private handleError(error: Response){
         return Observable.throw(error.json().error || "Server error");
     }

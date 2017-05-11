@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { ProjectFormService } from "./project-form.service";
 import { IProject } from "./form";
-import { ISchool } from "./schools";
+import { ISchool, ICourse } from "../../schools/schools";
 //import {} from "form.json";
 
 @Component({
@@ -13,6 +13,7 @@ import { ISchool } from "./schools";
 export class ProjectFormComponent implements OnInit{
     title = 'Projetos';
     getSchools: ISchool[];
+    getCourses: ICourse[];
     postData: string;
     project: IProject;
 
@@ -20,7 +21,8 @@ export class ProjectFormComponent implements OnInit{
         //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
         //Add 'implements OnInit' to the class.
         this.project = new IProject();
-        this.onTestGet();
+        this.onSchoolGet();
+        this.onCourseGet();
     }
 
     /*pushMe() {
@@ -37,10 +39,18 @@ export class ProjectFormComponent implements OnInit{
     constructor(private _projectFormService: ProjectFormService) { }
 
     //teste de get a um JSON do site referido no service respetivo
-    onTestGet() {
+    onSchoolGet() {
         this._projectFormService.getSchool()
             .subscribe(
             data => this.getSchools = data,
+            error => alert(error),
+            () => console.log("Finished")
+            );
+    }
+    onCourseGet() {
+       this._projectFormService.getCourse()
+            .subscribe(
+            data => this.getCourses = data,
             error => alert(error),
             () => console.log("Finished")
             );

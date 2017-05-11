@@ -27,6 +27,7 @@ import { ProjectFormService } from "./projects/project-form/project-form.service
 import { ProjectService } from "./projects/project.service";
 import { GroupService } from "./groups/group.service";
 import { ProjectApplicationService } from "./projects/project-application/project-application.service";
+import { SignInStudentService } from "./signIn/signIn-student.service";
 //Pipes
 import { ProjectFilterPipe } from "./projects/project-filter.pipe";
 import { StudentFilterPipe } from "./users/student-filter.pipe";
@@ -76,6 +77,7 @@ import { LoginService } from "./menu/login/login.service";
 		GroupJoinComponent,
 		GroupListComponent,
 		GroupProfileComponent,
+		
       	//Pipe
 		ProjectFilterPipe,
 		StudentFilterPipe
@@ -88,7 +90,8 @@ import { LoginService } from "./menu/login/login.service";
       	ProjectFormService,
 		ProjectApplicationService,
 		GroupService,
-		LoginService
+		LoginService,
+		SignInStudentService
   ],
   bootstrap: [ AppComponent ]
 })
