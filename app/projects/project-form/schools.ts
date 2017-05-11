@@ -1,4 +1,4 @@
 export interface ISchool {
-    name: string;
-    curso: string[];
+    id:number;
+    desc: string;
 }

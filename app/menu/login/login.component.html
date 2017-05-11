@@ -1,64 +1,75 @@
 <ul class="nav navbar-nav navbar-right">
-	<!-- por fazer - *ngIf="error; then thenBlock else elseBlock"
-	<ng-template #thenBlock>
-		<!-- logout
-	</ng-template>
-	<ng-template #elseBlock>
-		<!-- login
-		-->
-		<li class="dropdown" *ngIf="!autenticated">
-			<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Login <span class="caret"></span></a>
-			<ul id="login-dp" class="dropdown-menu">
-				<li>
-					<div class="row">
-						<div class="col-md-12">
-							<p style="color:#000000">Autenticação</p>
-							<form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-								<div class="form-group input-group">
-									<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-									<input type="text" class="form-control" id="exampleInputEmail2" placeholder="Username" [(ngModel)]="username" name="username"
-									 required>
-								</div>
-								<div class="form-group input-group">
-									<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-									<input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" [(ngModel)]="password" name="password"
-									 required>
-								</div>
-								<div class="help-block text-right"><a href="">Esqueceu-se da Password?</a></div>
+	<li id="nauth" class="dropdown" *ngIf="!autenticated">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Login <span class="caret"></span></a>
+		<ul id="dpnauth" class="dropdown-menu login-dp">
+			<li>
+				<div class="row">
+					<div class="col-md-12">
+						<p style="color:#000000">Autenticação</p>
+						<form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+							<div class="form-group input-group">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+								<input type="text" class="form-control" id="logUser" placeholder="Username" [(ngModel)]="username" name="username"
+								 required>
+							</div>
+							<div class="form-group input-group">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+								<input type="password" class="form-control" id="logPass" placeholder="Password" [(ngModel)]="password" name="password"
+								 required>
+							</div>
+							<div class="help-block text-right"><a href="">Esqueceu-se da Password?</a></div>
 
-								<div *ngIf="error==true" class="alert alert-danger">
-									<p>Dados incorrectos</p>
+							<div *ngIf="error==true" class="alert alert-danger">
+								<p>Dados incorrectos</p>
+							</div>
+
+							<div class="form-group">
+								<button (click)="login()" id="butLogIn" [disabled]="loading" class="btn btn-primary btn-block">Entrar</button>
+								<div *ngIf="loading">
+									<img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+									/>
 								</div>
 
-								<div class="form-group">
-									<button (click)="login()" [disabled]="loading" class="btn btn-primary btn-block">Entrar</button>
-									<div *ngIf="loading">
-										<img  src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />       
-									</div>
-									
-								</div>
-								<div class="checkbox">
-									<!--<label>
+							</div>
+							<div class="checkbox">
+								<!--<label>
 									<input type="checkbox" name="lembra_me"> 
 								</label>-->
-								</div>
-							</form>
-						</div>
-						<div class="bottom text-center">
-							<a routerLink="/signinstudent" routerLinkActive="active"><b>Registar Aluno</b></a>
-						</div>
-						<div class="bottom text-center">
-							<a routerLink="/signinteacher" routerLinkActive="active"><b>Registar Professor</b></a>
+							</div>
+						</form>
+					</div>
+					<div class="bottom text-center">
+						<a routerLink="/signinstudent" routerLinkActive="active"><b>Registar Aluno</b></a>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</li>
+	<li id="auth" class="dropdown" *ngIf="autenticated">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Bem vindo {{username}}<span class="caret"></span></a>
+		<ul id="dpauth" class="dropdown-menu login-dp">
+			<li>
+				<div class="row">
+					<div id="optionsAuth" class="col-md-12">
+						<div class="row">
+							<div class="col-md-12">	
+								<a class="">Alterar Perfil</a>
+							</div>
+							<br>
+							<div class="col-md-12">	
+								<a id="rlgroupcreate" routerLink="/group/create" routerLinkActive="active">Criar Grupo</a>
+							</div>
+							<br>
+							<div class="col-md-12">	
+								<a id="rlgroupjoin" routerLink="/group/join" routerLinkActive="active">Juntar ao Grupo</a>
+							</div>
 						</div>
 					</div>
-				</li>
-			</ul>
-		</li>
-		<li *ngIf="autenticated">
-			<a>Bem vindo {{username}}</a>
-		</li>
-		<li *ngIf="autenticated">
-			<a (click)="logout()"><span class="glyphicon glyphicon-log-out"></span> Logout </a>
-		</li>
-	<!-- </ng-template> -->
+					<div class="bottom text-center">
+						<a id="butLogout" (click)="logout()"><span class="glyphicon glyphicon-user"></span> Logout </a>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</li>
 </ul>
