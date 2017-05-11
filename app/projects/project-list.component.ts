@@ -13,9 +13,7 @@ export class ProjectListComponent implements OnInit{
     errorMessage: string;
     searchFilter: string;
     title = 'Projetos Públicos';
-
     constructor(private _projectService : ProjectService){}
-
     ngOnInit(): void {
         this._projectService.getProjects()
             .subscribe(projects => this.projects = projects,

@@ -6,9 +6,9 @@ import { ILogin } from "./login";
 @Component({
   selector: "login",
   templateUrl: "app/menu/login/login.component.html",
+  styleUrls: ["app/menu/login/login.component.css"],
   providers: [LoginService]
 })
-
 
 export class LoginComponent implements OnInit {
 
@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     // reset login status
+    
     this._httpService.logout();
     this.autenticated = false;
   }

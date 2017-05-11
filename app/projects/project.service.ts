@@ -7,7 +7,6 @@ import "rxjs/add/operator/map";
 import "rxjs/add/operator/do";
 import "rxjs/add/operator/catch";
 
-
 import { IProject } from "./project";
 import { ILogin } from "../menu/login/login";
 import { API } from '../main';
