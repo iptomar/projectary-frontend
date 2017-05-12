@@ -9,8 +9,8 @@
     <div class="row">
       <div class="col-md-6 form-group">
         <label for="sel1">Escola:</label>
-        <select class="form-control" id="sel1">
-          <option attr.id="{{school.id}}" *ngFor="let school of getSchools">{{school.desc}}</option>  
+        <select class="form-control" id="sel1" [ngModel]="selectedDevice" (ngModelChange)="onChange($event)">
+          <option [value]="school.id" *ngFor="let school of getSchools" >{{school.desc}}</option>  
         </select>
       </div>
       <div class="col-md-6 form-group">

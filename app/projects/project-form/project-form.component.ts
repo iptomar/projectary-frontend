@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from "@angular/core";
 import { ProjectFormService } from "./project-form.service";
 import { IProject } from "./form";
 import { ISchool, ICourse } from "../../schools/schools";
-//import {} from "form.json";
 
 @Component({
     templateUrl: "app/projects/project-form/project-form.component.html",
@@ -22,7 +21,9 @@ export class ProjectFormComponent implements OnInit{
         //Add 'implements OnInit' to the class.
         this.project = new IProject();
         this.onSchoolGet();
-        this.onCourseGet();
+    }
+    onChange(selectedDevice:string) {
+      this.onCourseGet(selectedDevice);
     }
 
     /*pushMe() {
@@ -38,6 +39,7 @@ export class ProjectFormComponent implements OnInit{
 
     constructor(private _projectFormService: ProjectFormService) { }
 
+    
     //teste de get a um JSON do site referido no service respetivo
     onSchoolGet() {
         this._projectFormService.getSchool()
@@ -47,8 +49,8 @@ export class ProjectFormComponent implements OnInit{
             () => console.log("Finished")
             );
     }
-    onCourseGet() {
-       this._projectFormService.getCourse()
+    onCourseGet(idS:string) {
+      this._projectFormService.getCourse(idS)
             .subscribe(
             data => this.getCourses = data,
             error => alert(error),

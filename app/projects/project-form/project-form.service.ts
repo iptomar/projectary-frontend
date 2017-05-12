@@ -14,29 +14,19 @@ import { API } from '../../main';
 
 @Injectable()
 export class ProjectFormService {
-
+    
     constructor(private _http: Http) {
 
     }
     apiURL = API.url;
-
+    
    getSchool(): Observable<ISchool[]>{
-        let user_data = <ILogin> JSON.parse(localStorage.getItem('currentUser'));
-        var headers = new Headers();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded');
-        headers.append("Authorization", "Basic " + btoa(user_data.username + ":" + user_data.password)); 
-        
-        return this._http.get(this.apiURL+'/school', {headers: headers})
+        return this._http.get(this.apiURL+'/school')
             .map((response: Response) => <ISchool[]> response.json().data)
             .catch(this.handleError);
     }
-    getCourse(): Observable<ICourse[]>{
-        let user_data = <ILogin> JSON.parse(localStorage.getItem('currentUser'));
-        var headers = new Headers();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded');
-        headers.append("Authorization", "Basic " + btoa(user_data.username + ":" + user_data.password)); 
-        
-        return this._http.get(this.apiURL+'/course/1', {headers: headers})
+    getCourse(id:string): Observable<ICourse[]>{
+        return this._http.get(this.apiURL+'/course/'+id)
             .map((response: Response) => <ICourse[]> response.json().data)
             .catch(this.handleError);
     }
