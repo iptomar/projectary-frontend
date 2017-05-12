@@ -10,7 +10,7 @@
                 <div class="col-md-9">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter your Name" />
+                        <input type="text" class="form-control" [(ngModel)]=name name="name" id="name" placeholder="Enter your Name" />
                     </div>
                 </div>
             </div>
@@ -19,7 +19,7 @@
                 <div class="col-md-9">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-education" aria-hidden="true"></i></span>
-                        <input type="text" class="form-control" name="numAluno" id="numAluno" placeholder="Número de Aluno" />
+                        <input type="text" class="form-control" [(ngModel)]=external name="numAluno" id="numAluno" placeholder="Número de Aluno" />
                     </div>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                 <div class="col-md-9">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
-                        <input type="text" class="form-control" name="username" id="username" placeholder="Enter your Username" />
+                        <input type="text" class="form-control" [(ngModel)]=email name="username" id="username" placeholder="Enter your Username" />
                     </div>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                 <div class="col-md-9">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i></span>
-                        <input type="password" class="form-control" name="confirm" id="confirm" placeholder="Confirm your Password" />
+                        <input type="password" class="form-control" [(ngModel)]=password name="confirm" id="confirm" placeholder="Confirm your Password" />
                     </div>
                 </div>
             </div>
@@ -69,10 +69,8 @@
                 <div class="col-md-9">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-education" aria-hidden="true"></i></span>
-                        <select class="form-control" name="school">
-                            <option value="ESTT">Escola Superior de Tecnologia de Tomar</option>
-                            <option value="ESGT">Escola Superior de Gestão de Tomar</option>
-                            <option value="ESTA">Escola Superior de Tecnologia de Abrantes</option>
+                        <select class="form-control" id="selSch" name="school"  [ngModel]="selectedDevice" (ngModelChange)="onChange($event)" >
+                            <option [value]="school.id" *ngFor="let school of getSchools">{{school.desc}}</option> 
                         </select>
                     </div>
                 </div>
@@ -83,10 +81,7 @@
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-education" aria-hidden="true"></i></span>
                         <select class="form-control" name="course">
-                            <option value="LEI">Licenciatura de Engenharia Informática</option>
-                            <option value="DTAG">Design e Tecnologia de Artes Graficas</option>
-                            <option value="LEC">Licenciatura de Engenharia Civil</option>
-                            <option value="LEQB">Licenciatura de Engenharia Quimica e Bioquimica</option>
+                            <option attr.id="{{course.id}}" *ngFor="let course of getCourses">{{course.name}}</option>
                         </select>
                     </div>
                 </div>
@@ -96,7 +91,7 @@
                 <div class="col-md-9">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-phone" aria-hidden="true"></i></span>
-                        <input type="text" class="form-control" name="phone" id="phone" placeholder="Insira o seu número de telemóvel" />
+                        <input type="text" class="form-control" [(ngModel)]=phone name="phone" id="phone" placeholder="Insira o seu número de telemóvel" />
                     </div>
                 </div>
             </div>
@@ -135,7 +130,7 @@
                 <div class="row">
                     <div class="col-md-10"></div>
                     <div class="col-md-2">
-                        <button type="button" class="btn btn-primary col-md-12">Registar</button>
+                        <button type="button" class="btn btn-primary col-md-12" (click)="onSignInStPost()" >Registar</button>
                     </div>
                 </div>
             </div>
