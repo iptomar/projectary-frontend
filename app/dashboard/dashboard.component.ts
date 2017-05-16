@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { DashboardListUserComponent} from "./dashUser/dashboard_user_list.component";
 
 @Component({
 	templateUrl: "app/dashboard/dashboard.component.html",
