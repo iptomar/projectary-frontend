@@ -18,7 +18,7 @@ export class GroupJoinComponent{
 
     join(){
         this._service
-            .postGroup(this.name, this.password)
+            .joinGroup(this.name, this.password)
             .subscribe( error =>  console.log("Impossível juntar ao grupo") );
     }
 }

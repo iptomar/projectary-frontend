@@ -1,6 +1,7 @@
 import { Component, Pipe, PipeTransform, OnInit } from "@angular/core";
 import { LoginService } from "./login.service";
 import { ILogin } from "./login";
+import { Router } from "@angular/router";
 
 
 @Component({
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
   private loading = false;
   private error = false;
   private autenticated = false;
-  constructor(private _httpService: LoginService) { }
+  constructor(private _httpService: LoginService, private router: Router) { }
 
   ngOnInit() {
     // reset login status
@@ -46,6 +47,7 @@ export class LoginComponent implements OnInit {
     this._httpService.logout();
     this.autenticated = false;
     this.loading = false;
+    this.router.navigate(['home']);
   }
 
 }
