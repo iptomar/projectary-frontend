@@ -21,7 +21,6 @@ import { GroupCreateComponent } from "./groups/group-create.component";
 import { GroupListComponent } from "./groups/group-list.component";
 import { GroupProfileComponent } from "./groups/group-profile.component";
 import { ProjectApplicationComponent } from "./projects/project-application/project-application.component";
-import { DashboardComponent } from "./dashboard/dashboard.component";
 import { DashboardListUserComponent  } from "./dashboard/dashUser/dashboard_user_list.component";
 //Service
 import { StudentService } from "./users/users.service";
@@ -46,8 +45,7 @@ import { LoginService } from "./menu/login/login.service";
 		{path: '',component: HomeComponent},
 		{path: 'home',component: HomeComponent},
 		{path: 'project/:id',component: ProjectComponent},
-		{path: 'dashboard',component: DashboardComponent},
-		{path: 'dashboardListUser',component: DashboardListUserComponent },
+		{path: 'dashboard',component: DashboardListUserComponent },
 		{path: 'projects',component: ProjectListComponent, canActivate: [AuthGuard], data: { roles: ['student','teacher'] } },
 		{path: 'projectform', component: ProjectFormComponent, canActivate: [AuthGuard], data: { roles: ['teacher'] } },
 		{path: 'projectapplication', component: ProjectApplicationComponent/*, canActivate: [AuthGuard], data: { roles: ['student'] }*/ },
@@ -82,7 +80,6 @@ import { LoginService } from "./menu/login/login.service";
 		GroupJoinComponent,
 		GroupListComponent,
 		GroupProfileComponent,
-		DashboardComponent,
 		DashboardListUserComponent,
       	//Pipe
 		ProjectFilterPipe,
