@@ -6,7 +6,6 @@ import { IStudent } from './users';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
-    selector: "dashboard",
     templateUrl: "app/users/student-list.component.html",
     providers: [StudentService]
 })
