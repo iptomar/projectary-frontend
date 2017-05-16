@@ -21,6 +21,7 @@ import { GroupCreateComponent } from "./groups/group-create.component";
 import { GroupListComponent } from "./groups/group-list.component";
 import { GroupProfileComponent } from "./groups/group-profile.component";
 import { ProjectApplicationComponent } from "./projects/project-application/project-application.component";
+import { DashboardComponent } from "./dashboard/dashboard.component";
 //Service
 import { StudentService } from "./users/users.service";
 import { ProjectFormService } from "./projects/project-form/project-form.service";
@@ -28,6 +29,7 @@ import { ProjectService } from "./projects/project.service";
 import { GroupService } from "./groups/group.service";
 import { ProjectApplicationService } from "./projects/project-application/project-application.service";
 import { SignInStudentService } from "./signIn/signIn-student.service";
+import { DashboardService } from "./dashboard/dashboard.service";
 //Pipes
 import { ProjectFilterPipe } from "./projects/project-filter.pipe";
 import { StudentFilterPipe } from "./users/student-filter.pipe";
@@ -43,6 +45,7 @@ import { LoginService } from "./menu/login/login.service";
 		{path: '',component: HomeComponent},
 		{path: 'home',component: HomeComponent},
 		{path: 'project/:id',component: ProjectComponent},
+		{path: 'dashboard',component: DashboardComponent},
 		{path: 'projects',component: ProjectListComponent, canActivate: [AuthGuard], data: { roles: ['student','teacher'] } },
 		{path: 'projectform', component: ProjectFormComponent, canActivate: [AuthGuard], data: { roles: ['teacher'] } },
 		{path: 'projectapplication', component: ProjectApplicationComponent/*, canActivate: [AuthGuard], data: { roles: ['student'] }*/ },
@@ -77,7 +80,7 @@ import { LoginService } from "./menu/login/login.service";
 		GroupJoinComponent,
 		GroupListComponent,
 		GroupProfileComponent,
-		
+		DashboardComponent,
       	//Pipe
 		ProjectFilterPipe,
 		StudentFilterPipe
@@ -91,7 +94,8 @@ import { LoginService } from "./menu/login/login.service";
 		ProjectApplicationService,
 		GroupService,
 		LoginService,
-		SignInStudentService
+		SignInStudentService,
+		DashboardService
   ],
   bootstrap: [ AppComponent ]
 })
