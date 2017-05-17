@@ -15,7 +15,7 @@ export class AuthGuard implements CanActivate {
             return (roles == null || roles.indexOf(user_data.role) != -1);
         }
         // not logged in so redirect to login page
-        this.router.navigate(['']);
+        this.router.navigate(['home']);
         return false;
     }
 }

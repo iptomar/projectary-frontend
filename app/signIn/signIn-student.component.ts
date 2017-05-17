@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { SignInStudentService } from "./signIn-student.service";
 import { ISchool, ICourse } from "../schools/schools";
-import { ISignInStudent } from "./signIn";
+import { Register } from "./register";
 
 
 @Component({
@@ -14,20 +14,22 @@ export class SignInStudentComponent implements OnInit {
   getSchools: ISchool[];
   getCourses: ICourse[];
   postData: string;
-  signIn: ISignInStudent;
+  register: Register;
   
+    constructor(private _signInService: SignInStudentService) {
+
+    }
+
   ngOnInit() {
-        //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-        //Add 'implements OnInit' to the class.
-        //this.signIn = new ISignInStudent();
+        this.register = new Register();
         this.onSchoolGet();
     }
+
     onChange(selectedDevice:string) {
       this.onCourseGet(selectedDevice);
     }
-    constructor(private _signInService: SignInStudentService) {
-      
-     }
+
+
     
     //teste de get a um JSON do site referido no service respetivo
     onSchoolGet() {
@@ -48,7 +50,7 @@ export class SignInStudentComponent implements OnInit {
     }
     //teste de post a um JSON com os valores referidos no service respetivo
     onSignInStPost() {
-        this._signInService.postJSON(this.signIn)
+        this._signInService.postJSON(this.register)
             .subscribe(
                 data => this.postData = data,
                 error => alert(error),

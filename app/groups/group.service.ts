@@ -14,27 +14,42 @@ export class GroupService {
 
     headers: Headers;
     options: RequestOptions;
+    apiURL = API.url;
 
     constructor(private _http: Http) { 
         let user_data = <ILogin> JSON.parse(localStorage.getItem('currentUser'));
         this.headers = new Headers();
-        this.headers.append('Content-Type', 'application/x-www-form-urlencoded');
+        this.headers.append('Content-Type', 'application/json');
         this.headers.append("Authorization", "Basic " + btoa(user_data.username + ":" + user_data.password));
         this.options = new RequestOptions({ headers: this.headers });
     }
-    apiURL = API.url;
+
 
     postGroup(name: string, pass: string): Observable<any>{
         // create the json to post
         var json = JSON.stringify({
-            desc: name,
-            password: pass
+            "desc": name,
+            "password": pass
         });
-        console.log(json);
 
         // return the post 
         return this._http
-            .post(this.apiURL+'/group/', json, this.options)
+            .post(this.apiURL+'/group/create', json, this.options)
+            .map(res => res.json())
+            .catch(this.handleError);
+    }
+
+
+    joinGroup(name: string, pass: string): Observable<any>{
+        // create the json to post
+        var json = JSON.stringify({
+            "desc": name,
+            "password": pass
+        });
+
+        // return the post 
+        return this._http
+            .post(this.apiURL+'/group/join', json, this.options)
             .map(res => res.json())
             .catch(this.handleError);
     }

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Rx';
 import "rxjs/add/operator/do";
 import "rxjs/add/operator/catch";
 
-import { ISignInStudent} from "./signIn";
+import { Register} from "./register";
 import { ISchool, ICourse } from "../schools/schools";
 import { ILogin } from "../menu/login/login";
 import { API } from '../main';
@@ -33,9 +33,11 @@ export class SignInStudentService {
     private handleError(error: Response){
         return Observable.throw(error.json().error || "Server error");
     }
-    postJSON(data: ISignInStudent) {
+    postJSON(data: Register) {
         console.log(data);
-        return this._http.post(this.apiURL+'/user', JSON.stringify(data))
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        return this._http.post(this.apiURL+'/user', JSON.stringify(data), { headers: headers })
             .map(res => res.json());
     }
 }
