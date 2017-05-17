@@ -1,8 +1,9 @@
 export interface IStudent {
     name: string;
-    external:string;
+    external_id:string;
     email:string;
     phonenumber:string;
+    locked:number;
     active:number;
 }
 

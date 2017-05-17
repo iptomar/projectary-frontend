@@ -1,0 +1,33 @@
+<h1>{{title}}</h1>
+<hr>
+<div class="row">
+    <div class="col-md-12">
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary" routerLink="/dashboard" routerLinkActive="dashboard">Ativar Utilizadores</button>
+            <button type="button" class="btn btn-primary" routerLink="/dashboardusrblklist" routerLinkActive="dashboard">Bloquear Utilizadores</button>
+            <button type="button" class="btn btn-primary">Lista de Projetos</button>
+        </div>
+        <hr>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <!-- Exemple of a student -->
+        <div *ngFor="let student of students | studentFilter:searchFilter" class="row">
+            <div class="col-md-4">
+                <img class="img-rounded" src="https://placehold.it/150x150?text=Diogo Mendes" style="width:100%; max-width: 150px; min-width: 70px; padding-bottom: 10px"
+                    alt="Image">
+            </div>
+            <div class="col-md-8">
+                <h4><small>{{student.phonenumber}}</small></h4>
+                <h4>{{student.name}}</h4>
+                <h5>{{student.email}}</h5>
+                <h5>{{student.external_id}}</h5>
+                <button id='btAtv{{student.id}}' class="btn btn-success" (click)="onClick(student.id)">Ativar Utilizador</button>
+            </div>
+            <hr>
+        </div>
+        <br>
+        <!-- end exemple -->
+    </div>
+</div>

@@ -16,6 +16,7 @@ export class LoginService {
 
     private readonly apiURL:string;
     public role: string;
+    public isadmin: number;
     public roleChange = new ReplaySubject<any>(1);
     
     constructor(private _http: Http){
@@ -39,9 +40,12 @@ export class LoginService {
                     "password":password,
                     "user_id":data.data.user_id,
                     "role":data.data.role,
-                    "name":data.data.name
+                    "name":data.data.name,
+                    "isadmin":data.data.isadmin
                 }));
                 this.role = data.data.role;
+                this.isadmin = data.data.isadmin;
+
                 // return true to indicate successful login
                 return true;
             } else {
@@ -50,7 +54,7 @@ export class LoginService {
             }
         }).catch(this.handleError);
     }
-
+  
     public getRole(){
         this.roleChange.next(this.role);
     }

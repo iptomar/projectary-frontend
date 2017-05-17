@@ -14,14 +14,17 @@ export class LoginComponent implements OnInit {
 
   private username: string;
   private password: string;
+  private name: string;
+  private isadmin: number;
   private loading = false;
   private error = false;
   private autenticated = false;
-  constructor(private _httpService: LoginService) { }
-
+  constructor(private _httpService: LoginService) { 
+    
+  }
+  
   ngOnInit() {
     // reset login status
-    
     this._httpService.logout();
     this.autenticated = false;
   }
@@ -32,7 +35,8 @@ export class LoginComponent implements OnInit {
       result => {
         this.error = false;
         this.autenticated = true;
-        console.log(localStorage.getItem('currentUser'));
+        this.name =JSON.parse(localStorage.getItem('currentUser')).name;
+        this.isadmin =JSON.parse(localStorage.getItem('currentUser')).isadmin;
       },
       error => {
         this.error = true;

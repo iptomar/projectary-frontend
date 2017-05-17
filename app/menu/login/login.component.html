@@ -39,14 +39,14 @@
 						</form>
 					</div>
 					<div class="bottom text-center">
-						<a routerLink="/signinstudent" routerLinkActive="active"><b>Registar Aluno</b></a>
+						<a routerLink="/signinstudent" routerLinkActive="active"><b>Registar</b></a>
 					</div>
 				</div>
 			</li>
 		</ul>
 	</li>
 	<li id="auth" class="dropdown" *ngIf="autenticated">
-		<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Bem vindo {{username}}<span class="caret"></span></a>
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Bem vindo {{name}}<span class="caret"></span></a>
 		<ul id="dpauth" class="dropdown-menu login-dp">
 			<li>
 				<div class="row">
@@ -64,6 +64,9 @@
 								<a id="rlgroupjoin" routerLink="/group/join" routerLinkActive="active">Juntar ao Grupo</a>
 							</div>
 							<div class="col-md-12">	
+								<a id="rlgroupjoin" routerLink="/chpass" routerLinkActive="active">Alterar Password</a>
+							</div>
+							<div class="col-md-12" *ngIf="isadmin == 1">	
 								<a id="acdsh" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
 							</div>
 						</div>

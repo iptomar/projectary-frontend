@@ -14,6 +14,7 @@ import { OptionPublicComponent } from "./menu/options/optionPublic.component";
 import { ProjectFormComponent} from "./projects/project-form/project-form.component";
 import { StudentProfileComponent } from "./users/student-profile.component";
 import { StudentListComponent } from "./users/student-list.component";
+import { ChangePasswordComponent } from "./users/chpass.component";
 import { SignInStudentComponent } from "./signIn/signIn-student.component";
 import { SignInTeacherComponent } from "./signIn/signIn-teacher.component";
 import { GroupJoinComponent } from "./groups/group-join.component";
@@ -21,7 +22,8 @@ import { GroupCreateComponent } from "./groups/group-create.component";
 import { GroupListComponent } from "./groups/group-list.component";
 import { GroupProfileComponent } from "./groups/group-profile.component";
 import { ProjectApplicationComponent } from "./projects/project-application/project-application.component";
-import { DashboardListUserComponent  } from "./dashboard/dashUser/dashboard_user_list.component";
+import { DashboardListUserActiveComponent  } from "./dashboard/dashActUser/dashboard_user_active_list.component";
+import { DashboardListUserBlockComponent } from "./dashboard/dashBlckUser/dashboard_user_block_list.component";
 //Service
 import { StudentService } from "./users/users.service";
 import { ProjectFormService } from "./projects/project-form/project-form.service";
@@ -35,22 +37,26 @@ import { ProjectFilterPipe } from "./projects/project-filter.pipe";
 import { StudentFilterPipe } from "./users/student-filter.pipe";
 import { AuthGuard } from "./auth.guard";
 import { LoginService } from "./menu/login/login.service";
+import { CommonModule } from "@angular/common";
 
 @NgModule({
   imports: [ 
     BrowserModule,
     FormsModule,
     HttpModule,
+	CommonModule,  
 	RouterModule.forRoot([
 		{path: '',component: HomeComponent},
 		{path: 'home',component: HomeComponent},
 		{path: 'project/:id',component: ProjectComponent},
-		{path: 'dashboard',component: DashboardListUserComponent },
+		{path: 'dashboard',component: DashboardListUserActiveComponent,canActivate: [AuthGuard], data: { roles: ['teacher'],isadmin:[1] } },
+		{path: 'dashboardusrblklist',component: DashboardListUserBlockComponent,canActivate: [AuthGuard], data: { roles: ['teacher'],isadmin:[1] } },
 		{path: 'projects',component: ProjectListComponent, canActivate: [AuthGuard], data: { roles: ['student','teacher'] } },
 		{path: 'projectform', component: ProjectFormComponent, canActivate: [AuthGuard], data: { roles: ['teacher'] } },
 		{path: 'projectapplication', component: ProjectApplicationComponent/*, canActivate: [AuthGuard], data: { roles: ['student'] }*/ },
 		{path: 'student/:id', component: StudentProfileComponent, canActivate: [AuthGuard], data: { roles: ['teacher'] }},
 		{path: 'students', component: StudentListComponent, canActivate: [AuthGuard], data: { roles: ['teacher'] }},
+		{path: 'chpass', component: ChangePasswordComponent, canActivate: [AuthGuard], data: { roles: ['student','teacher'] }},
 		{path: 'signinstudent', component: SignInStudentComponent},
 		{path: 'signinteacher', component: SignInTeacherComponent},
 		{path: 'group/create', component: GroupCreateComponent, canActivate: [AuthGuard], data: { roles: ['student']}},
@@ -60,7 +66,9 @@ import { LoginService } from "./menu/login/login.service";
 		{path: '**' ,component: NotFoundComponent},
     ])
   ], 
-  exports: [ RouterModule ],
+  exports: [ 
+	  RouterModule,
+	  ],
   declarations: [ 
 	    //Component
     	AppComponent,
@@ -80,7 +88,9 @@ import { LoginService } from "./menu/login/login.service";
 		GroupJoinComponent,
 		GroupListComponent,
 		GroupProfileComponent,
-		DashboardListUserComponent,
+		DashboardListUserActiveComponent,
+		DashboardListUserBlockComponent,
+		ChangePasswordComponent,
       	//Pipe
 		ProjectFilterPipe,
 		StudentFilterPipe
