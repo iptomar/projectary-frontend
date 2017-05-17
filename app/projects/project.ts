@@ -8,3 +8,8 @@ export interface IProject{
     userid: string,
     created: string;
 }
+
+export interface IApplication{
+    groupid: number;
+    projectid: number;
+}

@@ -4,34 +4,38 @@ import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/do";
 import "rxjs/add/operator/catch";
-import { Headers } from "@angular/http";
+import { Headers, RequestOptions } from "@angular/http";
 import { ProjectApplicationComponent } from "./project-application.component";
-import { IProject } from "./form";
-import { ISchool } from "./schools";
 import { ILogin } from "../../menu/login/login";
 import { API } from "../../main";
+import { IGroup } from "../../groups/group";
+import { IApplication } from "../project";
 
 
 @Injectable()
 export class ProjectApplicationService {
+    
+    headers: Headers;
+    options: RequestOptions;
+    apiURL = API.url;
+    userID: number;
 
     constructor(private _http: Http) {
-
-    }
-    apiURL = API.url;
-
-    getSchool(): Observable<ISchool[]> {
-        return this._http.get('app/projects/project-form/form.json')
-            .map((res: Response) => <ISchool[]> res.json());
-    }
-
-    postJSON(data: IProject) {
-        console.log(data);
         let user_data = <ILogin> JSON.parse(localStorage.getItem('currentUser'));
-        var headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-        headers.append("Authorization", "Basic " + btoa(user_data.username + ":" + user_data.password));
-        return this._http.post(this.apiURL+'/project', JSON.stringify(data), { headers: headers })
+        this.userID = parseInt(user_data.user_id);
+        this.headers = new Headers();
+        this.headers.append('Content-Type', 'application/json');
+        this.headers.append("Authorization", "Basic " + btoa(user_data.username + ":" + user_data.password));
+        this.options = new RequestOptions({ headers: this.headers });
+    }
+
+    getGroups(): Observable<IGroup> {
+        return this._http.get(this.apiURL+`/group/${this.userID}`)
+            .map((res: Response) => <IGroup> res.json());
+    }
+
+    postApplication(data: IApplication) {
+        return this._http.post(this.apiURL+'/application', JSON.stringify(data), this.options)
             .map(res => res.json());
     }
 
