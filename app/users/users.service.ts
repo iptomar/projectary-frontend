@@ -38,7 +38,14 @@ export class StudentService {
             .map((response: Response) =><IStudent[]> response.json().data )
             .catch(this.handleError);
     }
-    
+    putChPassJSON(data: IStudent) {
+        let user_data = <ILogin> JSON.parse(localStorage.getItem('currentUser'));
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append("Authorization", "Basic " + btoa(user_data.username + ":" + user_data.password));
+        return this._http.put(this.apiURL+'/chpassword', JSON.stringify(data), { headers: headers })
+            .map(res => res.json());
+    }
     private handleError(error: Response){
         console.error(error);
         return Observable.throw(error.json().error || "Server error");

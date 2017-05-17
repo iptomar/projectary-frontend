@@ -7,4 +7,5 @@ export interface ILogin {
     role: string;
     user_id: string;
     name: string;
+    isadmin:number;
 }
