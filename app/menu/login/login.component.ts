@@ -20,15 +20,9 @@ export class LoginComponent implements OnInit {
   private loading = false;
   private error = false;
   private autenticated = false;
-<<<<<<< HEAD
-  constructor(private _httpService: LoginService) { 
-    
-  }
-  
-=======
+
   constructor(private _httpService: LoginService, private router: Router) { }
 
->>>>>>> refs/remotes/origin/master
   ngOnInit() {
     // reset login status
     this._httpService.logout();
