@@ -1,7 +1,9 @@
 export interface IStudent {
     name: string;
+    external:string;
     email:string;
     phonenumber:string;
+    active:number;
 }
 
 export interface Teacher {
