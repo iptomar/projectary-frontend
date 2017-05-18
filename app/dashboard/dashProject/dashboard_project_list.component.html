@@ -1,0 +1,27 @@
+<h1>{{title}}</h1>
+<hr>
+<div class="row">
+    <div class="col-md-12">
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary" routerLink="/dashboard" routerLinkActive="active">Ativar Utilizadores</button>
+            <button type="button" class="btn btn-primary" routerLink="/dashboardusrblklist" routerLinkActive="active">Bloquear Utilizadores</button>
+            <button type="button" class="btn btn-primary" routerLink="/dashboard/projects">Lista de Projetos</button>
+        </div>
+        <hr>
+    </div>
+</div>
+<div class="row">
+     <input class="form-control" type="text" placeholder="Enter a project name..." [(ngModel)]="searchFilter" name="searchFilter">
+
+    <!-- Exemple of a project -->
+    <div *ngFor="let project of projects | projectFilter:searchFilter" class="row">
+        <div>
+            <h4>{{project.name}}</h4>
+            <h5>{{project.description}}</h5>
+            <button class="btn btn-primary" [routerLink]="['/dashboard/project/', project.id]">Ver mais</button>
+        </div>
+        <hr>
+    </div>
+    <br>
+    <!-- end exemple -->
+</div>
