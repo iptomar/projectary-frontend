@@ -71,10 +71,13 @@
             <div class="col-md-9">
                 <div class="row" *ngFor="let project of projects | projectFilter:searchFilter">
                     <div class="row">
-                        <div class="col-md-12">
-                            <h2>{{project.name}}</h2>
+                        <div class="col-md-9">
+                            <h2>{{project.name}}</h2>  
                         </div>
-                    </div>
+                        <div class="col-md-3">
+                            <button class="btn candidatura" type="button" (click)="OpenModal(project.id)">Fazer Candidatura</button>
+                        </div>
+                    </div>  
                     <div class="row">
                         <div class="col-md-9">
                             <p><b>{{project.courseid}}</b></p>
@@ -154,3 +157,24 @@
         </div>
     </div>
 </div>
+
+<app-modal #modal>
+    <div class="app-modal-header">
+        Candidatura a um projeto
+    </div>
+    <div class="app-modal-body">
+        <div *ngIf="hasGroup==false">
+            <p>Para enviar uma candidatura tens de ser membro de um grupo.</p> 
+            <a></a>
+        </div>
+        <div *ngIf="hasGroup==true">
+            <p>Tens a certeza que queres candidatar-te com o grupo {{group.name}}?</p>
+        </div>
+    </div>
+    <div class="app-modal-footer">
+        <button type="button" class="btn btn-danger" (click)="modal.hide()">Cancelar</button>
+        <div *ngIf="hasGroup==true">
+            <button type="button" class="btn btn-success" (click)="ApplicationSubmit()">Submeter</button>
+        </div>       
+    </div>
+</app-modal>

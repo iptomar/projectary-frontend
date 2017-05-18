@@ -1,6 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input, ElementRef, ViewChild, Renderer } from "@angular/core";
 import { IProject } from "./project";
 import { ProjectService } from "./project.service";
+import { ModalComponent } from "../utils/modal.component";
 
 @Component({
     moduleId: module.id,
@@ -9,15 +10,26 @@ import { ProjectService } from "./project.service";
 })
  
 export class ProjectListComponent implements OnInit{
+
+    @ViewChild('modal') modal:ElementRef;
+    
     projects: IProject[];
     errorMessage: string;
     searchFilter: string;
+    hasGroup: boolean = false;
     title = 'Projetos Públicos';
-    constructor(private _projectService : ProjectService){}
+
+    constructor(private _projectService : ProjectService, private renderer:Renderer){}
+
     ngOnInit(): void {
         this._projectService.getProjects()
             .subscribe(projects => this.projects = projects,
                     error => this.errorMessage = <any> error);
     }
+
+    OpenModal(id: string){
+
+    }
+    
 }
  

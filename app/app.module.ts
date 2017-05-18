@@ -24,6 +24,7 @@ import { GroupProfileComponent } from "./groups/group-profile.component";
 import { ProjectApplicationComponent } from "./projects/project-application/project-application.component";
 import { DashboardListUserActiveComponent  } from "./dashboard/dashActUser/dashboard_user_active_list.component";
 import { DashboardListUserBlockComponent } from "./dashboard/dashBlckUser/dashboard_user_block_list.component";
+import { ModalComponent } from "./utils/modal.component";
 //Service
 import { StudentService } from "./users/users.service";
 import { ProjectFormService } from "./projects/project-form/project-form.service";
@@ -38,6 +39,7 @@ import { StudentFilterPipe } from "./users/student-filter.pipe";
 import { AuthGuard } from "./auth.guard";
 import { LoginService } from "./menu/login/login.service";
 import { CommonModule } from "@angular/common";
+
 
 @NgModule({
   imports: [ 
@@ -91,6 +93,7 @@ import { CommonModule } from "@angular/common";
 		DashboardListUserActiveComponent,
 		DashboardListUserBlockComponent,
 		ChangePasswordComponent,
+		ModalComponent,
       	//Pipe
 		ProjectFilterPipe,
 		StudentFilterPipe

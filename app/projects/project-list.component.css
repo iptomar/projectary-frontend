@@ -1,3 +1,16 @@
 div{
     text-align: justify;
 }
+
+
+.candidatura{
+    background-color: #fff;
+    border: 1px solid #11c15d;
+    color:#11c15d;
+}
+
+.candidatura:hover{
+    background-color: #11c15d;
+    color:#fff;
+
+}
