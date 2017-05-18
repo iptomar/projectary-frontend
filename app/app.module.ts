@@ -42,6 +42,7 @@ import { AuthGuard } from "./auth.guard";
 import { ProjectApplicationFilterPipe } from "./dashboard/dashProject/dashboard_project_list.pipe";
 import { GroupFilterPipe } from "./groups/group-filter.pipe"
 import { CommonModule } from "@angular/common";
+import { ModalComponent } from "./utils/modal.component";
 
 
 @NgModule({
