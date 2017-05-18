@@ -4,4 +4,4 @@ import { AppModule } from './app.module';
 
 platformBrowserDynamic().bootstrapModule(AppModule);
 
-export const API= { 'url': 'http://127.0.0.1:8080' };
+export const API= { 'url': 'http://192.168.10.140:8080' };

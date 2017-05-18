@@ -14,8 +14,9 @@ import 'rxjs/add/operator/switchMap';
 export class GroupProfileComponent implements OnInit {
 
     // Attributes that will be used on views
-    title = 'Perfil do Grupo';
+    title = "Perfil do Grupo";
     group: IGroupProfile;
+    newName: String;
 
     constructor(
         private _service: GroupService,
@@ -33,9 +34,11 @@ export class GroupProfileComponent implements OnInit {
     }
 
     edit(): void{
-        this._service
-            .updateGroup(this.group.id, this.group.name)
-            .subscribe( error => console.log("Impossível editar grupo "+this.group.id ));
+        if(this.newName!=null){
+            this._service
+                .updateGroup(this.group.id, this.newName)
+                .subscribe( error => console.log("Impossível editar grupo "+this.group.id ));
+        }
     }
 
     remove(): void{

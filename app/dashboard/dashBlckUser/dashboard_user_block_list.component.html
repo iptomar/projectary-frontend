@@ -5,7 +5,7 @@
         <div class="btn-group">
             <button type="button" class="btn btn-primary" routerLink="/dashboard" routerLinkActive="active">Ativar Utilizadores</button>
             <button type="button" class="btn btn-primary" routerLink="/dashboardusrblklist" routerLinkActive="active">Bloquear Utilizadores</button>
-            <button type="button" class="btn btn-primary">Lista de Projetos</button>
+            <button type="button" class="btn btn-primary" routerLink="/dashboard/projects">Lista de Projetos</button>
         </div>
         <hr>
     </div>
@@ -24,7 +24,6 @@
                 <h4>{{student.name}}</h4>
                 <h5>{{student.email}}</h5>
                 <h5>{{student.external_id}}</h5>
-                <h5>{{student.locked}}</h5>
                 </div>                
                 <div *ngIf="student.locked == 0" >
                     <p class="btn btn-danger" id='btBlk{{student.id}}' (click)="onClick(student.id)" routerLink="/dashboardusrblklist" routerLinkActive="active">Bloquear Utilizador</p>

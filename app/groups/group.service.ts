@@ -69,8 +69,13 @@ export class GroupService {
     }
 
     updateGroup(id: number, name: String){
+         // create the json to put
+         var json = JSON.stringify({
+            "name": name
+        });
+        // return the put 
         return this._http
-            .put(this.apiURL+`/group/${id}`, JSON.stringify(name), this.options)
+            .put(this.apiURL+`/group/${id}`, json, this.options)
             .map((res: Response) => res.json())
             .catch(this.handleError);
     }

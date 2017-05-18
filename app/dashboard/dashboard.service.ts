@@ -9,6 +9,7 @@ import 'rxjs/add/operator/catch';
 
 import { IStudent } from '../users/users';
 import { ILogin } from "../menu/login/login";
+import { IProjectToList, IProjectApplication } from './form';
 import { API } from '../main';
 
 @Injectable()
@@ -59,6 +60,33 @@ export class DashboardService {
         return this._http.put(this.apiURL+'/user/'+id+'/swlock', JSON.stringify(data), { headers: headers })
             .map(res => res.json());
     }
+
+    getProjectList(): Observable<IProjectToList[]> {
+        return this._http
+            .get(this.apiURL + `/application`, this.options)
+            .map((response: Response) => <IProjectToList[]>response.json().data)
+            .catch(this.handleError);
+    }
+
+    getProject(id: number): Observable<IProjectApplication> {
+        return this._http
+            .get(this.apiURL + `/application/${id}`, this.options)
+            .map((res: Response) => <IProjectApplication>res.json())
+            .catch(this.handleError);
+    }
+
+    postAcceptGroup(groupID: number, projectID: number) {
+        var json = JSON.stringify({
+            "groupid": groupID,
+            "projectid": projectID
+        });
+        return this._http
+            .post(this.apiURL + '/application/accept', json, this.options)
+            .map(res => res.json())
+            .catch(this.handleError);
+    }
+
+
     private handleError(error: Response){
         console.error(error);
         return Observable.throw(error.json().error || "Server error");
