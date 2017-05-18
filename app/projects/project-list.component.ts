@@ -2,6 +2,7 @@ import { Component, OnInit, Input, ElementRef, ViewChild, Renderer } from "@angu
 import { IProject } from "./project";
 import { ProjectService } from "./project.service";
 import { ModalComponent } from "../utils/modal.component";
+import { Group } from "../groups/group";
 
 @Component({
     moduleId: module.id,
@@ -16,20 +17,30 @@ export class ProjectListComponent implements OnInit{
     projects: IProject[];
     errorMessage: string;
     searchFilter: string;
-    hasGroup: boolean = false;
+    hasGroup: boolean = true;
+    group: Group;
+    selectedProject: string;
+
     title = 'Projetos Públicos';
 
-    constructor(private _projectService : ProjectService, private renderer:Renderer){}
+    constructor(private _projectService : ProjectService, private renderer:Renderer){
+        this.group = new Group();
+        this.group.id=1;
+        this.group.name="Benfica";
+    }
 
     ngOnInit(): void {
+        
         this._projectService.getProjects()
             .subscribe(projects => this.projects = projects,
                     error => this.errorMessage = <any> error);
     }
 
-    OpenModal(id: string){
-
+    ApplicationSubmit(id: string){
+        console.log(id);
+    
     }
+    
     
 }
  

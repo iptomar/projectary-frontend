@@ -75,7 +75,7 @@
                             <h2>{{project.name}}</h2>  
                         </div>
                         <div class="col-md-3">
-                            <button class="btn candidatura" type="button" (click)="OpenModal(project.id)">Fazer Candidatura</button>
+                            <button class="btn candidatura" type="button" (click)="modal.show(project.id)">Fazer Candidatura</button>
                         </div>
                     </div>  
                     <div class="row">
@@ -174,7 +174,7 @@
     <div class="app-modal-footer">
         <button type="button" class="btn btn-danger" (click)="modal.hide()">Cancelar</button>
         <div *ngIf="hasGroup==true">
-            <button type="button" class="btn btn-success" (click)="ApplicationSubmit()">Submeter</button>
+            <button type="button" class="btn btn-success" (click)="ApplicationSubmit(modal.project_id)">Submeter</button>
         </div>       
     </div>
 </app-modal>

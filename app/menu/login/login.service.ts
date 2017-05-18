@@ -27,8 +27,8 @@ export class LoginService {
 
     login(username: string, password:string): Observable<boolean>{
         var headers = new Headers();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded');
-		    headers.append("Authorization", "Basic " + btoa(username + ":" + password));
+        headers.append('Content-Type', 'application/json');
+        headers.append("Authorization", "Basic " + btoa(username + ":" + password));
         return this._http.post(this.apiURL+'/login',"",{headers:headers})
         .map((res: Response) =>{
             let data =  res.json();

@@ -29,12 +29,14 @@ import { Component, Output } from '@angular/core';
 })
 export class ModalComponent {
 
+  public project_id:string;
   public visible = false;
   private visibleAnimate = false;
 
   constructor(){}
 
-  public show(): void {
+  public show(id: string): void {
+    this.project_id = id;
     this.visible = true;
     setTimeout(() => this.visibleAnimate = true, 100);
   }
