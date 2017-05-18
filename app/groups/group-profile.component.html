@@ -1,2 +1,19 @@
-<h1>{{title}}</h1>
+<h2>{{title}}</h2>
 <hr>
+<div class="row">
+    <h3>{{group.name}}</h3>
+    <p>Project: <button class="btn btn-primary" [routerLink]="['project/', group.project.id]">{{group.project.name}}</button></p>
+    <div *ngFor="let user of group.group">
+        <p>{{user.name}}</p>
+    </div>
+    <form class="form" role="form" action="login" accept-charset="UTF-8" id="login-nav">
+        <div class="form-group input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+            <input type="text" class="form-control" placeholder="Novo nome do grupo" [(ngModel)]="newDesc">
+        </div>
+        <p>
+            <button (click)="edit()" class="btn btn-primary" role="button">Edit</button>
+            <button (click)="remove()" class="btn btn-default" role="button">Remove</button>
+        </p>
+    </form>
+</div>

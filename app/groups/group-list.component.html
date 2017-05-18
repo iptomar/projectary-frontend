@@ -1,2 +1,29 @@
-<h1>{{title}}</h1>
+<h2>{{title}}</h2>
 <hr>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title">Group</h2>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <form>
+                <div class="form-group input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                    <input id="search" class="form-control" type="text" placeholder="Enter a Group name..." [(ngModel)]="searchFilter" name="searchFilter">
+                </div>
+            </form>
+            <div>
+                <!-- Exemple of a student -->
+                <div *ngFor="let group of groups | groupFilter:searchFilter">
+                    <div>
+                        <h4>{{group.name}}</h4>
+                        <button class="btn btn-primary"   routerLink="/group/profile/{{group.id}}" >Ver mais</button>
+                    </div>
+                    <hr>
+                </div>
+                <br>
+                <!-- end exemple -->
+            </div>
+        </div>
+    </div>
+</div>

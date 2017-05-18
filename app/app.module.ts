@@ -24,7 +24,8 @@ import { GroupProfileComponent } from "./groups/group-profile.component";
 import { ProjectApplicationComponent } from "./projects/project-application/project-application.component";
 import { DashboardListUserActiveComponent  } from "./dashboard/dashActUser/dashboard_user_active_list.component";
 import { DashboardListUserBlockComponent } from "./dashboard/dashBlckUser/dashboard_user_block_list.component";
-import { ModalComponent } from "./utils/modal.component";
+import { DashboardProjectListComponent  } from "./dashboard/dashProject/dashboard_project_list.component";
+import { DashboardProjectProfileComponent  } from "./dashboard/dashProject/dashboard_project_profile.component";
 //Service
 import { StudentService } from "./users/users.service";
 import { ProjectFormService } from "./projects/project-form/project-form.service";
@@ -33,11 +34,13 @@ import { GroupService } from "./groups/group.service";
 import { ProjectApplicationService } from "./projects/project-application/project-application.service";
 import { SignInStudentService } from "./signIn/signIn-student.service";
 import { DashboardService } from "./dashboard/dashboard.service";
+import { LoginService } from "./menu/login/login.service";
 //Pipes
 import { ProjectFilterPipe } from "./projects/project-filter.pipe";
 import { StudentFilterPipe } from "./users/student-filter.pipe";
 import { AuthGuard } from "./auth.guard";
-import { LoginService } from "./menu/login/login.service";
+import { ProjectApplicationFilterPipe } from "./dashboard/dashProject/dashboard_project_list.pipe";
+import { GroupFilterPipe } from "./groups/group-filter.pipe"
 import { CommonModule } from "@angular/common";
 
 
@@ -53,6 +56,8 @@ import { CommonModule } from "@angular/common";
 		{path: 'project/:id',component: ProjectComponent},
 		{path: 'dashboard',component: DashboardListUserActiveComponent,canActivate: [AuthGuard], data: { roles: ['teacher'],isadmin:[1] } },
 		{path: 'dashboardusrblklist',component: DashboardListUserBlockComponent,canActivate: [AuthGuard], data: { roles: ['teacher'],isadmin:[1] } },
+		{path: 'dashboard/projects',component: DashboardProjectListComponent, canActivate: [AuthGuard], data: { roles: ['teacher']}},
+		{path: 'dashboard/project/:id',component: DashboardProjectProfileComponent, canActivate: [AuthGuard], data: { roles: ['teacher']}},
 		{path: 'projects',component: ProjectListComponent, canActivate: [AuthGuard], data: { roles: ['student','teacher'] } },
 		{path: 'projectform', component: ProjectFormComponent, canActivate: [AuthGuard], data: { roles: ['teacher'] } },
 		{path: 'projectapplication', component: ProjectApplicationComponent/*, canActivate: [AuthGuard], data: { roles: ['student'] }*/ },
@@ -63,8 +68,8 @@ import { CommonModule } from "@angular/common";
 		{path: 'signinteacher', component: SignInTeacherComponent},
 		{path: 'group/create', component: GroupCreateComponent, canActivate: [AuthGuard], data: { roles: ['student']}},
 		{path: 'group/join', component: GroupJoinComponent, canActivate: [AuthGuard], data: { roles: ['student']}},
-		{path: 'group/list', component: GroupListComponent, canActivate: [AuthGuard], data: { roles: ['admin']}},
-		{path: 'group/profile/:id', component: GroupProfileComponent, canActivate: [AuthGuard], data: { roles: ['admin']}},
+		{path: 'group/list', component: GroupListComponent, canActivate: [AuthGuard], data: { roles: ['teacher']}},
+		{path: 'group/profile/:id', component: GroupProfileComponent, canActivate: [AuthGuard], data: { roles: ['teacher']}},
 		{path: '**' ,component: NotFoundComponent},
     ])
   ], 
@@ -92,11 +97,15 @@ import { CommonModule } from "@angular/common";
 		GroupProfileComponent,
 		DashboardListUserActiveComponent,
 		DashboardListUserBlockComponent,
+		DashboardProjectListComponent,
+		DashboardProjectProfileComponent,
 		ChangePasswordComponent,
 		ModalComponent,
       	//Pipe
 		ProjectFilterPipe,
-		StudentFilterPipe
+		StudentFilterPipe,
+		ProjectApplicationFilterPipe,
+		GroupFilterPipe
   ],
   providers: [
 	  	AuthGuard,
