@@ -33,12 +33,11 @@ export class LoginService {
         .map((res: Response) =>{
             let data =  res.json();
             if (data.result=="ok") {
-
                 // store username and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('currentUser', JSON.stringify({
                     "username":username,
                     "password":password,
-                    "user_id":data.data.user_id,
+                    "user_id":data.data.id,
                     "role":data.data.role,
                     "name":data.data.name,
                     "isadmin":data.data.isadmin

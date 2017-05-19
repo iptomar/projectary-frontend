@@ -9,7 +9,6 @@ import { ProjectApplicationComponent } from "./project-application.component";
 import { ILogin } from "../../menu/login/login";
 import { API } from "../../main";
 import { IGroup } from "../../groups/group";
-import { IApplication } from "../project";
 
 
 @Injectable()
@@ -29,14 +28,6 @@ export class ProjectApplicationService {
         this.options = new RequestOptions({ headers: this.headers });
     }
 
-    getGroups(): Observable<IGroup> {
-        return this._http.get(this.apiURL+`/group/${this.userID}`)
-            .map((res: Response) => <IGroup> res.json());
-    }
 
-    postApplication(data: IApplication) {
-        return this._http.post(this.apiURL+'/application', JSON.stringify(data), this.options)
-            .map(res => res.json());
-    }
 
 }

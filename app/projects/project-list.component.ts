@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, ElementRef, ViewChild, Renderer } from "@angular/core";
-import { IProject } from "./project";
+import { IProject, Application } from "./project";
 import { ProjectService } from "./project.service";
 import { ModalComponent } from "../utils/modal.component";
-import { Group } from "../groups/group";
+import { Group, IGroup } from "../groups/group";
 
 @Component({
     moduleId: module.id,
@@ -15,21 +15,24 @@ export class ProjectListComponent implements OnInit{
     @ViewChild('modal') modal:ElementRef;
     
     projects: IProject[];
+    groups: IGroup[]
     errorMessage: string;
     searchFilter: string;
     hasGroup: boolean = true;
-    group: Group;
+    group_id: number;
     selectedProject: string;
-
+    success: boolean= false;
     title = 'Projetos Públicos';
+    loading = false;
+    error: boolean=false;
 
     constructor(private _projectService : ProjectService, private renderer:Renderer){
-        this.group = new Group();
-        this.group.id=1;
-        this.group.name="Benfica";
     }
 
     ngOnInit(): void {
+        this._projectService.getUserGroups()
+            .subscribe(groups => this.groups = groups,
+                    error => this.errorMessage = <any> error);
         
         this._projectService.getProjects()
             .subscribe(projects => this.projects = projects,
@@ -37,8 +40,12 @@ export class ProjectListComponent implements OnInit{
     }
 
     ApplicationSubmit(id: string){
-        console.log(id);
-    
+        this.success = false;
+        this.error= false;
+        this.loading = true;
+        this._projectService.postApplication(parseInt(id), this.group_id)
+            .subscribe(success => this.success = true, error =>{this.success = false; this.error= true;});
+        this.loading = false;
     }
     
     

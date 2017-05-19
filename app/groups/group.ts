@@ -3,6 +3,11 @@ export class Group{
     name : string;
 }
 
+export interface IGroup{
+    id: number;
+    name : string;
+}
+
 export interface IGroupProfile{
     id: number;
     name : string;

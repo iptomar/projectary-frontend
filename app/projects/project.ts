@@ -9,7 +9,7 @@ export interface IProject{
     created: string;
 }
 
-export interface IApplication{
+export class Application{
     groupid: number;
     projectid: number;
 }
