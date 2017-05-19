@@ -42,6 +42,7 @@ export class LoginService {
                     "name":data.data.name,
                     "isadmin":data.data.isadmin
                 }));
+                console.log(JSON.parse(localStorage.getItem('currentUser')));
                 this.role = data.data.role;
                 this.isadmin = data.data.isadmin;
 

@@ -50,7 +50,8 @@ import { ModalComponent } from "./utils/modal.component";
     BrowserModule,
     FormsModule,
     HttpModule,
-	CommonModule,  
+	CommonModule, 
+	 
 	RouterModule.forRoot([
 		{path: '',component: HomeComponent},
 		{path: 'home',component: HomeComponent},

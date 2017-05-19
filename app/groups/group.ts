@@ -12,7 +12,7 @@ export interface IGroupProfile{
     id: number;
     name : string;
     project: IProject;
-    group: IMember[];
+    team: IMember[];
 }
 
 export interface IMember{

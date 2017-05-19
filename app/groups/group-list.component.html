@@ -18,7 +18,7 @@
                         <!-- Exemple of a group -->
                         <div>
                             <h4>{{group.name}}</h4>
-                            <button class="btn btn-primary" routerLink="/group/profile/{{group.id}}">Ver mais</button>
+                            <button class="btn btn-primary" type="button" [routerLink]="['/group/profile', group.id]">Ver mais</button>
                         </div>
                         <hr>
                         <!-- end exemple -->

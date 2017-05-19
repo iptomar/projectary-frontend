@@ -64,7 +64,7 @@ export class GroupService {
     getGroup(id: number): Observable<IGroupProfile> {
         return this._http
             .get(this.apiURL+`/group/${id}`, this.options)
-            .map((res: Response) => <IGroupProfile> res.json())
+            .map((res: Response) => <IGroupProfile> res.json().data)
             .catch(this.handleError);
     }
 

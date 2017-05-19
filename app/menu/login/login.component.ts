@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.loading = true;
     this._httpService.login(this.username, this.password).subscribe(
-      result => {
+      result => {    
         this.error = false;
         this.autenticated = true;
         this.name =JSON.parse(localStorage.getItem('currentUser')).name;
