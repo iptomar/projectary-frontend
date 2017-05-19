@@ -16,9 +16,7 @@ export class SignInStudentComponent implements OnInit {
   postData: string;
   register: Register;
   
-    constructor(private _signInService: SignInStudentService) {
-
-    }
+    constructor(private _signInService: SignInStudentService) {}
 
   ngOnInit() {
         this.register = new Register();
@@ -28,8 +26,15 @@ export class SignInStudentComponent implements OnInit {
     onChange(selectedDevice:string) {
       this.onCourseGet(selectedDevice);
     }
-
-
+    check(password:string,confirmpassword:string){
+        console.log(password);
+        console.log(confirmpassword);
+        if(password == confirmpassword){
+            this.onSignInStPost();
+        }else{
+            alert("Password Invalid");
+        }
+    }
     
     //teste de get a um JSON do site referido no service respetivo
     onSchoolGet() {
