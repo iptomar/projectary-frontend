@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from "@angular/core";
 import { StudentService } from './users.service';
 import { ISchool, ICourse } from "../schools/schools";
 import { IStudent } from "./users";
+import { Router } from "@angular/router";
 
 @Component({
     template: `
@@ -46,7 +47,7 @@ export class ChangePasswordComponent {
     student: IStudent;
 
 
-    constructor( private _servicePass: StudentService ) { }
+    constructor( private _servicePass: StudentService, private router: Router ) { }
     check(oldpassword:string,newpassword:string,confirmpassword:string){ 
         this.systemPass=(JSON.parse(localStorage.getItem('currentUser')).password);
         if(this.systemPass == oldpassword){
@@ -68,7 +69,7 @@ export class ChangePasswordComponent {
     onChPassPut() {
         this._servicePass.putChPassJSON(this.putNewPass)
             .subscribe(
-                data => console.log("Password mudada com sucesso."),
+                data => {console.log("Password mudada com sucesso."); window.location.reload(); },
                 error => alert(error),
                 () => console.log("Finished")
             );

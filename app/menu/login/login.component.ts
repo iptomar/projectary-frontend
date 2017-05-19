@@ -37,7 +37,6 @@ export class LoginComponent implements OnInit {
         this.autenticated = true;
         this.name =JSON.parse(localStorage.getItem('currentUser')).name;
         this.isadmin =JSON.parse(localStorage.getItem('currentUser')).isadmin;
-        alert("Login Efectuado Com Sucesso");
       },
       error => {
         this.error = true;
@@ -52,7 +51,6 @@ export class LoginComponent implements OnInit {
     this.autenticated = false;
     this.loading = false;
     this.router.navigate(['home']);
-    alert("Logout Efectuado Com Sucesso");
   }
 
 }

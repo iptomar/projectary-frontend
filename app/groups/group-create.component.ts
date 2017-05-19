@@ -19,6 +19,6 @@ export class GroupCreateComponent{
     create(){
         this._service
             .postGroup(this.name, this.password)
-            .subscribe( error =>  console.log("Impossível criar grupo") );
+            .subscribe( success =>  console.log("Grupo criado com sucesso.") );
     }
 }

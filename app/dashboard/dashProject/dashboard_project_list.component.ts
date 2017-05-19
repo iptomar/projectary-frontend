@@ -19,7 +19,7 @@ export class DashboardProjectListComponent implements OnInit{
     ngOnInit(): void {
         this._service.getProjectList()
             .subscribe(
-                projects => this.projects = projects,
+                projects => {this.projects = projects; console.log(projects);},
                 error => this.errorMessage = <any> error
             );
     }
