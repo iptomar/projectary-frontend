@@ -1,9 +1,9 @@
 export interface IProjectToList{
-    id: number;
-    year: string;
-    courseid: number;
-    name: string;
-    created: string;
+    group_id: number;
+    group_name: string;
+    project_id: number;
+    project_name: string;
+    submitedin: string;
 }
 
 export interface IProjectApplication{
