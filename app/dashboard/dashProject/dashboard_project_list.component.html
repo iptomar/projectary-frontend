@@ -5,26 +5,38 @@
         <div class="btn-group">
             <button type="button" class="btn btn-primary" routerLink="/dashboard" routerLinkActive="active">Ativar Utilizadores</button>
             <button type="button" class="btn btn-primary" routerLink="/dashboardusrblklist" routerLinkActive="active">Bloquear Utilizadores</button>
-            <button type="button" class="btn btn-primary" routerLink="/dashboard/projects">Lista de Projetos</button>
+            <button type="button" class="btn btn-primary" routerLink="/dashboard/projects" routerLinkActive="active">Lista de Projetos</button>
         </div>
         <hr>
     </div>
 </div>
 <div class="row">
-    <input class="form-control" style="width:60%" type="text" placeholder="Enter a project name..." [(ngModel)]="searchFilter"
-        name="searchFilter">
-    <div *ngIf="projects?.length > 0">
-        <div *ngFor="let project of projects | projectFilter:searchFilter">
-            <!-- Exemple of a project -->
-            <div>
-                <h4>{{project.name}}</h4>
-                <h5>{{project.description}}</h5>
-                <button class="btn btn-primary" [routerLink]="['/dashboard/project/', project.id]">Ver mais</button>
-            </div>
-            <hr>
-            <!-- end exemple -->
-        </div>
-        <br>
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+        <input class="form-control" type="text"  placeholder="Enter a project name..." [(ngModel)]="searchFilter" name="searchFilter">
     </div>
+    <div class="col-md-6"></div>
+</div>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div *ngIf="projects?.length > 0">
+            <div *ngFor="let project of projects | projectFilter:searchFilter">
+                <!-- Exemple of a project -->
+                <div>
+                    <h3>Grupo:</h3>
+                    <h4>{{project.group_name}}</h4>
+                    <h3>Projecto:</h3>
+                    <h4>{{project.project_name}}</h4>
+                    <button class="btn btn-success">Aprovar Grupo</button>
+                    <!--<button class="btn btn-primary" [routerLink]="['/dashboard/project/', project.id]">Ver mais</button>-->
+                </div>
+                <hr>
+                <!-- end exemple -->
+            </div>
+            <br>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
     <br>
 </div>

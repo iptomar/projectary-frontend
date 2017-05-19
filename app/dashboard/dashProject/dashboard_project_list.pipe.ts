@@ -9,6 +9,6 @@ export class ProjectApplicationFilterPipe implements PipeTransform{
         
         filterBy = filterBy ? filterBy.toLocaleLowerCase() : null;
         return filterBy ? value.filter((project: IProjectToList) => 
-            project.name.toLocaleLowerCase().indexOf(filterBy) !== -1) : value;
+            project.project_name.toLocaleLowerCase().indexOf(filterBy) !== -1) : value;
     }
 }
