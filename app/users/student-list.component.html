@@ -28,9 +28,15 @@
 
                         <div id="Departamento" class="panel-collapse collapse">
                             <ul class="list-group">
-                                <a href="#"><li class="list-group-item">Informática</li></a>
-                                <a href="#"><li class="list-group-item">Eletrotécnica e Computadores</li></a>
-                                <a href="#"><li class="list-group-item">Química e Bioquímica</li></a>
+                                <a href="#">
+                                    <li class="list-group-item">Informática</li>
+                                </a>
+                                <a href="#">
+                                    <li class="list-group-item">Eletrotécnica e Computadores</li>
+                                </a>
+                                <a href="#">
+                                    <li class="list-group-item">Química e Bioquímica</li>
+                                </a>
                             </ul>
                         </div>
                     </div>
@@ -49,31 +55,40 @@
                         </div>
                         <div id="Estudo" class="panel-collapse collapse">
                             <ul class="list-group">
-                                <a href="#"><li class="list-group-item">cTesp</li></a>
-                                <a href="#"><li class="list-group-item">Licenciatura</li></a>
-                                <a href="#"><li class="list-group-item">Mestrado</li></a>
+                                <a href="#">
+                                    <li class="list-group-item">cTesp</li>
+                                </a>
+                                <a href="#">
+                                    <li class="list-group-item">Licenciatura</li>
+                                </a>
+                                <a href="#">
+                                    <li class="list-group-item">Mestrado</li>
+                                </a>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-9">
-                <!-- Exemple of a student -->
-                <div *ngFor="let student of students | studentFilter:searchFilter" class="row">
-                    <div class="col-md-4">
-                        <img class="img-rounded" src="https://placehold.it/150x150?text=Diogo Mendes" style="width:100%; max-width: 150px; min-width: 70px; padding-bottom: 10px"
-                            alt="Image">
-                    </div>
-                    <div class="col-md-8">
-                        <h4><small>{{student.phonenumber}}</small></h4>
-                        <h4>{{student.name}}</h4>
-                        <h5>{{student.email}}</h5>
-                        <h5>{{student.external_id}}</h5>
-                    </div>
-                    <hr>
+                <div *ngIf="students?.length > 0">
+
+                        <div *ngFor="let student of students | studentFilter:searchFilter" class="row">
+                            <!-- Exemple of a student -->
+                            <div class="col-md-4">
+                                <img class="img-rounded" src="https://placehold.it/150x150?text=Diogo Mendes" style="width:100%; max-width: 150px; min-width: 70px; padding-bottom: 10px"
+                                    alt="Image">
+                            </div>
+                            <div class="col-md-8">
+                                <h4><small>{{student.phonenumber}}</small></h4>
+                                <h4>{{student.name}}</h4>
+                                <h5>{{student.email}}</h5>
+                                <h5>{{student.external_id}}</h5>
+                            </div>
+                            <hr>
+                            <!-- end exemple -->
+                        </div>
+                    <br>
                 </div>
-                <br>
-                <!-- end exemple -->
             </div>
         </div>
     </div>
