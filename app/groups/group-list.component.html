@@ -13,16 +13,18 @@
                 </div>
             </form>
             <div>
-                <!-- Exemple of a student -->
-                <div *ngFor="let group of groups | groupFilter:searchFilter">
-                    <div>
-                        <h4>{{group.name}}</h4>
-                        <button class="btn btn-primary"   routerLink="/group/profile/{{group.id}}" >Ver mais</button>
+                <div *ngIf="groups?.length > 0">
+                    <div *ngFor="let group of groups | groupFilter:searchFilter">
+                        <!-- Exemple of a group -->
+                        <div>
+                            <h4>{{group.name}}</h4>
+                            <button class="btn btn-primary" routerLink="/group/profile/{{group.id}}">Ver mais</button>
+                        </div>
+                        <hr>
+                        <!-- end exemple -->
                     </div>
-                    <hr>
                 </div>
                 <br>
-                <!-- end exemple -->
             </div>
         </div>
     </div>
