@@ -3,8 +3,7 @@ import { IProjectToList } from "../form";
 import { DashboardService } from "../dashboard.service";
 
 @Component({
-	templateUrl: "app/dashboard/dashProject/dashboard_project_list.component.html",
-    providers: [DashboardService]
+	templateUrl: "app/dashboard/dashProject/dashboard_project_list.component.html"
 })
 
 export class DashboardProjectListComponent implements OnInit{
@@ -20,7 +19,7 @@ export class DashboardProjectListComponent implements OnInit{
         this._service.getProjectList()
             .subscribe(
                 projects => {this.projects = projects; console.log(projects);},
-                error => this.errorMessage = <any> error
+                error => console.log("Impossível carregar lista de projetos por atribuir")
             );
     }
 }

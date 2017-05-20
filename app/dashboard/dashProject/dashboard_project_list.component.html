@@ -17,26 +17,22 @@
     </div>
     <div class="col-md-6"></div>
 </div>
+<hr>
 <div class="row">
     <div class="col-md-2"></div>
-    <div class="col-md-8">
+    <div class="col-md-10">
         <div *ngIf="projects?.length > 0">
             <div *ngFor="let project of projects | projectFilter:searchFilter">
                 <!-- Exemple of a project -->
-                <div>
-                    <h3>Grupo:</h3>
-                    <h4>{{project.group_name}}</h4>
-                    <h3>Projecto:</h3>
-                    <h4>{{project.project_name}}</h4>
-                    <button class="btn btn-success">Aprovar Grupo</button>
-                    <!--<button class="btn btn-primary" [routerLink]="['/dashboard/project/', project.id]">Ver mais</button>-->
-                </div>
-                <hr>
+                <div class="well well-sm" >
+                        <h4><span class="label label-default">{{project.course}}</span> - {{project.owner}}</h4>
+                        <h3>{{project.name}}</h3>
+                        <p>{{project.description}}</p>
+                        <button class="btn btn-primary" [routerLink]="['/dashboard/project/', project.id]">Ver mais ...</button>
+                    </div>
                 <!-- end exemple -->
             </div>
             <br>
         </div>
-    </div>
-    <div class="col-md-2"></div>
     <br>
 </div>
