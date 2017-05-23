@@ -7,7 +7,7 @@
     <div class="col-md-10">
         <div class="form-group input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input type="text" class="form-control" id="exampleInputEmail2" placeholder="Nome do Grupo" [(ngModel)]="name" name="name"
+            <input id="tfGroupJoName" type="text" class="form-control" placeholder="Nome do Grupo" [(ngModel)]="name" name="name"
                 required>
         </div>
     </div>
@@ -19,7 +19,7 @@
     <div class="col-md-10">
         <div class="form-group input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-            <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" [(ngModel)]="password" name="password"
+            <input id="tfGroupJoPass" type="password" class="form-control" placeholder="Password" [(ngModel)]="password" name="password"
                 required>
         </div>
     </div>
@@ -31,14 +31,14 @@
     <div class="col-md-10">
         <div class="form-group input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-            <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" [(ngModel)]="password" name="password"
+            <input id="tfGroupJoRepPass" type="password" class="form-control" placeholder="Password" [(ngModel)]="password" name="password"
                 required>
         </div>
     </div>
 </div>
 <div class="row">
     <div class="col-md-12">
-        <button class="btn btn-primary" (click)="join()">
+        <button id="btGroupJoin" class="btn btn-primary" (click)="join()">
             Juntar ao Grupo
         </button>
     </div>

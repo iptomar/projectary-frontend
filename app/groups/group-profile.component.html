@@ -3,7 +3,7 @@
 <div class="row">
     <h3>{{group?.name}}</h3>
     <div *ngIf="group?.project">
-        <p>Project: <button class="btn btn-primary" [routerLink]="['project/', group?.project?.id]">{{group?.project?.name}}</button></p> 
+        <p>Project: <button id="btGroupProfProj" class="btn btn-primary" [routerLink]="['project/', group?.project?.id]">{{group?.project?.name}}</button></p> 
     </div>
     <div *ngFor="let user of group?.team">
         <p>{{user?.name}}</p>
@@ -11,11 +11,11 @@
     <form class="form" role="form" action="login" accept-charset="UTF-8" id="login-nav">
         <div class="form-group input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-            <input type="text" class="form-control" placeholder="Novo nome do grupo" name="newName" [(ngModel)]="newName">
+            <input id="tfGroupProfNewName" type="text" class="form-control" placeholder="Novo nome do grupo" name="newName" [(ngModel)]="newName">
         </div>
         <p>
-            <button (click)="edit()" class="btn btn-primary" role="button">Edit</button>
-            <button (click)="remove()" class="btn btn-default" role="button">Remove</button>
+            <button id="btGroupProfEdit" (click)="edit()" class="btn btn-primary" role="button">Edit</button>
+            <button id="btGroupProfDelet" (click)="remove()" class="btn btn-default" role="button">Remove</button>
         </p>
     </form>
 </div>

@@ -9,12 +9,12 @@
 						<form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
 							<div class="form-group input-group">
 								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-								<input type="text" class="form-control" id="logUser" placeholder="Username" [(ngModel)]="username" name="username"
+								<input type="text" class="form-control" id="tfLogUserName" placeholder="Username" [(ngModel)]="username" name="username"
 								 required>
 							</div>
 							<div class="form-group input-group">
 								<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-								<input type="password" class="form-control" id="logPass" placeholder="Password" [(ngModel)]="password" name="password"
+								<input type="password" class="form-control" id="tfLogUserPass" placeholder="Password" [(ngModel)]="password" name="password"
 								 required>
 							</div>
 							<div class="help-block text-right"><a href="">Esqueceu-se da Password?</a></div>
@@ -24,7 +24,7 @@
 							</div>
 
 							<div class="form-group">
-								<button (click)="login()" id="butLogIn" [disabled]="loading" class="btn btn-primary btn-block">Entrar</button>
+								<button (click)="login()" id="btUserLogin" [disabled]="loading" class="btn btn-primary btn-block">Entrar</button>
 								<div *ngIf="loading">
 									<div class="loading" style="width:50px; height:50px; padding-top:30px;">
 										<div class="loading-bar"></div>
@@ -43,7 +43,7 @@
 						</form>
 					</div>
 					<div class="bottom text-center">
-						<a routerLink="/signinstudent" routerLinkActive="active"><b>Registar</b></a>
+						<a id="anUserRegister" routerLink="/signinstudent" routerLinkActive="active"><b>Registar</b></a>
 					</div>
 				</div>
 			</li>
@@ -74,12 +74,12 @@
 								<a id="rlgroupjoin" routerLink="/chpass" routerLinkActive="active">Alterar Password</a>
 							</div>
 							<div class="col-md-12" *ngIf="isadmin == 1">	
-								<a id="acdsh" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+								<a id="anDashAtvUsers" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
 							</div>
 						</div>
 					</div>
 					<div class="bottom text-center">
-						<a id="butLogout" (click)="logout()"><span class="glyphicon glyphicon-user"></span> Logout </a>
+						<a id="btUserLogout" (click)="logout()"><span class="glyphicon glyphicon-user"></span> Logout </a>
 					</div>
 				</div>
 			</li>

@@ -10,7 +10,7 @@
                 <div class="col-md-9">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
-                        <input type="text" class="form-control" [(ngModel)]="register.name" name="name" id="name" placeholder="Enter your Name" required/>
+                        <input type="text" class="form-control" [(ngModel)]="register.name" name="name" id="tfSigninUserName" placeholder="Enter your Name" required/>
                     </div>
                 </div>
             </div>
@@ -19,7 +19,7 @@
                 <div class="col-md-9">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-education" aria-hidden="true"></i></span>
-                        <input type="text" class="form-control" [(ngModel)]="register.external" name="numAluno" id="numAluno" placeholder="Número de Aluno" required/>
+                        <input type="text" class="form-control" [(ngModel)]="register.external" name="numAluno" id="tfSigninUserStudentNr" placeholder="Número de Aluno" required/>
                     </div>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                 <div class="col-md-9">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
-                        <input type="text" class="form-control" [(ngModel)]="register.email" name="username" id="username" placeholder="Enter your Username" required/>
+                        <input type="text" class="form-control" [(ngModel)]="register.email" name="username" id="tfSigninUserUsername" placeholder="Enter your Username" required/>
                     </div>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                 <div class="col-md-9">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i></span>
-                        <input type="password" class="form-control" #password name="password" id="password" placeholder="Enter your Password" required/>
+                        <input type="password" class="form-control" #password name="password" id="tfSigninUserPass" placeholder="Enter your Password" required/>
                     </div>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                 <div class="col-md-9">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i></span>
-                        <input type="password" class="form-control" #confirmpassword [(ngModel)]="register.password" name="confirm" id="confirm" placeholder="Confirm your Password" required/>
+                        <input type="password" class="form-control" #confirmpassword [(ngModel)]="register.password" name="confirm" id="tfSigninUserRepPass" placeholder="Confirm your Password" required/>
                     </div>
                 </div>
             </div>
@@ -69,7 +69,7 @@
                 <div class="col-md-9">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-education" aria-hidden="true"></i></span>
-                        <select class="form-control" id="selSch" name="school"  [ngModel]="selectedDevice" (ngModelChange)="onChange($event)" >
+                        <select class="form-control" id="slSigninUserSchool" name="school"  [ngModel]="selectedDevice" (ngModelChange)="onChange($event)" >
                             <option [value]="school.id" *ngFor="let school of getSchools">{{school.desc}}</option> 
                         </select>
                     </div>
@@ -80,7 +80,7 @@
                 <div class="col-md-9">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-education" aria-hidden="true"></i></span>
-                        <select class="form-control" name="course">
+                        <select class="form-control" id="slSigninUserCourse" name="course">
                             <option [value]="course.id" *ngFor="let course of getCourses">{{course.name}}</option>
                         </select>
                     </div>
@@ -91,7 +91,7 @@
                 <div class="col-md-9">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-phone" aria-hidden="true"></i></span>
-                        <input type="text" class="form-control" [(ngModel)]="register.phone" name="phone" id="phone" placeholder="Insira o seu número de telemóvel" required/>
+                        <input type="text" class="form-control" [(ngModel)]="register.phone" name="phone" id="tfSigninUserPhone" placeholder="Insira o seu número de telemóvel" required/>
                     </div>
                 </div>
             </div>
@@ -130,7 +130,7 @@
                 <div class="row">
                     <div class="col-md-10"></div>
                     <div class="col-md-2">
-                        <button type="button" class="btn btn-primary col-md-12" (click)="check(password.value,confirmpassword.value)" >Registar</button>
+                        <button id="tfSigninUserRegister" type="button" class="btn btn-primary col-md-12" (click)="check(password.value,confirmpassword.value)" >Registar</button>
                     </div>
                 </div>
             </div>

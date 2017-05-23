@@ -9,7 +9,7 @@
             <form>
                 <div class="form-group input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-                    <input id="search" class="form-control" type="text" placeholder="Enter a Group name..." [(ngModel)]="searchFilter" name="searchFilter">
+                    <input id="srchGroupList" class="form-control" type="text" placeholder="Enter a Group name..." [(ngModel)]="searchFilter" name="searchFilter">
                 </div>
             </form>
             <div>
@@ -18,7 +18,7 @@
                         <!-- Exemple of a group -->
                         <div>
                             <h4>{{group.name}}</h4>
-                            <button class="btn btn-primary" type="button" [routerLink]="['/group/profile', group.id]">Ver mais</button>
+                            <button id="btGlGroup{{group.id}}" class="btn btn-primary" type="button" [routerLink]="['/group/profile', group.id]">Ver mais</button>
                         </div>
                         <hr>
                         <!-- end exemple -->
