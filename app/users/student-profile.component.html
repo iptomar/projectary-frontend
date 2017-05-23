@@ -7,7 +7,7 @@
                 My Profile
             </div>
             <div class="col-md-2">
-                <button class="btn btn-default pull-right" type="submit">Edit Profile</button>
+                <button id="btStudentProfEdit" class="btn btn-default pull-right" type="submit">Edit Profile</button>
             </div>
         </div>
     </div>
@@ -20,38 +20,47 @@
             <div class="col-md-9">
                 <div class="row">
                     <!-- NAME -->
-                    <div class="col-md-2">
-                        <h4><small>Name</small></h4>
+                    <div class="col-md-2 col-sm-4 col-xs-12">
+                        <h4><small>Nome</small></h4>
                     </div>
-                    <div class="col-md-10">
-                        <h4>{{name}}</h4>
+                    <div class="col-md-10 col-sm-8 col-xs-12">
+                        <h4>{{student.name}}</h4>
                     </div>
                 </div>
                 <div class="row">
-                    <!-- MAIL -->
+                    <!-- EMAIL -->
                     <div class="col-md-2 col-sm-4 col-xs-12">
-                        <h4><small>Mail</small></h4>
+                        <h4><small>Email</small></h4>
                     </div>
                     <div class="col-md-10 col-sm-8 col-xs-12">
-                        <h4>{{mail}}</h4>
+                        <h4>{{student.email}}</h4>
                     </div>
                 </div>
                 <div class="row">
                     <!-- SCHOOL -->
                     <div class="col-md-2 col-sm-4 col-xs-12">
-                        <h4><small>College</small></h4>
+                        <h4><small>Numero de Estudante</small></h4>
                     </div>
                     <div class="col-md-10 col-sm-8 col-xs-12">
-                        <h4>{{college}}</h4>
+                        <h4>{{student.external_id}}</h4>
                     </div>
                 </div>
                 <div class="row">
                     <!-- COURSE -->
                     <div class="col-md-2 col-sm-4 col-xs-12">
-                        <h4><small>Course</small></h4>
+                        <h4><small>Numero de Telefone</small></h4>
                     </div>
                     <div class="col-md-10 col-sm-8 col-xs-12">
-                        <h4>{{course}}</h4>
+                        <h4>{{student.phonenumber}}</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- COURSE -->
+                    <div class="col-md-2 col-sm-4 col-xs-12">
+                        <h4><small>Group</small></h4>
+                    </div>
+                    <div class="col-md-10 col-sm-8 col-xs-12">
+                        <a id="btStudentProfGroup{{student.groupid}}" [routerLink]="['group/profile/', student.groupid]" ><h4>{{student.groupname}}</h4></a>
                     </div>
                 </div>
             </div>
@@ -59,29 +68,3 @@
     </div>
 </div>
 <!-- End Profile -->
-<!-- Projects -->
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <div class="row">
-            <div class="col-md-10">
-                My Projects
-            </div>
-            <div class="col-md-2">
-                <button class="btn btn-default pull-right" type="submit">Submit Project</button>
-            </div>
-        </div>
-    </div>
-    <!-- Profile -->
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-md-3">
-                <img class="img-rounded" src="https://placehold.it/250x350?text=IMAGE" style="width:100%; max-width: 270px; min-width: 150px;" alt="Image">
-            </div>
-            <div class="col-md-9">
-                <h4>{{project_name}}</h4>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- End Projects -->

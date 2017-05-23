@@ -10,7 +10,7 @@
                 <form>
                     <div class="form-group input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-                        <input id="search" class="form-control" type="text" placeholder="Enter a Student name..." [(ngModel)]="searchFilter" name="searchFilter">
+                        <input id="srchStudent" class="form-control" type="text" placeholder="Enter a Student name..." [(ngModel)]="searchFilter" name="searchFilter">
                     </div>
                 </form>
                 <div class="panel-group">
@@ -83,6 +83,7 @@
                                 <h4>{{student.name}}</h4>
                                 <h5>{{student.email}}</h5>
                                 <h5>{{student.external_id}}</h5>
+                                <button id="btStudentListProf{{student.id}}" class="btn btn-primary" [routerLink]="['student/', student.id]">Ver mais ...</button>
                             </div>
                             <hr>
                             <!-- end exemple -->

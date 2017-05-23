@@ -18,15 +18,15 @@
                     <h3>{{group.name}}</h3>
                 </div>
                 <div class="col-xs-1">
-                    <h3><input type="radio" name="radiogroup" [checked]="idx === 0" [value]="entry.id" (change)="onSelectionChange(entry.id)"></h3>
+                    <h3><input id="rbDashPpProj{{group.id}}" type="radio" name="radiogroup" [checked]="idx === 0" [value]="entry.id" (change)="onSelectionChange(entry.id)"></h3>
                 </div>
             </div>
             <div *ngFor="let user of group?.users">
-                | <a [routerLink]="['student/', user.id]">{{user.name}}</a>
+                | <a id="anDashPpUser{{user.id}}" [routerLink]="['student/', user.id]">{{user.name}}</a>
             </div>
         </div>
     </div>
 </div>
 <br>
-<button (click)="assigns()" class="btn btn-primary" role="button">Atribui Projeto</button>
+<button id="btDashPpProjAss" (click)="assigns()" class="btn btn-primary" role="button">Atribui Projeto</button>
 <br><br>

@@ -3,9 +3,9 @@
 <div class="row">
     <div class="col-md-12">
         <div class="btn-group">
-            <button type="button" class="btn btn-primary" routerLink="/dashboard" routerLinkActive="active">Ativar Utilizadores</button>
-            <button type="button" class="btn btn-primary" routerLink="/dashboardusrblklist" routerLinkActive="active">Bloquear Utilizadores</button>
-            <button type="button" class="btn btn-primary" routerLink="/dashboard/projects" routerLinkActive="active">Lista de Projetos</button>
+            <button id="btDashPlAtvUsers" type="button" class="btn btn-primary" routerLink="/dashboard" routerLinkActive="active">Ativar Utilizadores</button>
+            <button id="btDashPlBlkUsers" type="button" class="btn btn-primary" routerLink="/dashboardusrblklist" routerLinkActive="active">Bloquear Utilizadores</button>
+            <button id="btDashPlListProj" type="button" class="btn btn-primary" routerLink="/dashboard/projects" routerLinkActive="active">Lista de Projetos</button>
         </div>
         <hr>
     </div>
@@ -13,7 +13,7 @@
 <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-4">
-        <input class="form-control" type="text"  placeholder="Enter a project name..." [(ngModel)]="searchFilter" name="searchFilter">
+        <input id="srchDashProj" class="form-control" type="text"  placeholder="Enter a project name..." [(ngModel)]="searchFilter" name="searchFilter">
     </div>
     <div class="col-md-6"></div>
 </div>
@@ -28,7 +28,7 @@
                         <h4><span class="label label-default">{{project.course}}</span> - {{project.owner}}</h4>
                         <h3>{{project.name}}</h3>
                         <p>{{project.description}}</p>
-                        <button class="btn btn-primary" [routerLink]="['/dashboard/project/', project.id]">Ver mais ...</button>
+                        <button id="btPlProj{{project.id}}" class="btn btn-primary" [routerLink]="['/dashboard/project/', project.id]">Ver mais ...</button>
                     </div>
                 <!-- end exemple -->
             </div>

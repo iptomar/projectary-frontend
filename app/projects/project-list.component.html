@@ -10,7 +10,7 @@
             <div class="col-md-3">
                 <div class="form-group input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-                    <input class="form-control" type="text" placeholder="Enter a project name..." [(ngModel)]="searchFilter" name="searchFilter">
+                    <input id="srchProj" class="form-control" type="text" placeholder="Enter a project name..." [(ngModel)]="searchFilter" name="searchFilter">
                 </div>
                 <div class="panel-group">
                     <div class="panel panel-default">
@@ -75,7 +75,7 @@
                             <h2>{{project.name}}</h2>  
                         </div>
                         <div class="col-md-3">
-                            <button class="btn candidatura" type="button" [class.success]="false" (click)="modal.show(project.id)">Fazer Candidatura</button>
+                            <button id="btProjListAppl{{project.id}}" class="btn candidatura" type="button" [class.success]="false" (click)="modal.show(project.id)">Fazer Candidatura</button>
                         </div>
                     </div>  
                     <div class="row">
@@ -112,7 +112,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2">
-                            <button class="btn btn-primary col-md-12" data-toggle="collapse" [attr.data-target]="'#'+ project.id">Ver mais...</button>
+                            <button id="btProjListProf{{project.id}}" class="btn btn-primary col-md-12" data-toggle="collapse" [attr.data-target]="'#'+ project.id">Ver mais...</button>
                         </div>
                         <div class="col-md-7"></div>
                         <!--<div class="col-md-3">
@@ -176,7 +176,7 @@
                 </div>
                 <div *ngIf="groups">
                     <p>Escolhe o grupo para te candidatares:</p>  
-                    <select  class="form-control"  [(ngModel)]="group_id">                     
+                    <select id="slChooseGroup"  class="form-control"  [(ngModel)]="group_id">                     
                         <option *ngFor="let group of groups" value={{group.id}}>{{group.name}} </option>
                     </select>  
                 </div>
@@ -194,13 +194,13 @@
     </div>
     <div class="app-modal-footer">
         <div *ngIf="success==false" style="float:left;">
-            <button type="button" class="btn btn-danger" (click)="modal.hide()">Cancelar</button>
+            <button id="btCancelProjAppl" type="button" class="btn btn-danger" (click)="modal.hide()">Cancelar</button>
             <div *ngIf="groups" style="float:left;">
                 <button type="button" class="btn btn-success" (click)="ApplicationSubmit(modal.project_id)" style="margin-left:10px;">Submeter</button>
             </div>  
         </div> 
         <div *ngIf="success==true">
-            <button type="button" class="btn btn-primary" (click)="modal.hide()">Ok</button>
+            <button id="btProceedProjAppl" type="button" class="btn btn-primary" (click)="modal.hide()">Ok</button>
         </div> 
     </div>
 </app-modal>

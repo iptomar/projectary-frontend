@@ -1,13 +1,18 @@
 export interface IStudent {
-    name: string;
+    id:number;
+    name:string;
     external_id:string;
+    photo:string;
     email:string;
     phonenumber:string;
+    isadmin:string;
     locked:number;
+    groupid:number;
+    groupname:string;
     active:number;
 }
 
-export interface Teacher {
+export interface ITeacher {
   id: string;
   nome: string;
   username: string;

@@ -38,6 +38,7 @@ export class StudentService {
             .map((response: Response) =><IStudent[]> response.json().data )
             .catch(this.handleError);
     }
+    
     putChPassJSON(data: string) {
         let user_data = <ILogin> JSON.parse(localStorage.getItem('currentUser'));
         var headers = new Headers();
