@@ -2,94 +2,57 @@
 <hr>
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h2 class="panel-title">Student</h2>
+        <div class="row">
+            <div class="col-md-11">
+                <h4>Perfis</h4>
+            </div>
+            <div class="col-md-1">
+                <button type="button" class="btn btn-lg" data-toggle="modal" data-target="#searchFilterStudent" data-backdrop="false"><span class="glyphicon glyphicon-search"></span></button>
+            </div>
+        </div>
     </div>
     <div class="panel-body">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-12">
+                <div *ngIf="students?.length > 0">
+
+                    <div *ngFor="let student of students | studentFilter:searchFilter" class="row">
+                        <!-- Exemple of a student -->
+                        <div class="col-md-4">
+                            <img class="img-rounded" src="https://placehold.it/150x150?text=Diogo Mendes" style="width:100%; max-width: 150px; min-width: 70px; padding-bottom: 10px"
+                                alt="Image">
+                        </div>
+                        <div class="col-md-8">
+                            <h4><small>{{student.phonenumber}}</small></h4>
+                            <h4>{{student.name}}</h4>
+                            <h5>{{student.email}}</h5>
+                            <h5>{{student.external_id}}</h5>
+                            <button id="btStudentListProf{{student.id}}" class="btn btn-primary" [routerLink]="['student/', student.id]">Ver mais ...</button>
+                        </div>
+                        <hr>
+                        <!-- end exemple -->
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div id="searchFilterStudent" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body">
                 <form>
                     <div class="form-group input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-                        <input id="srchStudent" class="form-control" type="text" placeholder="Enter a Student name..." [(ngModel)]="searchFilter" name="searchFilter">
+                        <input id="search" class="form-control" type="text" placeholder="Enter a Student name..." [(ngModel)]="searchFilter" name="searchFilter">
                     </div>
                 </form>
-                <div class="panel-group">
-                    <div class="panel panel-default">
-                        <div class="panel-heading" data-toggle="collapse" href="#Departamento">
-                            <div class="row">
-                                <div class="col-md-10">
-                                    <h4 class="panel-title">Departamento</h4>
-                                </div>
-                                <div class="col-md-2">
-                                    <span class="caret"></span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="Departamento" class="panel-collapse collapse">
-                            <ul class="list-group">
-                                <a href="#">
-                                    <li class="list-group-item">Informática</li>
-                                </a>
-                                <a href="#">
-                                    <li class="list-group-item">Eletrotécnica e Computadores</li>
-                                </a>
-                                <a href="#">
-                                    <li class="list-group-item">Química e Bioquímica</li>
-                                </a>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel-group">
-                    <div class="panel panel-default">
-                        <div class="panel-heading" data-toggle="collapse" href="#Estudo">
-                            <div class="row">
-                                <div class="col-md-10">
-                                    <h4 class="panel-title">Ciclo de Estudo</h4>
-                                </div>
-                                <div class="col-md-2">
-                                    <span class="caret"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="Estudo" class="panel-collapse collapse">
-                            <ul class="list-group">
-                                <a href="#">
-                                    <li class="list-group-item">cTesp</li>
-                                </a>
-                                <a href="#">
-                                    <li class="list-group-item">Licenciatura</li>
-                                </a>
-                                <a href="#">
-                                    <li class="list-group-item">Mestrado</li>
-                                </a>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
             </div>
-            <div class="col-md-9">
-                <div *ngIf="students?.length > 0">
-
-                        <div *ngFor="let student of students | studentFilter:searchFilter" class="row">
-                            <!-- Exemple of a student -->
-                            <div class="col-md-4">
-                                <img class="img-rounded" src="https://placehold.it/150x150?text=Diogo Mendes" style="width:100%; max-width: 150px; min-width: 70px; padding-bottom: 10px"
-                                    alt="Image">
-                            </div>
-                            <div class="col-md-8">
-                                <h4><small>{{student.phonenumber}}</small></h4>
-                                <h4>{{student.name}}</h4>
-                                <h5>{{student.email}}</h5>
-                                <h5>{{student.external_id}}</h5>
-                                <button id="btStudentListProf{{student.id}}" class="btn btn-primary" [routerLink]="['student/', student.id]">Ver mais ...</button>
-                            </div>
-                            <hr>
-                            <!-- end exemple -->
-                        </div>
-                    <br>
-                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
