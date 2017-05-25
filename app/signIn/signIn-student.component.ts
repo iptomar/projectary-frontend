@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from "@angular/core";
 import { SignInStudentService } from "./signIn-student.service";
 import { ISchool, ICourse } from "../schools/schools";
 import { Register } from "./register";
+import { Router } from "@angular/router";
 
 
 @Component({
@@ -16,7 +17,7 @@ export class SignInStudentComponent implements OnInit {
   postData: string;
   register: Register;
   
-    constructor(private _signInService: SignInStudentService) {}
+    constructor(private _signInService: SignInStudentService, private router: Router) {}
 
   ngOnInit() {
         this.register = new Register();
@@ -61,5 +62,9 @@ export class SignInStudentComponent implements OnInit {
                 error => alert(error),
                 () => console.log("Finished")
             );
+            let myContainer = <HTMLElement> document.querySelector("#notif");
+            myContainer.innerHTML = '<div class="alert alert-success"><strong>Registo</strong> Efectuado com Sucesso</div>';
+            setTimeout(() => { myContainer.innerHTML = ''}, 3000)
+            this.router.navigate(['home']);
     }
 }

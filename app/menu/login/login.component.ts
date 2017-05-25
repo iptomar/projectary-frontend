@@ -37,6 +37,9 @@ export class LoginComponent implements OnInit {
         this.autenticated = true;
         this.name =JSON.parse(localStorage.getItem('currentUser')).name;
         this.isadmin =JSON.parse(localStorage.getItem('currentUser')).isadmin;
+        let myContainer = <HTMLElement> document.querySelector("#notif");
+        myContainer.innerHTML = '<div class="alert alert-success"><strong>Login</strong> Efectuado com Sucesso</div>';
+        setTimeout(() => { myContainer.innerHTML = ''}, 3000)
       },
       error => {
         this.error = true;
@@ -50,6 +53,9 @@ export class LoginComponent implements OnInit {
     this._httpService.logout();
     this.autenticated = false;
     this.loading = false;
+    let myContainer = <HTMLElement> document.querySelector("#notif");
+    myContainer.innerHTML = '<div class="alert alert-warning"><strong>Logout</strong> Efectuado com Sucesso</div>';
+    setTimeout(() => { myContainer.innerHTML = ''}, 3000)
     this.router.navigate(['home']);
   }
 
