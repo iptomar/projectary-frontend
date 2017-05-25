@@ -5,7 +5,8 @@
         <div class="btn-group">
             <button id="btDashUbAtvUsers" type="button" class="btn btn-primary" routerLink="/dashboard" routerLinkActive="active">Ativar Utilizadores</button>
             <button id="btDashUbBlkUsers" type="button" class="btn btn-primary" routerLink="/dashboardusrblklist" routerLinkActive="active">Bloquear Utilizadores</button>
-            <button id="btDashUbListProj" type="button" class="btn btn-primary" routerLink="/dashboard/projects">Lista de Projetos</button>
+            <button id="btDashUbListProj" type="button" class="btn btn-primary" routerLink="/dashboard/projects" routerLinkActive="active">Lista de Projetos</button>
+            <button id="rlgroupcreate" type="button" class="btn btn-primary" routerLink="/group/list" routerLinkActive="active" >Lista de Grupos</button>
         </div>
         <hr>
     </div>
@@ -20,10 +21,10 @@
             </div>
             <div class="col-md-8">
                 <div>
-                <h4><small>{{student.phonenumber}}</small></h4>
-                <h4>{{student.name}}</h4>
-                <h5>{{student.email}}</h5>
-                <h5>{{student.external_id}}</h5>
+                    <h4><small>{{student.phonenumber}}</small></h4>
+                    <h4>{{student.name}}</h4>
+                    <h5>{{student.email}}</h5>
+                    <h5>{{student.external_id}}</h5>
                 </div>                
                 <div *ngIf="student.locked == 0" >
                     <p class="btn btn-danger" id='btBlk{{student.id}}' (click)="onClick(student.id)" routerLink="/dashboardusrblklist" routerLinkActive="active">Bloquear Utilizador</p>
