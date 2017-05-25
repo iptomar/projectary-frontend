@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from "@angular/core";
 import { ProjectFormService } from "./project-form.service";
 import { IProject } from "./form";
 import { ISchool, ICourse } from "../../schools/schools";
+import { Router } from "@angular/router";
 
 @Component({
     templateUrl: "app/projects/project-form/project-form.component.html",
@@ -37,7 +38,7 @@ export class ProjectFormComponent implements OnInit{
         console.log("Requesitos::str: " + this.project.requesitos);
     }*/
 
-    constructor(private _projectFormService: ProjectFormService) { }
+    constructor(private _projectFormService: ProjectFormService, private router: Router) { }
 
     
     //teste de get a um JSON do site referido no service respetivo
@@ -66,5 +67,9 @@ export class ProjectFormComponent implements OnInit{
                 error => alert(error),
                 () => console.log("Finished")
             );
+            let myContainer = <HTMLElement> document.querySelector("#notif");
+            myContainer.innerHTML = '<div class="alert alert-success"><strong>Submissão</strong> Efectuado com Sucesso</div>';
+            setTimeout(() => { myContainer.innerHTML = ''}, 3000)
+            this.router.navigate(['home']);
     }
 }
