@@ -6,37 +6,137 @@
             <button id="btDashUbAtvUsers" type="button" class="btn btn-primary" routerLink="/dashboard" routerLinkActive="active">Ativar Utilizadores</button>
             <button id="btDashUbBlkUsers" type="button" class="btn btn-primary" routerLink="/dashboardusrblklist" routerLinkActive="active">Bloquear Utilizadores</button>
             <button id="btDashUbListProj" type="button" class="btn btn-primary" routerLink="/dashboard/projects" routerLinkActive="active">Lista de Projetos</button>
-            <button id="rlgroupcreate" type="button" class="btn btn-primary" routerLink="/group/list" routerLinkActive="active" >Lista de Grupos</button>
+            <button id="rlgroupcreate" type="button" class="btn btn-primary" routerLink="/group/list" routerLinkActive="active">Lista de Grupos</button>
         </div>
         <hr>
     </div>
 </div>
 <div class="row">
     <div class="col-md-12">
-        <!-- Exemple of a student -->
-        <div *ngFor="let student of students | studentFilter:searchFilter" class="row">
-            <div class="col-md-4">
-                <img class="img-rounded" src="https://placehold.it/150x150?text=Diogo Mendes" style="width:100%; max-width: 150px; min-width: 70px; padding-bottom: 10px"
-                    alt="Image">
-            </div>
-            <div class="col-md-8">
-                <div>
-                    <h4><small>{{student.phonenumber}}</small></h4>
-                    <h4>{{student.name}}</h4>
-                    <h5>{{student.email}}</h5>
-                    <h5>{{student.external_id}}</h5>
-                </div>                
-                <div *ngIf="student.locked == 0" >
-                    <p class="btn btn-danger" id='btBlk{{student.id}}' (click)="onClick(student.id)" routerLink="/dashboardusrblklist" routerLinkActive="active">Bloquear Utilizador</p>
-                </div>
-                <div *ngIf="student.locked == 1" >
-                    <p class="btn btn-warning" id='btBlk{{student.id}}' (click)="onClick(student.id)" routerLink="/dashboardusrblklist" routerLinkActive="active">Desbloquear Utilizador</p>
-                </div>
-            </div>
-            
-            <hr>
+        <table *ngIf="students?.length > 0" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Nome
+                    </th>
+                    <th>
+                        E-mail
+                    </th>
+                    <th>
+                        Nº de Aluno
+                    </th>
+                    <th>
+                        Telefone
+                    </th>
+                    <th>
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let student of students | studentFilter:searchFilter">
+                    <td>
+                        {{student.name}}
+                    </td>
+                    <td>
+                        {{student.email}}
+                    </td>
+                    <td>
+                        {{student.external_id}}
+                    </td>
+                    <td>
+                        {{student.phonenumber}}
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-info" data-toggle="modal" [attr.data-target]="'#foto' +student.id">Ver Detalhes</button>
+                         <!-- Modal -->
+                                <div id="foto{{student.id}}" class="modal fade" role="dialog">
+                                    <div class="modal-dialog">
+
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <div class="row">
+                                                    <div class="col-md-10">
+                                                        {{student.name}}
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <button id="btStudentProfEdit" class="btn btn-default pull-right" type="submit">Edit Profile</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <img class="img-rounded" src="https://placehold.it/150x150?text=Diogo Mendes" style="width:100%; max-width: 150px; min-width: 70px; padding-bottom: 10px"
+                                                            alt="Image">
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <h4><small>Nome</small></h4>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <h4>{{student.name}}</h4>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <h4><small>Número de Aluno</small></h4>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <h4>{{student.external_id}}</h4>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <h4><small>E-mail</small></h4>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <h4>{{student.email}}</h4>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <h4><small>Número de Telefone</small></h4>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <h4>{{student.phonenumber}}</h4>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <!-- COURSE -->
+                                                            <div class="col-md-4">
+                                                                <h4><small>Group</small></h4>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <a id="btStudentProfGroup{{student.groupid}}" [routerLink]="['group/profile/', student.groupid]">
+                                                                    <h4>{{student.groupname}}</h4>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                        
+                    </td>
+                    <td>
+                        <div *ngIf="student.locked == 0">
+                            <p class="btn btn-danger" id='btBlk{{student.id}}' (click)="onClick(student.id)" routerLink="/dashboardusrblklist" routerLinkActive="active">Bloquear Utilizador</p>
+                        </div>
+                        <div *ngIf="student.locked == 1">
+                            <p class="btn btn-warning" id='btBlk{{student.id}}' (click)="onClick(student.id)" routerLink="/dashboardusrblklist" routerLinkActive="active">Desbloquear Utilizador</p>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
         </div>
-        <br>
-        <!-- end exemple -->
     </div>
-</div>
