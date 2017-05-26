@@ -1,23 +1,25 @@
-## Database
+# projectary-frontend
 
-The database can be found [here](https://github.com/iptomar/projectary-bd)
-
-## API
-
-The API can be found [here](https://github.com/iptomar/projectary-api)
+The frontend part of the projectary project.
 
 ## Installation
+The only dependency is NodeJS, so just run `npm install` inside this repo:
 
 ```bash
-$ cd \projectary-api
+$ cd \projectary-frontend
 $ npm install 
 ```
-## Start Frontend Server
-```bash
-$ cd \projectary-api
-$ npm start 
-```
 
+## Usage
+We need to start a server running [the API](https://github.com/iptomar/projectary-api). Grab it, install it and run it. If you need to change the IP where the API is located just change the configuration which is located at `src/main.ts`.
+
+### Development
+To run our project in development mode do `npm run start`. After that you need to open your browser on the indicated address.
+
+### Production
+To build it you just need to do `npm run build` and it will build the files at `/dist`. Just launch the index.html in your browser.
+
+## Team
 
 | Frontend Team       |
 | ------------------- |
@@ -27,9 +29,3 @@ $ npm start
 | Rui Marques         |  
 | Rui Barcelos        |
 | Florêncio Alexandre |
-
-
-## Agenda
-(8/4/2017) -> Diogo Mendes/ Rui Barcelos
-	AsIs: There is no group creation form
-	ToDo: Create the submission form, component and service for creating a group
