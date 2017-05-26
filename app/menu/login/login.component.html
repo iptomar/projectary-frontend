@@ -50,7 +50,7 @@
 		</ul>
 	</li>
 	<li id="auth" class="dropdown" *ngIf="autenticated">
-		<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Bem vindo {{name}}<span class="caret"></span></a>
+		<a href="#"  (click)="load()" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Bem vindo {{name}}<span class="caret"></span></a>
 		<ul id="dpauth" class="dropdown-menu login-dp">
 			<li>
 				<div class="row">
@@ -60,12 +60,13 @@
 								<a class="">Alterar Perfil</a>
 							</div>
 							<br>
-							<div class="col-md-12">	
-								<a id="rlgroupcreate" *ngIf=" role == student" routerLink="/group/create" routerLinkActive="active">Criar Grupo</a>
+							<div *ngIf="role==student" class="col-md-12">	
+								<a id="rlgroupcreate" routerLink="/group/create" routerLinkActive="active">Criar Grupo</a>
+								<br>
 							</div>
-							<br>
-							<div class="col-md-12">	
-								<a id="rlgroupjoin"  *ngIf=" role == student" routerLink="/group/join" routerLinkActive="active">Juntar ao Grupo</a>
+							
+							<div *ngIf="role==student" class="col-md-12">	
+								<a id="rlgroupjoin" routerLink="/group/join" routerLinkActive="active">Juntar ao Grupo</a>
 							</div>
 							<div class="col-md-12">	
 								<a id="rlgroupjoin" routerLink="/chpass" routerLinkActive="active">Alterar Password</a>

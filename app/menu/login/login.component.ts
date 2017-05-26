@@ -20,7 +20,8 @@ export class LoginComponent implements OnInit {
   private loading = false;
   private error = false;
   private autenticated = false;
-
+  private role: string;
+  
   constructor(private _httpService: LoginService, private router: Router) { }
 
   ngOnInit() {
@@ -50,7 +51,14 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-  
+  load(){
+      this.role="";
+      var user_data = JSON.parse(localStorage.getItem('currentUser'));
+      if(user_data != null){
+          this.role = user_data.role;
+      }   
+      // this.login.getRole();
+    }
   logout(){
     this._httpService.logout();
     this.autenticated = false;

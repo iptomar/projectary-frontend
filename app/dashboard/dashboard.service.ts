@@ -21,6 +21,7 @@ export class DashboardService {
     constructor(private _http: Http) { 
         let user_data = <ILogin> JSON.parse(localStorage.getItem('currentUser'));
         this.headers = new Headers();
+        this.headers.append('Content-Type', 'application/json');
         this.headers.append("Authorization", "Basic " + btoa(user_data.username + ":" + user_data.password));
         this.options = new RequestOptions({ headers: this.headers });
     }

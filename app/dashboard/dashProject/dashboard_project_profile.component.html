@@ -2,15 +2,15 @@
 <hr>
 <div class="jumbotron">
     <div class="container text-center">
-        <h4><span class="label label-default">Course: {{project?.courseid}}</span> - {{project?.created}}</h4>
+        <h4><span class="label label-default">Course: {{project?.courseid}}</span>  Submetido: {{project?.created | date:  "dd/MM/y" }}</h4>
         <h2>{{project?.name}}</h2>
-        <h4><b>Owner: {{project?.userid}}</b></h4>
+        <h4><b>Criado por: {{project?.userid}}</b></h4>
     </div>
 </div>
 <h4>Descrição: </h4>
 <p>{{project?.description}}</p>
 <div class="container-fluid bg-3">
-    <h4><b>Candidate Groups</b></h4><br>
+    <h4><b>Candidaturas</b></h4><br>
     <div *ngFor="let group of project?.groups">
         <div class="well well-sm">
             <div class="row">
@@ -28,5 +28,5 @@
     </div>
 </div>
 <br>
-<button id="btDashPpProjAss" (click)="assigns()" class="btn btn-primary" role="button">Atribui Projeto</button>
+<button id="btDashPpProjAss" (click)="assigns()" class="btn btn-success" role="button">Atribuir Projeto</button>
 <br><br>

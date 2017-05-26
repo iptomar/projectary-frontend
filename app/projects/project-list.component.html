@@ -20,7 +20,7 @@
                         <div class="col-md-9">
                             <h2>{{project.name}}</h2>  
                         </div>
-                        <div class="col-md-3">
+                        <div *ngIf="project.approvedin == null" class="col-md-3">
                             <button id="btProjListAppl{{project.id}}" class="btn candidatura" type="button" [class.success]="false" (click)="modal.show(project.id)">Fazer Candidatura</button>
                         </div>
                     </div>  
@@ -120,7 +120,7 @@
                 <a></a>
             </div>
             <div *ngIf="group">
-                <p>Tens a certeza que te queres candidatar com o grupo {{group.name}}</p>  
+                <p>Tens a certeza que te queres candidatar com o grupo {{group.name}}?</p>  
                 <!--<select id="slChooseGroup"  class="form-control"  [(ngModel)]="group_id">                     
                     <option *ngFor="let group of groups" value={{group.id}}>{{group.name}} </option>
                 </select>  -->
