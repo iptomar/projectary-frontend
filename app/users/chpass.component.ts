@@ -56,13 +56,13 @@ export class ChangePasswordComponent {
                    this.putNewPass = confirmpassword;
                    this.onChPassPut();
                }else{
-                   console.log("Condição Invalida 3ª");
+                   console.log("Condição Invalida 3ª");//a nova pass é igual à antiga
                }
             }else{
-                console.log("Condição Invalida 2ª");
+                console.log("Condição Invalida 2ª");//a nova pass difere da pass de confirmação
             }
         }else{
-           console.log("Condição Invalida 1ª"); 
+           console.log("Condição Invalida 1ª"); //a pass actual é diferente da pass inserida
         }
     }
 

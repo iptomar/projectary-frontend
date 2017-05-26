@@ -70,8 +70,8 @@ export class DashboardService {
 
     getProject(id: number): Observable<IProjectApplication> {
         return this._http
-            .get(this.apiURL + `/application/${id}`, this.options)
-            .map((res: Response) => <IProjectApplication>res.json())
+            .get(this.apiURL + `/project/${id}/applications`, this.options)
+            .map((res: Response) => <IProjectApplication>res.json().data)
             .catch(this.handleError);
     }
 

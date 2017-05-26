@@ -20,8 +20,7 @@ export class LoginService {
     public roleChange = new ReplaySubject<any>(1);
     
     constructor(private _http: Http){
-        // set token if saved in local storage
-        var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        // set token if saved in local storage      
         this.apiURL = API.url;
     }
 
@@ -40,7 +39,9 @@ export class LoginService {
                     "user_id":data.data.id,
                     "role":data.data.role,
                     "name":data.data.name,
-                    "isadmin":data.data.isadmin
+                    "isadmin":data.data.isadmin,
+                    "group_id":data.data.groupid,
+                    "group_name":data.data.groupname
                 }));
                 console.log(JSON.parse(localStorage.getItem('currentUser')));
                 this.role = data.data.role;

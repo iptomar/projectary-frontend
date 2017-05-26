@@ -108,40 +108,29 @@
         Candidatura a um projeto
     </div>
     <div class="app-modal-body" >
-        <div *ngIf="loading==false">
-            <div *ngIf="success==true">
-                <p>Recebido com sucesso.</p>  
-            </div> 
-            <div *ngIf="error==true" class="alert alert-danger">
-                <p>Não foi possivel enviar a candidatura.</p>
+        <div *ngIf="success==true">
+            <p>Recebido com sucesso.</p>  
+        </div> 
+        <div *ngIf="error==true" class="alert alert-danger">
+            <p>Não foi possivel enviar a candidatura.</p>
+        </div>
+        <div *ngIf="success==false"> 
+            <div *ngIf="group==null">
+                <p>Para enviar uma candidatura tens de ser membro de um grupo.</p> 
+                <a></a>
             </div>
-            <div *ngIf="success==false"> 
-                <div *ngIf="groups==null">
-                    <p>Para enviar uma candidatura tens de ser membro de um grupo.</p> 
-                    <a></a>
-                </div>
-                <div *ngIf="groups">
-                    <p>Escolhe o grupo para te candidatares:</p>  
-                    <select id="slChooseGroup"  class="form-control"  [(ngModel)]="group_id">                     
-                        <option *ngFor="let group of groups" value={{group.id}}>{{group.name}} </option>
-                    </select>  
-                </div>
+            <div *ngIf="group">
+                <p>Tens a certeza que te queres candidatar com o grupo {{group.name}}</p>  
+                <!--<select id="slChooseGroup"  class="form-control"  [(ngModel)]="group_id">                     
+                    <option *ngFor="let group of groups" value={{group.id}}>{{group.name}} </option>
+                </select>  -->
             </div>
         </div>
-        <div *ngIf="loading==true">
-            <div class="loading" style="width:50px; height:50px;">
-                <div class="loading-bar"></div>
-                <div class="loading-bar"></div>
-                <div class="loading-bar"></div>
-                <div class="loading-bar"></div>
-            </div>
-        </div>
-
     </div>
     <div class="app-modal-footer">
         <div *ngIf="success==false" style="float:left;">
             <button id="btCancelProjAppl" type="button" class="btn btn-danger" (click)="modal.hide()">Cancelar</button>
-            <div *ngIf="groups" style="float:left;">
+            <div *ngIf="group" style="float:left;">
                 <button type="button" class="btn btn-success" (click)="ApplicationSubmit(modal.project_id)" style="margin-left:10px;">Submeter</button>
             </div>  
         </div> 

@@ -21,8 +21,8 @@
                     <h3><input id="rbDashPpProj{{group.id}}" type="radio" name="radiogroup" [checked]="idx === 0" [value]="entry.id" (change)="onSelectionChange(entry.id)"></h3>
                 </div>
             </div>
-            <div *ngFor="let user of group?.users">
-                | <a id="anDashPpUser{{user.id}}" [routerLink]="['student/', user.id]">{{user.name}}</a>
+            <div *ngFor="let user of group.users">
+                 <a id="anDashPpUser{{user.id}}" [routerLink]="['student/', user.id]">{{user.name}}</a>
             </div>
         </div>
     </div>

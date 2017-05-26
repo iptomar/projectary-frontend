@@ -30,10 +30,10 @@ export class DashboardProjectProfileComponent implements OnInit {
         this._route.params
             .switchMap((params: Params) => this._service.getProject(+params['id']))
             .subscribe(
-            project => this.project = project,
+            project => {this.project = project; console.log(project);},
             error => console.log("Impossível carregar perfil do projeto")
             );
-        this.project.description = this.project.description.substring(0, 100);
+        //this.project.description = this.project.description.substring(0, 100);
     }
 
     onSelectionChange(id:number){

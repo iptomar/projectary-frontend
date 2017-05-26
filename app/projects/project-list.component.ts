@@ -15,25 +15,22 @@ export class ProjectListComponent implements OnInit{
     @ViewChild('modal') modal:ElementRef;
     
     projects: IProject[];
-    groups: IGroup[]
     errorMessage: string;
     searchFilter: string;
     hasGroup: boolean = true;
-    group_id: number;
+    group: Group;
     selectedProject: string;
     success: boolean= false;
     title = 'Projetos Públicos';
-    loading = false;
     error: boolean=false;
 
     constructor(private _projectService : ProjectService, private renderer:Renderer){
     }
 
     ngOnInit(): void {
-        this._projectService.getUserGroups()
-            .subscribe(groups => this.groups = groups,
-                    error => this.errorMessage = <any> error);
-        
+        var data = JSON.parse(localStorage.getItem('currentUser'));    
+        this.group = new Group(data.group_id, data.group_name);
+
         this._projectService.getProjects()
             .subscribe(projects => this.projects = projects,
                     error => this.errorMessage = <any> error);
@@ -42,10 +39,8 @@ export class ProjectListComponent implements OnInit{
     ApplicationSubmit(id: string){
         this.success = false;
         this.error= false;
-        this.loading = true;
-        this._projectService.postApplication(parseInt(id), this.group_id)
+        this._projectService.postApplication(parseInt(id), this.group.id)
             .subscribe(success => this.success = true, error =>{this.success = false; this.error= true;});
-        this.loading = false;
     }
     
     
