@@ -44,7 +44,9 @@ export class LoginComponent implements OnInit {
       error => {
         this.error = true;
         this.loading = false;
-        console.log("Dados incorrectos");
+        let myContainer = <HTMLElement> document.querySelector("#notif");
+        myContainer.innerHTML = '<div class="alert alert-danger"><strong>Erro</strong> no Login</div>';
+        setTimeout(() => { myContainer.innerHTML = ''}, 3000)
       }
     );
   }
