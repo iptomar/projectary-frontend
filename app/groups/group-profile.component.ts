@@ -37,13 +37,31 @@ export class GroupProfileComponent implements OnInit {
         if(this.newName!=null){
             this._service
                 .updateGroup(this.group.id, this.newName)
-                .subscribe( success => {console.log("Editado com sucesso.");this.router.navigate(['/group/list']);} );
+                .subscribe( success => {let myContainer = <HTMLElement> document.querySelector("#notif");
+                    myContainer.innerHTML = '<div class="alert alert-success">Grupo <strong>alterado</strong> com sucesso</div>';
+                    setTimeout(() => { myContainer.innerHTML = ''}, 3000)
+                    this.router.navigate(['/group/list']); },
+                error => {
+                    let myContainer = <HTMLElement> document.querySelector("#notif");
+                    myContainer.innerHTML = '<div class="alert alert-danger"><strong>Erro</strong> na alteração do grupo</div>';
+                    setTimeout(() => { myContainer.innerHTML = ''}, 3000)
+                },          
+                () => console.log("Finished") );
         }
     }
 
     remove(): void{
         this._service
             .removeGroup(this.group.id)
-            .subscribe( success => {console.log("Removido com sucesso."); this.router.navigate(['/group/list']); });
+            .subscribe( success => {let myContainer = <HTMLElement> document.querySelector("#notif");
+                    myContainer.innerHTML = '<div class="alert alert-success">Grupo <strong>removido</strong> com sucesso</div>';
+                    setTimeout(() => { myContainer.innerHTML = ''}, 3000)
+                    this.router.navigate(['/group/list']); },
+                error => {
+                    let myContainer = <HTMLElement> document.querySelector("#notif");
+                    myContainer.innerHTML = '<div class="alert alert-danger"><strong>Erro</strong> na remoção do grupo</div>';
+                    setTimeout(() => { myContainer.innerHTML = ''}, 3000)
+                },          
+                () => console.log("Finished") );
+        }
     }
-}
