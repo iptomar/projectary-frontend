@@ -69,8 +69,9 @@ export class DashboardService {
     }
 
     getProject(id: number): Observable<IProjectApplication> {
+        console.log("Entrou no serviço getProject/"+id)
         return this._http
-            .get(this.apiURL + `/project/${id}/applications`, this.options)
+            .get(this.apiURL + `/application/${id}`, this.options)
             .map((res: Response) => <IProjectApplication>res.json().data)
             .catch(this.handleError);
     }
@@ -80,12 +81,32 @@ export class DashboardService {
             "groupid": groupID,
             "projectid": projectID
         });
+        console.log("json to send: \n"+json)
         return this._http
             .post(this.apiURL + '/application/accept', json, this.options)
             .map(res => res.json())
             .catch(this.handleError);
     }
 
+    getCourse(id:number): Observable<String>{
+        console.log("Entrou no serviço getCourse")
+        return this._http.get(this.apiURL+'/course/'+id)
+            .map((response: Response) => {
+                <String> response.json().data.name
+                console.log("course: "+response.json().data.name)
+            })
+            .catch(this.handleError);
+    }
+
+    getOwner(id:number): Observable<String>{
+        console.log("Entrou no serviço getCourse")
+        return this._http.get(this.apiURL+'/user/'+id)
+            .map((response: Response) => {
+                <String> response.json().data.name
+                console.log("ouner: "+response.json().data.name)
+            })
+            .catch(this.handleError);
+    }
 
     private handleError(error: Response){
         console.error(error);

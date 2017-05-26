@@ -9,7 +9,7 @@ import 'rxjs/add/operator/switchMap';
 
 @Component({
     templateUrl: "app/dashboard/dashProject/dashboard_project_profile.component.html",
-    styleUrls:["app/dashboard/dashProject/dashboard_project.component.css"]
+    styleUrls: ["app/dashboard/dashProject/dashboard_project.component.css"]
 })
 
 export class DashboardProjectProfileComponent implements OnInit {
@@ -19,6 +19,8 @@ export class DashboardProjectProfileComponent implements OnInit {
     project: IProjectApplication;
     // https://juristr.com/blog/2016/11/ng2-binding-radiobutton-lists/  - help
     groupIdToAssign: number;
+    owner: String;
+    course: String;
 
     constructor(
         private _service: DashboardService,
@@ -26,18 +28,35 @@ export class DashboardProjectProfileComponent implements OnInit {
     ) { }
 
     // Method that is called on initialization of the page
-    ngOnInit(): void {
-        this._route.params
+    async ngOnInit() {
+        console.log("vai pedir o serviço getProject")
+        await this._route.params
             .switchMap((params: Params) => this._service.getProject(+params['id']))
             .subscribe(
-            project => {this.project = project; console.log(project);},
+            project => { this.project = project; console.log(project); },
             error => console.log("Impossível carregar perfil do projeto")
             );
         //this.project.description = this.project.description.substring(0, 100);
+        console.log("vai pedir o serviço getCourse")
+        await this._route.params
+            .switchMap((params: Params) => this._service.getCourse(this.project.courseid))
+            .subscribe(
+            course => { this.course = course; console.log(course); },
+            error => console.log("Impossivel carregar curso")
+            );
+        console.log("vai pedir o serviço getOwner")
+        await this._route.params
+            .switchMap((params: Params) => this._service.getOwner(this.project.userid))
+            .subscribe(
+            course => { this.course = course; console.log(course); },
+            error => console.log("Impossivel carregar owner")
+            );
     }
 
-    onSelectionChange(id:number){
-        this.groupIdToAssign=id;
+    onSelectionChange(id: number) {
+        console.log("groupIdToAssign=" + id)
+        console.log("projectId=" + this.project.id)
+        this.groupIdToAssign = id;
     }
 
     assigns(): void {
