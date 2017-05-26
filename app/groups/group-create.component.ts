@@ -20,10 +20,16 @@ export class GroupCreateComponent{
     create(){
         this._service
             .postGroup(this.name, this.password)
-            .subscribe( success =>  console.log("Grupo criado com sucesso.") );
-            let myContainer = <HTMLElement> document.querySelector("#notif");
-            myContainer.innerHTML = '<div class="alert alert-success">Criação de <strong>Grupo</strong> Efectuado com Sucesso</div>';
-            setTimeout(() => { myContainer.innerHTML = ''}, 3000)
-            this.router.navigate(['home']);
+            .subscribe( 
+                success => {let myContainer = <HTMLElement> document.querySelector("#notif");
+                    myContainer.innerHTML = '<div class="alert alert-success">Grupo <strong>criado</strong> com sucesso</div>';
+                    setTimeout(() => { myContainer.innerHTML = ''}, 3000)
+                    this.router.navigate(['home']); },
+                error => {
+                    let myContainer = <HTMLElement> document.querySelector("#notif");
+                    myContainer.innerHTML = '<div class="alert alert-danger"><strong>Erro</strong> na criação do grupo</div>';
+                    setTimeout(() => { myContainer.innerHTML = ''}, 3000)
+                },          
+                () => console.log("Finished") );
     }
 }

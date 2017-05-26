@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Location } from '@angular/common';
 import { IStudent } from '../../users/users';
 import { DashboardService } from "../dashboard.service";
+import { Router } from "@angular/router";
 
 
 @Component({
@@ -19,7 +20,7 @@ export class DashboardListUserActiveComponent{
     searchFilter: string;
     putData: string;
     student: IStudent;
-    constructor( private _service: DashboardService ) { }
+    constructor( private _service: DashboardService, private router: Router ) { }
     // Method that is called on initialization of the page
     ngOnInit(): void {
         this._service.getPendingStudents().subscribe(
@@ -35,8 +36,17 @@ export class DashboardListUserActiveComponent{
         this._service.putActiveJSON(ids,this.student)
             .subscribe(
                 data => this.putData = data,
-                error => alert(error),
-                () => console.log("Finished")
+                error =>{
+                    let myContainer = <HTMLElement> document.querySelector("#notif");
+                    myContainer.innerHTML = '<div class="alert alert-danger"><strong>Erro</strong> na ativação da conta</div>';
+                    setTimeout(() => { myContainer.innerHTML = ''}, 3000)
+                },
+                () => {
+                    let myContainer = <HTMLElement> document.querySelector("#notif");
+                    myContainer.innerHTML = '<div class="alert alert-success">Conta <strong>ativada</strong> com sucesso</div>';
+                    setTimeout(() => { myContainer.innerHTML = ''}, 3000)
+                    //this.router.navigate(['dash']);
+                }
             );
     }   
 }

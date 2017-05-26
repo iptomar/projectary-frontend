@@ -56,21 +56,34 @@ export class ChangePasswordComponent {
                    this.putNewPass = confirmpassword;
                    this.onChPassPut();
                }else{
-                   console.log("Condição Invalida 3ª");//a nova pass é igual à antiga
+                    let myContainer = <HTMLElement> document.querySelector("#notif");
+                    myContainer.innerHTML = '<div class="alert alert-warning">A nova password deve ser <strong>diferente</strong> da atual</div>';
+                    setTimeout(() => { myContainer.innerHTML = ''}, 3000)
                }
             }else{
-                console.log("Condição Invalida 2ª");//a nova pass difere da pass de confirmação
+                let myContainer = <HTMLElement> document.querySelector("#notif");
+                myContainer.innerHTML = '<div class="alert alert-warning">Confirmar Password deverá ser <strong>igual</strong> à nova Password</div>';
+                setTimeout(() => { myContainer.innerHTML = ''}, 3000)
             }
         }else{
-           console.log("Condição Invalida 1ª"); //a pass actual é diferente da pass inserida
+            let myContainer = <HTMLElement> document.querySelector("#notif");
+            myContainer.innerHTML = '<div class="alert alert-warning">A palavra pass atual está <strong>incorreta</strong></div>';
+            setTimeout(() => { myContainer.innerHTML = ''}, 3000)
         }
     }
 
     onChPassPut() {
         this._servicePass.putChPassJSON(this.putNewPass)
             .subscribe(
-                data => {console.log("Password mudada com sucesso."); window.location.reload(); },
-                error => alert(error),
+                data => {let myContainer = <HTMLElement> document.querySelector("#notif");
+                    myContainer.innerHTML = '<div class="alert alert-success">Password <strong>alterada</strong> com Sucesso</div>';
+                    setTimeout(() => { myContainer.innerHTML = ''}, 3000)
+                    window.location.reload(); },
+                error => {
+                    let myContainer = <HTMLElement> document.querySelector("#notif");
+                    myContainer.innerHTML = '<div class="alert alert-danger"><strong>Erro</strong> no join do grupo</div>';
+                    setTimeout(() => { myContainer.innerHTML = ''}, 3000)
+                },          
                 () => console.log("Finished")
             );
     }

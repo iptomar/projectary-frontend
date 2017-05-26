@@ -59,12 +59,18 @@ export class SignInStudentComponent implements OnInit {
         this._signInService.postJSON(this.register)
             .subscribe(
                 data => this.postData = data,
-                error => alert(error),
-                () => console.log("Finished")
+                error =>{
+                    let myContainer = <HTMLElement> document.querySelector("#notif");
+                    myContainer.innerHTML = '<div class="alert alert-danger"><strong>Erro</strong> no Registo</div>';
+                    setTimeout(() => { myContainer.innerHTML = ''}, 3000)
+                },
+                () => {
+                    let myContainer = <HTMLElement> document.querySelector("#notif");
+                    myContainer.innerHTML = '<div class="alert alert-success"><strong>Registo</strong> Efectuado com Sucesso</div>';
+                    setTimeout(() => { myContainer.innerHTML = ''}, 3000)
+                    this.router.navigate(['home']);
+                }
             );
-            let myContainer = <HTMLElement> document.querySelector("#notif");
-            myContainer.innerHTML = '<div class="alert alert-success"><strong>Registo</strong> Efectuado com Sucesso</div>';
-            setTimeout(() => { myContainer.innerHTML = ''}, 3000)
-            this.router.navigate(['home']);
+            
     }
 }
