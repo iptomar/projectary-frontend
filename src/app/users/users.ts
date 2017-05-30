@@ -1,4 +1,4 @@
-export interface IStudent {
+export class IStudent {
     id:number;
     name:string;
     external_id:string;

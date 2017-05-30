@@ -24,7 +24,7 @@
                         <h4><small>Nome</small></h4>
                     </div>
                     <div class="col-md-10 col-sm-8 col-xs-12">
-                        <h4>{{student.name}}</h4>
+                        <h4>{{student?.name}}</h4>
                     </div>
                 </div>
                 <div class="row">
@@ -33,7 +33,7 @@
                         <h4><small>Email</small></h4>
                     </div>
                     <div class="col-md-10 col-sm-8 col-xs-12">
-                        <h4>{{student.email}}</h4>
+                        <h4>{{student?.email}}</h4>
                     </div>
                 </div>
                 <div class="row">
@@ -42,7 +42,7 @@
                         <h4><small>Numero de Estudante</small></h4>
                     </div>
                     <div class="col-md-10 col-sm-8 col-xs-12">
-                        <h4>{{student.external_id}}</h4>
+                        <h4>{{student?.external_id}}</h4>
                     </div>
                 </div>
                 <div class="row">
@@ -51,18 +51,17 @@
                         <h4><small>Numero de Telefone</small></h4>
                     </div>
                     <div class="col-md-10 col-sm-8 col-xs-12">
-                        <h4>{{student.phonenumber}}</h4>
+                        <h4>{{student?.phonenumber}}</h4>
                     </div>
                 </div>
-                <div class="row">
-                    <!-- COURSE -->
+                <!--<div class="row">
                     <div class="col-md-2 col-sm-4 col-xs-12">
                         <h4><small>Group</small></h4>
                     </div>
                     <div class="col-md-10 col-sm-8 col-xs-12">
-                        <a id="btStudentProfGroup{{student.groupid}}" [routerLink]="['group/profile/', student.groupid]" ><h4>{{student.groupname}}</h4></a>
+                        <a id="btStudentProfGroup{{student?.groupid}}" [routerLink]="['group/profile/', student?.groupid]" ><h4>{{student?.groupname}}</h4></a>
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>

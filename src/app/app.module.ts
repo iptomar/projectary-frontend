@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from "@angular/router";
 import 'zone.js';
 import 'reflect-metadata';
-
 //Component
 import { AppComponent } from "./app.component";
 import { HomeComponent } from "./home/home.component";
@@ -15,11 +14,10 @@ import { NotFoundComponent } from "./notFound/nfound.component";
 import { LoginComponent } from "./menu/login/login.component";
 import { OptionPublicComponent } from "./menu/options/optionPublic.component";
 import { ProjectFormComponent} from "./projects/project-form/project-form.component";
-import { StudentProfileComponent } from "./users/student-profile.component";
+import { WhoAmIComponent } from "./users/whoami.component";
 import { StudentListComponent } from "./users/student-list.component";
 import { ChangePasswordComponent } from "./users/chpass.component";
 import { SignInStudentComponent } from "./signIn/signIn-student.component";
-import { SignInTeacherComponent } from "./signIn/signIn-teacher.component";
 import { GroupJoinComponent } from "./groups/group-join.component";
 import { GroupCreateComponent } from "./groups/group-create.component";
 import { GroupListComponent } from "./groups/group-list.component";
@@ -66,11 +64,10 @@ import { ModalComponent } from "./utils/modal.component";
 		{path: 'projects',component: ProjectListComponent, canActivate: [AuthGuard], data: { roles: ['student','teacher'] } },
 		{path: 'projectform', component: ProjectFormComponent, canActivate: [AuthGuard], data: { roles: ['teacher'] } },
 		{path: 'projectapplication', component: ProjectApplicationComponent/*, canActivate: [AuthGuard], data: { roles: ['student'] }*/ },
-		{path: 'student/:id', component: StudentProfileComponent, canActivate: [AuthGuard], data: { roles: ['teacher'] }},
+		{path: 'whoami', component: WhoAmIComponent, canActivate: [AuthGuard], data: { roles: ['student','teacher'] }},
 		{path: 'students', component: StudentListComponent, canActivate: [AuthGuard], data: { roles: ['teacher'] }},
 		{path: 'chpass', component: ChangePasswordComponent, canActivate: [AuthGuard], data: { roles: ['student','teacher'] }},
 		{path: 'signinstudent', component: SignInStudentComponent},
-		{path: 'signinteacher', component: SignInTeacherComponent},
 		{path: 'group/create', component: GroupCreateComponent, canActivate: [AuthGuard], data: { roles: ['student']}},
 		{path: 'group/join', component: GroupJoinComponent, canActivate: [AuthGuard], data: { roles: ['student']}},
 		{path: 'group/list', component: GroupListComponent, canActivate: [AuthGuard], data: { roles: ['teacher']}},
@@ -92,10 +89,9 @@ import { ModalComponent } from "./utils/modal.component";
     	OptionPublicComponent,
     	ProjectFormComponent,
 		ProjectApplicationComponent,
-		StudentProfileComponent,
+		WhoAmIComponent,
 		StudentListComponent,
 		SignInStudentComponent,
-		SignInTeacherComponent,
 		GroupCreateComponent,
 		GroupJoinComponent,
 		GroupListComponent,

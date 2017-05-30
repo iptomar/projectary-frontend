@@ -9,15 +9,15 @@ import { IStudent } from './users';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
-    selector: "student-profile",
-    templateUrl: "./student-profile.component.html",
+    selector: "whoami",
+    templateUrl: "./whoami.component.html",
     providers: [StudentService]
 })
 
-export class StudentProfileComponent implements OnInit {
+export class WhoAmIComponent implements OnInit {
 
     // Attributes that will be used on views
-    title = 'Perfil de um utilizador';
+    title = 'Perfil';
     student: IStudent;
 
     constructor(
@@ -28,10 +28,12 @@ export class StudentProfileComponent implements OnInit {
     // Method that is called on initialization of the page
     ngOnInit(): void {
         this._route.params
-            .switchMap((params: Params) => this._service.getStudent(+params['id']))
+            .switchMap((params: Params) => this._service.getStudent(JSON.parse(localStorage.getItem('currentUser')).user_id))
             .subscribe(
-                student => this.student = student,
-                error =>  console.log("Impossível carregar perfil do estudante")
+            student => {
+                this.student = student;
+            },
+            error => console.log("Impossível carregar perfil do estudante ")
             );
     }
 }

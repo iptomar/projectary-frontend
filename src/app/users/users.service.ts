@@ -19,7 +19,7 @@ export class StudentService {
     constructor(private _http: Http) { 
         let user_data = <ILogin> JSON.parse(localStorage.getItem('currentUser'));
         this.headers = new Headers();
-        this.headers.append('Content-Type', 'application/x-www-form-urlencoded');
+        this.headers.append('Content-Type', 'application/json');
         this.headers.append("Authorization", "Basic " + btoa(user_data.username + ":" + user_data.password));
         this.options = new RequestOptions({ headers: this.headers });
     }
@@ -28,7 +28,7 @@ export class StudentService {
     getStudent(id: number): Observable<IStudent> {
         return this._http
             .get(this.apiURL+`/user/${id}`, this.options)
-            .map((res: Response) => res.json())
+            .map((res: Response) => res.json().data)
             .catch(this.handleError);
     }
 
@@ -40,11 +40,7 @@ export class StudentService {
     }
     
     putChPassJSON(data: string) {
-        let user_data = <ILogin> JSON.parse(localStorage.getItem('currentUser'));
-        var headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-        headers.append("Authorization", "Basic " + btoa(user_data.username + ":" + user_data.password));
-        return this._http.put(this.apiURL+'/user/chpassword', JSON.stringify({"password":data}), { headers: headers })
+        return this._http.put(this.apiURL+'/user/chpassword', JSON.stringify({"password":data}), this.options)
             .map(res => res.json());
     }
     private handleError(error: Response){
