@@ -50,28 +50,31 @@
 		</ul>
 	</li>
 	<li id="auth" class="dropdown" *ngIf="autenticated">
-		<a href="#"  (click)="load()" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Bem vindo {{name}}<span class="caret"></span></a>
+		<a href="#" (click)="load()" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Bem vindo {{name}}<span class="caret"></span></a>
 		<ul id="dpauth" class="dropdown-menu login-dp">
 			<li>
 				<div class="row">
 					<div id="optionsAuth" class="col-md-12">
 						<div class="row">
-							<div class="col-md-12">	
+							<div class="col-md-12">
+								<a id="rlgroupjoin" routerLink="whoami" routerLinkActive="active">Ver Perfil</a>
+							</div>
+							<div class="col-md-12">
 								<a class="">Alterar Perfil</a>
 							</div>
 							<br>
-							<div *ngIf="role==student" class="col-md-12">	
+							<div *ngIf="role==student" class="col-md-12">
 								<a id="rlgroupcreate" routerLink="/group/create" routerLinkActive="active">Criar Grupo</a>
 								<br>
 							</div>
-							
-							<div *ngIf="role==student" class="col-md-12">	
+
+							<div *ngIf="role==student" class="col-md-12">
 								<a id="rlgroupjoin" routerLink="/group/join" routerLinkActive="active">Juntar ao Grupo</a>
 							</div>
-							<div class="col-md-12">	
+							<div class="col-md-12">
 								<a id="rlgroupjoin" routerLink="/chpass" routerLinkActive="active">Alterar Password</a>
 							</div>
-							<div class="col-md-12" *ngIf="isadmin == 1">	
+							<div class="col-md-12" *ngIf="isadmin == 1">
 								<a id="anDashAtvUsers" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
 							</div>
 						</div>
