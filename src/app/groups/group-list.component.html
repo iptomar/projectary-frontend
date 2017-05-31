@@ -1,42 +1,52 @@
 <h2>{{title}}</h2>
 <hr>
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-11">
         <div class="btn-group">
             <button id="btDashUaAtvUsers" type="button" class="btn btn-primary" routerLink="/dashboard" routerLinkActive="active">Ativar Utilizadores</button>
             <button id="btDashUaBlkUsers" type="button" class="btn btn-primary" routerLink="/dashboardusrblklist" routerLinkActive="active">Bloquear Utilizadores</button>
-            <button id="btDashUaListProj" type="button" class="btn btn-primary" routerLink="/dashboard/projects" routerLinkActive="active">Lista de Projetos</button>
-            <button id="rlgroupcreate" type="button" class="btn btn-primary" routerLink="/group/list" routerLinkActive="active" >Listar Grupos</button>
+            <button id="btDashUaListProj" type="button" class="btn btn-primary" routerLink="/dashboardprojects" routerLinkActive="active">Lista de Projetos Por Atribuir</button>
+            <button id="rlgroupcreate" type="button" class="btn btn-primary" routerLink="/group/list" routerLinkActive="active">Lista de Grupos</button>
         </div>
-        <hr>
+    </div>
+    <div class="col-md-1">
+        <button type="button" class="btn btn-lg" data-toggle="modal" data-target="#searchFilterDashProj" data-backdrop="false"><span class="glyphicon glyphicon-search"></span></button>
     </div>
 </div>
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h2 class="panel-title">Group</h2>
-    </div>
-    <div class="panel-body">
-        <div class="row">
-            <form>
-                <div class="form-group input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-                    <input id="srchGroupList" class="form-control" type="text" placeholder="Enter a Group name..." [(ngModel)]="searchFilter" name="searchFilter">
-                </div>
-            </form>
-            <div>
-                <div *ngIf="groups?.length > 0">
-                    <div *ngFor="let group of groups | groupFilter:searchFilter">
-                        <!-- Exemple of a group -->
-                        <div>
-                            <h4>{{group.name}}</h4>
-                            <button id="btGlGroup{{group.id}}" class="btn btn-primary" type="button" [routerLink]="['/group/profile', group.id]">Ver mais</button>
-                        </div>
-                        <hr>
-                        <!-- end exemple -->
+<div id="searchFilterDashProj" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body">
+                <form>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                        <input id="srchGroupList" class="form-control" type="text" placeholder="Enter a Group name..." [(ngModel)]="searchFilter"
+                            name="searchFilter">
                     </div>
-                </div>
-                <br>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped" *ngIf="groups?.length > 0">
+            <thead>
+                <tr>
+                    <th>Nome do Grupo</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let group of groups | groupFilter:searchFilter">
+                    <td>{{group.name}}</td>
+                    <td><button id="btGlGroup{{group.id}}" class="btn btn-primary" type="button" [routerLink]="['/group/profile', group.id]">Ver mais</button></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

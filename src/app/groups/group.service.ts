@@ -67,7 +67,7 @@ export class GroupService {
             .map((res: Response) => <IGroupProfile> res.json().data)
             .catch(this.handleError);
     }
-
+    
     updateGroup(id: number, name: String){
          // create the json to put
          var json = JSON.stringify({
