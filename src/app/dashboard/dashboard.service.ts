@@ -82,7 +82,6 @@ export class DashboardService {
     }
 
     async getProject(id: number): Promise<IProjectApplication> {
-        console.log("Entrou no serviço getProject/"+id)
         let res = await this._http
             .get(this.apiURL + `/application/${id}`, this.options)
             .toPromise();
@@ -90,15 +89,13 @@ export class DashboardService {
     }
 
     getCourse(id:number): Observable<String>{
-        console.log("Entrou no serviço getCourse")
         return this._http
             .get(this.apiURL + `/course/${id}`, this.options)
-            .map((response: Response) => <String>response.json().data.name)
+            .map((response: Response) => <String>response.json().data[0].name)
             .catch(this.handleError);
     }
 
     getOwner(id:number): Observable<String>{
-        console.log("Entrou no serviço getCourse")
         return this._http
             .get(this.apiURL + `/user/${id}`, this.options)
             .map((response: Response) => <String>response.json().data.name)

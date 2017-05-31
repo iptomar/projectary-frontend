@@ -30,14 +30,11 @@ export class DashboardProjectProfileComponent implements OnInit {
 
     // Method that is called on initialization of the page
     async ngOnInit() {
-        console.log("vai pedir o serviço getProject ");
         let id = +this._route.snapshot.params['id'];
         this.project = await this._service.getProject(id);
-        console.log(this.project)
-        console.log("vai pedir o serviço getCourse");
+
         this._service.getCourse(this.project.courseid)
             .subscribe(course => this.course = course);
-        console.log("vai pedir o serviço getOwner");
         this._service.getOwner(this.project.userid)
             .subscribe(owner => this.owner = owner);
     }

@@ -2,9 +2,9 @@
 <hr>
 <div class="jumbotron">
     <div class="container text-center">
-        <h4><span class="label label-default">Course: {{project?.courseid}}</span>  Submetido: {{project?.created | date:  "dd/MM/y" }}</h4>
+        <h4><span class="label label-default">{{course}}</span> - {{project?.created | date:  "dd/MM/y" }}</h4>
         <h2>{{project?.name}}</h2>
-        <h4><b>Criado por: {{project?.userid}}</b></h4>
+        <h4>Criado por: <b>{{owner}}</b></h4>
     </div>
 </div>
 <h4>Descrição: </h4>

@@ -37,7 +37,6 @@ export class ProjectService {
     }
 
     async getProject(id: number): Promise<IProject> {
-                console.log("Entrou no serviço getProject/"+id)
         let res = await this._http
             .get(this.apiURL + `/project/${id}`, this.options)
             .toPromise();
@@ -45,10 +44,23 @@ export class ProjectService {
     }
 
     getGroup(id:number): Observable<IGroupProfile>{
-        console.log("Entrou no serviço getGroup")
         return this._http
             .get(this.apiURL + `/group/${id}`, this.options)
             .map((response: Response) => <IGroupProfile>response.json().data)
+            .catch(this.handleError);
+    }
+
+     getCourse(id:number): Observable<String>{
+        return this._http
+            .get(this.apiURL + `/course/${id}`, this.options)
+            .map((response: Response) => <String>response.json().data[0].name)
+            .catch(this.handleError);
+    }
+
+    getOwner(id:number): Observable<String>{
+        return this._http
+            .get(this.apiURL + `/user/${id}`, this.options)
+            .map((response: Response) => <String>response.json().data.name)
             .catch(this.handleError);
     }
 
