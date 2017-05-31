@@ -69,14 +69,6 @@ export class DashboardService {
             .catch(this.handleError);
     }
 
-    getProject(id: number): Observable<IProjectApplication> {
-        console.log("Entrou no serviço getProject/"+id)
-        return this._http
-            .get(this.apiURL + `/application/${id}`, this.options)
-            .map((res: Response) => <IProjectApplication>res.json().data)
-            .catch(this.handleError);
-    }
-
     postAcceptGroup(groupID: number, projectID: number) {
         var json = JSON.stringify({
             "groupid": groupID,
@@ -89,23 +81,24 @@ export class DashboardService {
             .catch(this.handleError);
     }
 
+    async getProject(id: number): Promise<IProjectApplication> {
+        let res = await this._http
+            .get(this.apiURL + `/application/${id}`, this.options)
+            .toPromise();
+        return res.json().data as IProjectApplication;
+    }
+
     getCourse(id:number): Observable<String>{
-        console.log("Entrou no serviço getCourse")
-        return this._http.get(this.apiURL+'/course/'+id)
-            .map((response: Response) => {
-                <String> response.json().data.name
-                console.log("course: "+response.json().data.name)
-            })
+        return this._http
+            .get(this.apiURL + `/course/${id}`, this.options)
+            .map((response: Response) => <String>response.json().data[0].name)
             .catch(this.handleError);
     }
 
     getOwner(id:number): Observable<String>{
-        console.log("Entrou no serviço getCourse")
-        return this._http.get(this.apiURL+'/user/'+id)
-            .map((response: Response) => {
-                <String> response.json().data.name
-                console.log("ouner: "+response.json().data.name)
-            })
+        return this._http
+            .get(this.apiURL + `/user/${id}`, this.options)
+            .map((response: Response) => <String>response.json().data.name)
             .catch(this.handleError);
     }
 
