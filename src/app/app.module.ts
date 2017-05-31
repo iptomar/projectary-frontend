@@ -56,7 +56,7 @@ import { ModalComponent } from "./utils/modal.component";
 	RouterModule.forRoot([
 		{path: '',component: HomeComponent},
 		{path: 'home',component: HomeComponent},
-		{path: 'project/:id',component: ProjectComponent},
+		{path: 'project/:id',component: ProjectComponent, canActivate: [AuthGuard], data: { roles: ['student','teacher'] } },
 		{path: 'dashboard',component: DashboardListUserActiveComponent,canActivate: [AuthGuard], data: { roles: ['teacher'],isadmin:[1] } },
 		{path: 'dashboardusrblklist',component: DashboardListUserBlockComponent,canActivate: [AuthGuard], data: { roles: ['teacher'],isadmin:[1] } },
 		{path: 'dashboard/projects',component: DashboardProjectListComponent, canActivate: [AuthGuard], data: { roles: ['teacher']}},

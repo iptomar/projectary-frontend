@@ -10,7 +10,7 @@ import "rxjs/add/operator/catch";
 import { IProject } from "./project";
 import { ILogin } from "../menu/login/login";
 import { API } from '../../main';
-import { IGroup } from "../groups/group";
+import { IGroupProfile } from '../groups/group';
 
 @Injectable()
 export class ProjectService {
@@ -36,10 +36,20 @@ export class ProjectService {
             .catch(this.handleError);
     }
 
+    async getProject(id: number): Promise<IProject> {
+                console.log("Entrou no serviço getProject/"+id)
+        let res = await this._http
+            .get(this.apiURL + `/project/${id}`, this.options)
+            .toPromise();
+        return res.json().data[0] as IProject;
+    }
 
-    getUserGroups(): Observable<IGroup[]> {
-        return this._http.get(this.apiURL+`/group/user/${this.userID}`, this.options)
-            .map((res: Response) => <IGroup[]> res.json().data);
+    getGroup(id:number): Observable<IGroupProfile>{
+        console.log("Entrou no serviço getGroup")
+        return this._http
+            .get(this.apiURL + `/group/${id}`, this.options)
+            .map((response: Response) => <IGroupProfile>response.json().data)
+            .catch(this.handleError);
     }
 
     postApplication(project_id: number, group_id: number) {

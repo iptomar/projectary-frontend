@@ -7,6 +7,7 @@ export interface IProject{
     description: string;
     userid: string,
     created: string;
+    groupid: number;
 }
 
 export class Application{

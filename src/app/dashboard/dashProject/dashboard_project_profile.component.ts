@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { DashboardService } from '../dashboard.service';
@@ -9,7 +9,7 @@ import 'rxjs/add/operator/switchMap';
 
 @Component({
     templateUrl: "./dashboard_project_profile.component.html",
-    styleUrls:["./dashboard_project.component.css"]
+    styleUrls: ["./dashboard_project.component.css"]
 })
 
 export class DashboardProjectProfileComponent implements OnInit {
@@ -24,37 +24,22 @@ export class DashboardProjectProfileComponent implements OnInit {
 
     constructor(
         private _service: DashboardService,
-        private _route: ActivatedRoute, 
+        private _route: ActivatedRoute,
         private router: Router
     ) { }
 
     // Method that is called on initialization of the page
     async ngOnInit() {
-        console.log("vai pedir o serviço getProject")
-        await this._route.params
-            .switchMap((params: Params) => this._service.getProject(+params['id']))
-            .subscribe(
-                project => { 
-                    this.project = project; console.log(project);
-                 },
-                error => {
-                }
-            );
-        //this.project.description = this.project.description.substring(0, 100);
-        console.log("vai pedir o serviço getCourse")
-        await this._route.params
-            .switchMap((params: Params) => this._service.getCourse(this.project.courseid))
-            .subscribe(
-            course => { this.course = course; console.log(course); },
-            error => console.log("Impossivel carregar curso")
-            );
-        console.log("vai pedir o serviço getOwner")
-        await this._route.params
-            .switchMap((params: Params) => this._service.getOwner(this.project.userid))
-            .subscribe(
-            course => { this.course = course; console.log(course); },
-            error => console.log("Impossivel carregar owner")
-            );
+        console.log("vai pedir o serviço getProject ");
+        let id = +this._route.snapshot.params['id'];
+        this.project = await this._service.getProject(id);
+        console.log(this.project)
+        console.log("vai pedir o serviço getCourse");
+        this._service.getCourse(this.project.courseid)
+            .subscribe(course => this.course = course);
+        console.log("vai pedir o serviço getOwner");
+        this._service.getOwner(this.project.userid)
+            .subscribe(owner => this.owner = owner);
     }
 
     onSelectionChange(id: number) {
@@ -66,16 +51,16 @@ export class DashboardProjectProfileComponent implements OnInit {
     assigns(): void {
         this._service
             .postAcceptGroup(this.groupIdToAssign, this.project.id)
-            .subscribe(success => {},
-                error => {
-                    let myContainer = <HTMLElement> document.querySelector("#notif");
-                    myContainer.innerHTML = '<div class="alert alert-danger"><strong>Erro</strong> na atribuição do Projeto</div></div>';
-                    setTimeout(() => { myContainer.innerHTML = ''}, 3000)
-                },() =>{
-                    let myContainer = <HTMLElement> document.querySelector("#notif");
-                    myContainer.innerHTML = '<div class="alert alert-success">Projeto <strong>Atribuido</strong> com Sucesso</div>';
-                    setTimeout(() => { myContainer.innerHTML = ''}, 3000)
-                    this.router.navigate(['dashboard/projects']);
-                });
+            .subscribe(success => { },
+            error => {
+                let myContainer = <HTMLElement>document.querySelector("#notif");
+                myContainer.innerHTML = '<div class="alert alert-danger"><strong>Erro</strong> na atribuição do Projeto</div></div>';
+                setTimeout(() => { myContainer.innerHTML = '' }, 3000)
+            }, () => {
+                let myContainer = <HTMLElement>document.querySelector("#notif");
+                myContainer.innerHTML = '<div class="alert alert-success">Projeto <strong>Atribuido</strong> com Sucesso</div>';
+                setTimeout(() => { myContainer.innerHTML = '' }, 3000)
+                this.router.navigate(['dashboard/projects']);
+            });
     }
 }
