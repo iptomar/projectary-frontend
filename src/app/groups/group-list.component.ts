@@ -14,7 +14,7 @@ export class GroupListComponent implements OnInit {
     groups: IGroup[];
     errorMessage: string;
     searchFilter: string;
-    title = 'Lista de Grupos';
+    title = 'Dashboard';
     
     constructor( private _service: GroupService ) { }
 

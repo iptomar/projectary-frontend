@@ -59,7 +59,7 @@ import { ModalComponent } from "./utils/modal.component";
 		{path: 'project/:id',component: ProjectComponent, canActivate: [AuthGuard], data: { roles: ['student','teacher'] } },
 		{path: 'dashboard',component: DashboardListUserActiveComponent,canActivate: [AuthGuard], data: { roles: ['teacher'],isadmin:[1] } },
 		{path: 'dashboardusrblklist',component: DashboardListUserBlockComponent,canActivate: [AuthGuard], data: { roles: ['teacher'],isadmin:[1] } },
-		{path: 'dashboard/projects',component: DashboardProjectListComponent, canActivate: [AuthGuard], data: { roles: ['teacher']}},
+		{path: 'dashboardprojects',component: DashboardProjectListComponent, canActivate: [AuthGuard], data: { roles: ['teacher']}},
 		{path: 'dashboard/project/:id',component: DashboardProjectProfileComponent, canActivate: [AuthGuard], data: { roles: ['teacher']}},
 		{path: 'projects',component: ProjectListComponent, canActivate: [AuthGuard], data: { roles: ['student','teacher'] } },
 		{path: 'projectform', component: ProjectFormComponent, canActivate: [AuthGuard], data: { roles: ['teacher'] } },

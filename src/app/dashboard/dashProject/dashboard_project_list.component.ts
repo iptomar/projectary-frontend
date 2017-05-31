@@ -11,7 +11,7 @@ export class DashboardProjectListComponent implements OnInit{
     projects: IProjectToList[];
     errorMessage: string;
     searchFilter: string;
-    title = 'Projetos por Atribuir';
+    title = 'Dashboard';
     
     constructor(private _service : DashboardService){}
     
