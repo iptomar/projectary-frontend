@@ -13,4 +13,4 @@ platformBrowserDynamic().bootstrapModule(AppModule);
 
 
 // Configurations
-export const API = { 'url': 'http://192.168.10.118:8080' };
+export const API = { 'url': 'http://127.0.0.1:8080' };
