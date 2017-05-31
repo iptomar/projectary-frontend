@@ -1,0 +1,32 @@
+<h1>{{title}}</h1>
+<hr>
+<div class="jumbotron">
+    <div class="container text-center">
+        <h4><span class="label label-default">{{course}}</span> - {{project?.created|date : "dd/MM/y"}}</h4>
+        <h2>{{project?.name}}</h2>
+        <h4>Criado por: <b>{{owner}}</b></h4>
+    </div>
+</div>
+<h4>Descrição: </h4>
+<p>{{project?.description}}</p>
+<div class="container-fluid bg-3">
+    <h4><b>Grupo</b></h4>
+    <div *ngIf="isAttributed">
+        <div class="well well-sm">
+            <div>
+                <h3>{{group?.name}}</h3>
+            </div>
+            <div *ngFor="let user of group?.team">
+                | <a>{{user?.name}}</a>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!isAttributed">
+        <div class="well well-sm">
+            <div>
+                <h3>Não está atribuido</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br>

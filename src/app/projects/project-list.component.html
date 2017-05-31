@@ -58,7 +58,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2">
-                            <button id="btProjListProf{{project.id}}" class="btn btn-primary col-md-12" data-toggle="collapse" [attr.data-target]="'#'+ project.id">Ver mais...</button>
+                            <button id="btProjListProf{{project.id}}" class="btn btn-primary col-md-12" [routerLink]="['/project', project.id]" >Ver mais...</button>
                         </div>
                         <div class="col-md-7"></div>
                         <!--<div class="col-md-3">
@@ -67,35 +67,6 @@
                         
                     </div>
                     <br>
-                    <div #elem [id]="project.id" class="collapse">
-                        <hr>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <p><b>Descrição:</b></p>
-                                <div class="col-md-12">
-                                    <p>{{project.description}}</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!--<hr *ngIf="project.state=='Por Atribuir'">
-                        <div *ngIf="project.state=='Por Atribuir'">
-                            <p><b>Pré Requisitos:</b></p>
-                            <ul>
-                                <li *ngFor="let requisito of project.preRequisitos">
-                                    {{requisito}}
-                                </li>
-                            </ul>
-                        </div>
-                        <hr>
-                        <div>
-                            <p><b>Orientadores:</b></p>
-                            <ul>
-                                <li *ngFor="let orientador of project.orientadores">
-                                    {{orientador}}
-                                </li>
-                            </ul>
-                        </div>-->
-                    </div>
                     <hr>
                 </div>
             </div>
