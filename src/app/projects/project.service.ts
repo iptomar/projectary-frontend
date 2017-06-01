@@ -10,7 +10,7 @@ import "rxjs/add/operator/catch";
 import { IProject } from "./project";
 import { ILogin } from "../menu/login/login";
 import { API } from '../../main';
-import { IGroup } from "../groups/group";
+import { IGroupProfile } from '../groups/group';
 
 @Injectable()
 export class ProjectService {
@@ -36,10 +36,32 @@ export class ProjectService {
             .catch(this.handleError);
     }
 
+    async getProject(id: number): Promise<IProject> {
+        let res = await this._http
+            .get(this.apiURL + `/project/${id}`, this.options)
+            .toPromise();
+        return res.json().data[0] as IProject;
+    }
 
-    getUserGroups(): Observable<IGroup[]> {
-        return this._http.get(this.apiURL+`/group/user/${this.userID}`, this.options)
-            .map((res: Response) => <IGroup[]> res.json().data);
+    getGroup(id:number): Observable<IGroupProfile>{
+        return this._http
+            .get(this.apiURL + `/group/${id}`, this.options)
+            .map((response: Response) => <IGroupProfile>response.json().data)
+            .catch(this.handleError);
+    }
+
+     getCourse(id:number): Observable<String>{
+        return this._http
+            .get(this.apiURL + `/course/${id}`, this.options)
+            .map((response: Response) => <String>response.json().data[0].name)
+            .catch(this.handleError);
+    }
+
+    getOwner(id:number): Observable<String>{
+        return this._http
+            .get(this.apiURL + `/user/${id}`, this.options)
+            .map((response: Response) => <String>response.json().data.name)
+            .catch(this.handleError);
     }
 
     postApplication(project_id: number, group_id: number) {

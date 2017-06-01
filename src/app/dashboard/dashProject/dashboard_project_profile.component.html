@@ -2,9 +2,9 @@
 <hr>
 <div class="jumbotron">
     <div class="container text-center">
-        <h4><span class="label label-default">Course: {{project?.courseid}}</span>  Submetido: {{project?.created | date:  "dd/MM/y" }}</h4>
+        <h4><span class="label label-default">{{course}}</span> - {{project?.created | date:  "dd/MM/y" }}</h4>
         <h2>{{project?.name}}</h2>
-        <h4><b>Criado por: {{project?.userid}}</b></h4>
+        <h4>Criado por: <b>{{owner}}</b></h4>
     </div>
 </div>
 <h4>Descrição: </h4>
@@ -15,14 +15,14 @@
         <div class="well well-sm">
             <div class="row">
                 <div class="col-xs-11">
-                    <h3>{{group.name}}</h3>
+                    <h3>{{group?.name}}</h3>
                 </div>
                 <div class="col-xs-1">
                     <h3><input id="rbDashPpProj{{group.id}}" type="radio" name="radiogroup" [checked]="idx === 0" [value]="group.id" (change)="onSelectionChange(group.id)"></h3>
                 </div>
             </div>
             <div *ngFor="let user of group.users">
-                 <a id="anDashPpUser{{user.id}}" [routerLink]="['student/', user.id]">{{user.name}}</a>
+                 <a id="anDashPpUser{{user?.id}}" [routerLink]="['student/', user.id]">{{user?.name}}</a>
             </div>
         </div>
     </div>
