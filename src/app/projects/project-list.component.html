@@ -32,7 +32,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-9">
-                                <p>Ano Letivo: {{project.year}}</p>
+                                <p>Ano Letivo: {{project.year-1}} / {{project.year}}</p>
                             </div>
                             <div *ngIf="project.approvedin != null" class="col-md-3">
                                 <div class="col-md-6">
@@ -120,7 +120,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
                 </div>
             </div>
 

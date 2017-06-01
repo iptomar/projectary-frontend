@@ -41,13 +41,11 @@ export class LoginComponent implements OnInit {
         let myContainer = <HTMLElement> document.querySelector("#notif");
         myContainer.innerHTML = '<div class="alert alert-success"><strong>Login</strong> Efectuado com Sucesso</div>';
         setTimeout(() => { myContainer.innerHTML = ''}, 3000)
+        this.load();
       },
       error => {
         this.error = true;
         this.loading = false;
-        let myContainer = <HTMLElement> document.querySelector("#notif");
-        myContainer.innerHTML = '<div class="alert alert-danger"><strong>Erro</strong> no Login</div>';
-        setTimeout(() => { myContainer.innerHTML = ''}, 3000)
       }
     );
   }
@@ -67,6 +65,7 @@ export class LoginComponent implements OnInit {
     myContainer.innerHTML = '<div class="alert alert-warning"><strong>Logout</strong> Efectuado com Sucesso</div>';
     setTimeout(() => { myContainer.innerHTML = ''}, 3000)
     this.router.navigate(['home']);
+    this.load();
   }
 
 }
