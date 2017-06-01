@@ -1,4 +1,4 @@
-<ul class="nav navbar-nav">
+<!--<ul class="nav navbar-nav">
     <li><a id="routHome" routerLink="/home" routerLinkActive="active">Home</a></li>
     <li class="dropdown">
         <a id="routPubProj" (click)="load()" class="dropdown-toggle" data-toggle="dropdown" href="#">Projetos Públicos
@@ -8,5 +8,7 @@
             <li *ngIf="role=='teacher' && role != null"><a id="routSubProj" routerLink="/projectform" routerLinkActive="active">Submeter Projeto</a></li>
         </ul>
       </li>
-    <li><a id="routPerfPub" routerLink="/students" routerLinkActive="active">Perfis Públicos</a></li>
-</ul>
+    <li *ngIf="role == 'student' || role == 'teacher'" ><a routerLink="/students" routerLinkActive="active">Perfis Públicos</a></li>
+    <li><a id="routAbout" routerLink="/about" routerLinkActive="active">Sobre</a></li>
+    <li><a id="routContact" routerLink="/contacts" routerLinkActive="active">Contactos</a></li>
+</ul>-->
