@@ -71,17 +71,17 @@
 					<div id="optionsAuth" class="col-md-12">
 						<div class="row">
 							<div class="col-md-12">
-								<a id="rlgroupjoin" routerLink="whoami" routerLinkActive="active">Ver Perfil</a>
+								<a id="rlgroupjoin" routerLink="user/profile" routerLinkActive="active">Ver Perfil</a>
 							</div>
 							<div class="col-md-12">
 								<a class="">Alterar Perfil</a>
 							</div>
-							<br>
+							<div class="col-md-12">
+								<a id="myApplications" routerLink="user/applications" routerLinkActive="active">Candidaturas</a>
+							</div>						
 							<div *ngIf="role==student" class="col-md-12">
 								<a id="rlgroupcreate" routerLink="/group/create" routerLinkActive="active">Criar Grupo</a>
-								<br>
 							</div>
-
 							<div *ngIf="role==student" class="col-md-12">
 								<a id="rlgroupjoin" routerLink="/group/join" routerLinkActive="active">Juntar ao Grupo</a>
 							</div>
