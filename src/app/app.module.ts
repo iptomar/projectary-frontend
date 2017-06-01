@@ -8,6 +8,8 @@ import 'reflect-metadata';
 //Component
 import { AppComponent } from "./app.component";
 import { HomeComponent } from "./home/home.component";
+import { ContactsComponent } from "./home/contacts.component";
+import { AboutComponent } from "./home/about.component";
 import { ProjectComponent } from "./projects/project-detail.component";
 import { ProjectListComponent } from "./projects/project-list.component";
 import { NotFoundComponent } from "./notFound/nfound.component";
@@ -46,6 +48,7 @@ import { CommonModule } from "@angular/common";
 import { ModalComponent } from "./utils/modal.component";
 
 
+
 @NgModule({
   imports: [ 
     BrowserModule,
@@ -56,6 +59,8 @@ import { ModalComponent } from "./utils/modal.component";
 	RouterModule.forRoot([
 		{path: '',component: HomeComponent},
 		{path: 'home',component: HomeComponent},
+		{path: 'about',component: AboutComponent},
+		{path: 'contacts',component: ContactsComponent},
 		{path: 'project/:id',component: ProjectComponent, canActivate: [AuthGuard], data: { roles: ['student','teacher'] } },
 		{path: 'dashboard',component: DashboardListUserActiveComponent,canActivate: [AuthGuard], data: { roles: ['teacher'],isadmin:[1] } },
 		{path: 'dashboardusrblklist',component: DashboardListUserBlockComponent,canActivate: [AuthGuard], data: { roles: ['teacher'],isadmin:[1] } },
@@ -82,6 +87,8 @@ import { ModalComponent } from "./utils/modal.component";
 	    //Component
     	AppComponent,
     	HomeComponent,
+		AboutComponent,
+		ContactsComponent,
     	ProjectComponent,
     	ProjectListComponent,
 		NotFoundComponent,
