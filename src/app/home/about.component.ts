@@ -1,8 +1,9 @@
 import {Component} from "@angular/core"
 @Component({
-  templateUrl: "./about.component.html"
+  templateUrl: "./about.component.html",
+   styleUrls: ["./about.component.css"]
 })
 export class AboutComponent{
-    title = 'About Us';
-    saudacao = 'Bem vindo à Base de Dados de Projetos Finais'
+    title = 'Sobre Nós';
+    saudacao = 'Projectary é um website que visa a partilha, submissão e aplicação para projetos finais de curso.'
 }
