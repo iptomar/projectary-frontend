@@ -45,7 +45,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-2">
-                                <button id="btProjListProf{{project.id}}" class="btn btn-primary col-md-12" data-toggle="collapse" [attr.data-target]="'#'+ project.id">Ver mais...</button>
+                                <button id="btProjListProf{{project.id}}" class="btn btn-primary col-md-12" [routerLink]="['/project', project.id]" >Ver mais...</button>
                             </div>
                             <div class="col-md-2" *ngIf="project.approvedin == null">
                                 <button id="btProjListAppl{{project.id}}" class="btn candidatura" type="button" [class.success]="false" (click)="modal.show(project.id)">Fazer Candidatura</button>

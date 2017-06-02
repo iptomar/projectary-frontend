@@ -14,7 +14,6 @@ import { ProjectComponent } from "./projects/project-detail.component";
 import { ProjectListComponent } from "./projects/project-list.component";
 import { NotFoundComponent } from "./notFound/nfound.component";
 import { LoginComponent } from "./menu/login/login.component";
-import { OptionPublicComponent } from "./menu/options/optionPublic.component";
 import { ProjectFormComponent} from "./projects/project-form/project-form.component";
 import { WhoAmIComponent } from "./users/whoami.component";
 import { StudentListComponent } from "./users/student-list.component";
@@ -96,7 +95,6 @@ import { ApplicationService } from "app/applications/application.service";
     	ProjectListComponent,
 		NotFoundComponent,
     	LoginComponent,
-    	OptionPublicComponent,
     	ProjectFormComponent,
 		ProjectApplicationComponent,
 		WhoAmIComponent,

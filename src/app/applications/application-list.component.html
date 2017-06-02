@@ -1,6 +1,13 @@
 <h2>{{title}}</h2>
 <hr>
 <div class="panel panel-default" *ngFor="let application of applications">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-11">
+                <h4>Projeto {{application.projectname}}</h4>
+            </div>
+        </div>
+    </div>
     <div class="panel-body">
         <div class="row">
             <div class="col-md-12" >
@@ -8,25 +15,20 @@
                     <div class="col-md-12">
                         <div class="row">
                             <div class="col-md-9">
-                                <p>Grupo: {{application.group_name}}</p>
+                                <h1>{{application.groupname}}</h1>
                             </div>
                             <div class="col-md-3">
                                 <div class="row">
                                     <p>Submetido: {{application.submitedin | date :  "dd/MM/y" }} </p>           
                                 </div>  
                                 <div class="row">
-                                    <div *ngIf="application.approvedin != null">
+                                    <div *ngIf="application.approvedin != '0000-00-00 00:00:00'">
                                         <p> Estado: <span class="label label-success"> Aprovado </span> </p>                  
                                     </div>
-                                    <div *ngIf="application.approvedin == null">
+                                    <div *ngIf="application.approvedin == '0000-00-00 00:00:00'">
                                         <p> Estado: <span class="label label-warning"> Por Aprovar </span> </p>                  
                                     </div>
                                 </div>         
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-9">
-                                <p>Projeto: {{application.project_name}}</p>
                             </div>
                         </div>
                     </div>

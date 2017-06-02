@@ -26,8 +26,9 @@ export class GroupCreateComponent{
                     setTimeout(() => { myContainer.innerHTML = ''}, 3000)
                     var data = JSON.parse(localStorage.getItem('currentUser'));
                     data.group_id = success.data.id;
-                    data.group_name = this.name;
-                    localStorage.setItem('currentUser', data);
+                    data.group_name = this.name;   
+                    localStorage.setItem('currentUser', JSON.stringify(data));
+                    console.log(JSON.parse(localStorage.getItem('currentUser')));
 
                     this.router.navigate(['home']); },
                 error => {

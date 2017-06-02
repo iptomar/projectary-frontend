@@ -27,7 +27,7 @@ export class GroupJoinComponent{
                     var data = JSON.parse(localStorage.getItem('currentUser'));
                     data.group_id = success.data.id;
                     data.group_name = this.name;
-                    localStorage.setItem('currentUser', data);
+                    localStorage.setItem('currentUser', JSON.stringify(data));
 
                     this.router.navigate(['home']); },
                 error => {

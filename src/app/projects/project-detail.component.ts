@@ -15,7 +15,7 @@ import 'rxjs/add/operator/switchMap';
 export class ProjectComponent implements OnInit {
 
     // Attributes that will be used on views
-    title = 'Perfil de um projeto por atribuir';
+    title = 'Perfil do projeto';
     project: IProject;
     owner: String;
     course: String;
@@ -39,8 +39,12 @@ export class ProjectComponent implements OnInit {
             .subscribe(owner => this.owner = owner);
         if (this.project.groupid != null) {
             this._service.getGroup(this.project.groupid)
-                .subscribe(group => this.group = group);
+                .subscribe(group => {
+                    this.group = group
+                    console.log(this.group)
+                });
             this.isAttributed = true;
+            
         } else {
             console.log("Não está atribuído ainda");
             this.isAttributed = false;

@@ -57,7 +57,7 @@ export class DashboardProjectProfileComponent implements OnInit {
                 let myContainer = <HTMLElement>document.querySelector("#notif");
                 myContainer.innerHTML = '<div class="alert alert-success">Projeto <strong>Atribuido</strong> com Sucesso</div>';
                 setTimeout(() => { myContainer.innerHTML = '' }, 3000)
-                this.router.navigate(['dashboard/projects']);
+                this.router.navigate(['dashboardprojects']);
             });
     }
 }

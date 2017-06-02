@@ -29,7 +29,7 @@ export class ApplicationService {
     }
 
     getUserApplications(): Observable<IApplication[]> {
-        return this._http.get(this.apiURL+`/application/${this.userID}`, this.options)
+        return this._http.get(this.apiURL+`/application/user/${this.userID}`, this.options)
             .map((res: Response) => <IApplication[]> res.json().data);
     }
     
