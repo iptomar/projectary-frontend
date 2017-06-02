@@ -11,13 +11,13 @@ $ npm install
 ```
 
 ## Usage
-We need to start a server running [the API](https://github.com/iptomar/projectary-api). Grab it, install it and run it. If you need to change the IP where the API is located just change the configuration which is located at `src/main.ts`.
+We need to start a server running [the API](https://github.com/iptomar/projectary-api). Grab it, install it and run it. If you need to change the IP where the API is located just change the configuration which is located at `src/main.ts`. You need the API to have communication with the database, the users created by default are described [here](https://github.com/iptomar/projectary-bd#projectary---test-data).
 
 ### Development
-To run our project in development mode do `npm run start`. After that you need to open your browser on the indicated address.
+To run our project in development mode do `npm run start`. After that - it might take a while - you need to open your browser on the indicated address.
 
 ### Production
-To build it you just need to do `npm run build` and it will build the files at `/dist`. Just launch the index.html in your browser.
+To build it you just need to do `npm run build` and it will build the files at `/dist`. Move the `/dist` files to your server, usign nginx move it to `/var/www/html`.
 
 ## Team
 
@@ -26,6 +26,4 @@ To build it you just need to do `npm run build` and it will build the files at `
 | Luis Nunes          |
 | David Bernardo      |
 | Diogo Mendes        |
-| Rui Marques         |  
 | Rui Barcelos        |
-| Florêncio Alexandre |
