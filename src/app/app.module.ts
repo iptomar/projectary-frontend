@@ -46,6 +46,8 @@ import { ProjectApplicationFilterPipe } from "./dashboard/dashProject/dashboard_
 import { GroupFilterPipe } from "./groups/group-filter.pipe"
 import { CommonModule } from "@angular/common";
 import { ModalComponent } from "./utils/modal.component";
+import { ApplicationListComponent } from "app/applications/application-list.component";
+import { ApplicationService } from "app/applications/application.service";
 
 
 
@@ -69,7 +71,8 @@ import { ModalComponent } from "./utils/modal.component";
 		{path: 'projects',component: ProjectListComponent, canActivate: [AuthGuard], data: { roles: ['student','teacher'] } },
 		{path: 'projectform', component: ProjectFormComponent, canActivate: [AuthGuard], data: { roles: ['teacher'] } },
 		{path: 'projectapplication', component: ProjectApplicationComponent/*, canActivate: [AuthGuard], data: { roles: ['student'] }*/ },
-		{path: 'whoami', component: WhoAmIComponent, canActivate: [AuthGuard], data: { roles: ['student','teacher'] }},
+		{path: 'user/profile', component: WhoAmIComponent, canActivate: [AuthGuard], data: { roles: ['student','teacher'] }},
+		{path: 'user/applications', component: ApplicationListComponent, canActivate: [AuthGuard], data: { roles: ['student'] }},
 		{path: 'students', component: StudentListComponent, canActivate: [AuthGuard], data: { roles: ['teacher'] }},
 		{path: 'chpass', component: ChangePasswordComponent, canActivate: [AuthGuard], data: { roles: ['student','teacher'] }},
 		{path: 'signinstudent', component: SignInStudentComponent},
@@ -97,6 +100,7 @@ import { ModalComponent } from "./utils/modal.component";
     	ProjectFormComponent,
 		ProjectApplicationComponent,
 		WhoAmIComponent,
+		ApplicationListComponent,
 		StudentListComponent,
 		SignInStudentComponent,
 		GroupCreateComponent,
@@ -125,7 +129,8 @@ import { ModalComponent } from "./utils/modal.component";
 		GroupService,
 		LoginService,
 		SignInStudentService,
-		DashboardService
+		DashboardService,
+		ApplicationService
   ],
   bootstrap: [ AppComponent ]
 })

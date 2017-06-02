@@ -24,6 +24,11 @@ export class GroupJoinComponent{
                 success => {let myContainer = <HTMLElement> document.querySelector("#notif");
                     myContainer.innerHTML = '<div class="alert alert-success"><strong>Juntou-se</strong> ao grupo com sucesso</div>';
                     setTimeout(() => { myContainer.innerHTML = ''}, 3000)
+                    var data = JSON.parse(localStorage.getItem('currentUser'));
+                    data.group_id = success.data.id;
+                    data.group_name = this.name;
+                    localStorage.setItem('currentUser', data);
+
                     this.router.navigate(['home']); },
                 error => {
                     let myContainer = <HTMLElement> document.querySelector("#notif");

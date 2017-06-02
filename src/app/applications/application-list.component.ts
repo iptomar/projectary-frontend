@@ -19,8 +19,7 @@ export class ApplicationListComponent implements OnInit{
     constructor(private _applicationService : ApplicationService){
     }
 
-    ngOnInit(): void {
-        var data = JSON.parse(localStorage.getItem('currentUser'));    
+    ngOnInit(): void { 
         this._applicationService.getUserApplications()
             .subscribe(applications => this.applications = applications,
                     error => this.errorMessage = <any> error);
