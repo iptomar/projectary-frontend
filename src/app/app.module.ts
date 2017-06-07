@@ -13,6 +13,7 @@ import { AboutComponent } from "./home/about.component";
 import { ProjectComponent } from "./projects/project-detail.component";
 import { ProjectListComponent } from "./projects/project-list.component";
 import { NotFoundComponent } from "./notFound/nfound.component";
+import { RecoveryComponent } from "./recovery/recovery.component";
 import { LoginComponent } from "./menu/login/login.component";
 import { ProjectFormComponent} from "./projects/project-form/project-form.component";
 import { WhoAmIComponent } from "./users/whoami.component";
@@ -37,6 +38,7 @@ import { ProjectApplicationService } from "./projects/project-application/projec
 import { SignInStudentService } from "./signIn/signIn-student.service";
 import { DashboardService } from "./dashboard/dashboard.service";
 import { LoginService } from "./menu/login/login.service";
+import { RecoveryService } from "./recovery/recovery.service";
 //Pipes
 import { ProjectFilterPipe } from "./projects/project-filter.pipe";
 import { StudentFilterPipe } from "./users/student-filter.pipe";
@@ -61,6 +63,7 @@ import { ApplicationService } from "app/applications/application.service";
 		{path: '',component: HomeComponent},
 		{path: 'home',component: HomeComponent},
 		{path: 'about',component: AboutComponent},
+		{path: 'recovery',component: RecoveryComponent},
 		{path: 'contacts',component: ContactsComponent},
 		{path: 'project/:id',component: ProjectComponent, canActivate: [AuthGuard], data: { roles: ['student','teacher'] } },
 		{path: 'dashboard',component: DashboardListUserActiveComponent,canActivate: [AuthGuard], data: { roles: ['teacher'],isadmin:[1] } },
@@ -95,6 +98,7 @@ import { ApplicationService } from "app/applications/application.service";
     	ProjectListComponent,
 		NotFoundComponent,
     	LoginComponent,
+		RecoveryComponent,
     	ProjectFormComponent,
 		ProjectApplicationComponent,
 		WhoAmIComponent,
@@ -125,6 +129,7 @@ import { ApplicationService } from "app/applications/application.service";
       	ProjectFormService,
 		ProjectApplicationService,
 		GroupService,
+		RecoveryService,
 		LoginService,
 		SignInStudentService,
 		DashboardService,

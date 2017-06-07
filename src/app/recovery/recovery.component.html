@@ -1,0 +1,16 @@
+<h2>{{title}}</h2>
+<hr>
+<div class="row">
+    <div class="col-md-10">
+        <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+            <div class="form-group input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input type="text" #email class="form-control" id="tfLogUserName" placeholder="Username" name="username"
+                    required>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-2">
+        <button (click)="onRecPost(email.value)" class="btn btn-danger"> Recuperar Password </button>
+    </div>
+</div>
