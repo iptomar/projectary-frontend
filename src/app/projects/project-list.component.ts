@@ -23,13 +23,13 @@ export class ProjectListComponent implements OnInit{
     success: boolean= false;
     title = 'Projetos Públicos';
     error: boolean=false;
-
+    user_data:any;
     constructor(private _projectService : ProjectService, private renderer:Renderer){
     }
 
     ngOnInit(): void {
-        var data = JSON.parse(localStorage.getItem('currentUser'));    
-        this.group = new Group(data.group_id, data.group_name);
+        this.user_data = JSON.parse(localStorage.getItem('currentUser'));    
+        this.group = new Group(this.user_data.group_id, this.user_data.group_name);
 
         this._projectService.getProjects()
             .subscribe(projects => this.projects = projects,

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from "@angular/router";
+import { CommonModule } from "@angular/common";
 import 'zone.js';
 import 'reflect-metadata';
 //Component
@@ -29,6 +30,10 @@ import { DashboardListUserActiveComponent  } from "./dashboard/dashActUser/dashb
 import { DashboardListUserBlockComponent } from "./dashboard/dashBlckUser/dashboard_user_block_list.component";
 import { DashboardProjectListComponent  } from "./dashboard/dashProject/dashboard_project_list.component";
 import { DashboardProjectProfileComponent  } from "./dashboard/dashProject/dashboard_project_profile.component";
+import { ProjectFinalizeComponent } from "./projects/project-finalize.component";
+
+import { ApplicationListComponent } from "app/applications/application-list.component";
+import { ModalComponent } from "./utils/modal.component";
 //Service
 import { StudentService } from "./users/users.service";
 import { ProjectFormService } from "./projects/project-form/project-form.service";
@@ -39,17 +44,15 @@ import { SignInStudentService } from "./signIn/signIn-student.service";
 import { DashboardService } from "./dashboard/dashboard.service";
 import { LoginService } from "./menu/login/login.service";
 import { RecoveryService } from "./recovery/recovery.service";
+import { ApplicationService } from "app/applications/application.service";
 //Pipes
 import { ProjectFilterPipe } from "./projects/project-filter.pipe";
 import { StudentFilterPipe } from "./users/student-filter.pipe";
 import { AuthGuard } from "./auth.guard";
 import { ProjectApplicationFilterPipe } from "./dashboard/dashProject/dashboard_project_list.pipe";
 import { GroupFilterPipe } from "./groups/group-filter.pipe"
-import { CommonModule } from "@angular/common";
-import { ModalComponent } from "./utils/modal.component";
-import { ApplicationListComponent } from "app/applications/application-list.component";
-import { ApplicationService } from "app/applications/application.service";
-
+import { UserProfileEditComponent } from "app/users/profile-edit.component";
+import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
 
 
 @NgModule({
@@ -58,7 +61,6 @@ import { ApplicationService } from "app/applications/application.service";
     FormsModule,
     HttpModule,
 	CommonModule, 
-	 
 	RouterModule.forRoot([
 		{path: '',component: HomeComponent},
 		{path: 'home',component: HomeComponent},
@@ -66,6 +68,7 @@ import { ApplicationService } from "app/applications/application.service";
 		{path: 'recovery',component: RecoveryComponent},
 		{path: 'contacts',component: ContactsComponent},
 		{path: 'project/:id',component: ProjectComponent, canActivate: [AuthGuard], data: { roles: ['student','teacher'] } },
+		{path: 'project/:id/finalize',component: ProjectFinalizeComponent, canActivate: [AuthGuard], data: { roles: ['teacher'] } },
 		{path: 'dashboard',component: DashboardListUserActiveComponent,canActivate: [AuthGuard], data: { roles: ['teacher'],isadmin:[1] } },
 		{path: 'dashboardusrblklist',component: DashboardListUserBlockComponent,canActivate: [AuthGuard], data: { roles: ['teacher'],isadmin:[1] } },
 		{path: 'dashboardprojects',component: DashboardProjectListComponent, canActivate: [AuthGuard], data: { roles: ['teacher']}},
@@ -74,6 +77,7 @@ import { ApplicationService } from "app/applications/application.service";
 		{path: 'projectform', component: ProjectFormComponent, canActivate: [AuthGuard], data: { roles: ['teacher'] } },
 		{path: 'projectapplication', component: ProjectApplicationComponent/*, canActivate: [AuthGuard], data: { roles: ['student'] }*/ },
 		{path: 'user/profile', component: WhoAmIComponent, canActivate: [AuthGuard], data: { roles: ['student','teacher'] }},
+		{path: 'user/profile/edit', component: UserProfileEditComponent, canActivate: [AuthGuard], data: { roles: ['student','teacher'] }},
 		{path: 'user/applications', component: ApplicationListComponent, canActivate: [AuthGuard], data: { roles: ['student'] }},
 		{path: 'students', component: StudentListComponent, canActivate: [AuthGuard], data: { roles: ['teacher'] }},
 		{path: 'chpass', component: ChangePasswordComponent, canActivate: [AuthGuard], data: { roles: ['student','teacher'] }},
@@ -115,11 +119,15 @@ import { ApplicationService } from "app/applications/application.service";
 		DashboardProjectProfileComponent,
 		ChangePasswordComponent,
 		ModalComponent,
+		UserProfileEditComponent,
+		ProjectFinalizeComponent,
       	//Pipe
 		ProjectFilterPipe,
 		StudentFilterPipe,
 		ProjectApplicationFilterPipe,
-		GroupFilterPipe
+		GroupFilterPipe, 
+		
+		FileSelectDirective
   ],
   providers: [
 	  	AuthGuard,

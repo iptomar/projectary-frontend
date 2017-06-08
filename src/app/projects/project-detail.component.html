@@ -29,4 +29,8 @@
         </div>
     </div>
 </div>
+<div *ngIf="project?.approvedin != null">
+    <button id="project_finalize" (click)="finalizeProject(project.groupid)" class="btn btn-success pull-right ">Finalizar Projeto</button>
+</div>
+<button id="toProjectList" (click)="cancel()" class="btn btn-default pull-right backbutton">Voltar atrás</button>
 <br><br>

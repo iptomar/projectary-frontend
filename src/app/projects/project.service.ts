@@ -49,6 +49,13 @@ export class ProjectService {
             .map((response: Response) => <IGroupProfile>response.json().data)
             .catch(this.handleError);
     }
+    
+    async getGroupAsync(id: number): Promise<IGroupProfile> {
+        let res = await this._http
+            .get(this.apiURL + `/group/${id}`, this.options)
+            .toPromise();
+        return res.json().data as IGroupProfile;
+    }
 
      getCourse(id:number): Observable<String>{
         return this._http

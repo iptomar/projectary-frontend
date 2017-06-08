@@ -25,6 +25,42 @@ export class StudentService {
     }
     apiURL = API.url;
 
+
+
+    postPhoto (postData: any, files: File[]) {
+
+        let headers = new Headers();
+        let formData:FormData = new FormData();
+        formData.append('files', files[0], files[0].name);
+
+        if(postData !=="" && postData !== undefined && postData !==null){
+        for (var property in postData) {
+            if (postData.hasOwnProperty(property)) {
+                formData.append(property, postData[property]);
+            }
+        }
+        }
+        var returnReponse = new Promise((resolve, reject) => {
+        this._http.post(this.apiURL+'/photo', formData, {
+            headers: headers
+        }).subscribe(
+            res => {
+                // this.responseData = res.json();
+                // resolve(this.responseData);
+            },
+            error => {
+                //reject(error);
+            }
+        );
+        });
+        return returnReponse;
+    }
+    getPhoto(id: number) {
+        return this._http
+            .get(this.apiURL+`/photo/${id}`, this.options)
+            .map((res: Response) => res.json().data)
+            .catch(this.handleError);
+    }
     getStudent(id: number): Observable<IStudent> {
         return this._http
             .get(this.apiURL+`/user/${id}`, this.options)

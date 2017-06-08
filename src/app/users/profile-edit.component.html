@@ -1,0 +1,130 @@
+<div class="container">
+  <h1>{{title}}</h1>
+  <hr>
+  <div class="container">
+    <div class="row profile">
+      <div class="col-md-3">
+        <div class="profile-sidebar">
+          <!-- SIDEBAR USERPIC -->
+          <div class="profile-userpic">
+            <img src="http://keenthemes.com/preview/metronic/theme/assets/admin/pages/media/profile/profile_user.jpg" class="img-responsive"
+              alt="">
+          </div>
+          <!-- END SIDEBAR USERPIC -->
+          <!-- SIDEBAR USER TITLE -->
+          <div class="profile-usertitle">
+            <div class="profile-usertitle-name">
+              Marcus Doe
+            </div>
+            <div class="profile-usertitle-job">
+              Developer
+            </div>
+          </div>
+          <!-- END SIDEBAR USER TITLE -->
+          <!-- SIDEBAR BUTTONS -->
+          <div class="profile-userbuttons">
+            <button type="button" class="btn btn-success btn-sm">Follow</button>
+            <button type="button" class="btn btn-danger btn-sm">Message</button>
+          </div>
+          <!-- END SIDEBAR BUTTONS -->
+          <!-- SIDEBAR MENU -->
+          <div class="profile-usermenu">
+            <ul class="nav">
+              <li class="active">
+                <a href="#">
+                  <i class="glyphicon glyphicon-home"></i> Overview </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="glyphicon glyphicon-user"></i> Account Settings </a>
+              </li>
+              <li>
+                <a href="#" target="_blank">
+                  <i class="glyphicon glyphicon-ok"></i> Tasks </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="glyphicon glyphicon-flag"></i> Help </a>
+              </li>
+            </ul>
+          </div>
+          <!-- END MENU -->
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="profile-content">
+          <div class="row">
+            <!-- left column https://github.com/valor-software/ng2-file-upload -->
+            <div class="col-md-3">
+              <div class="text-center">
+                <img src="#" class="avatar img-circle" alt="avatar">
+                <div class="col-md-10">
+                  <form>
+                    <div class="form-group">
+                      <input type="file" class="form-control" name="single" ng2FileSelect [uploader]="uploader" />
+                    </div>
+                  </form>
+
+                  <div *ngFor="let item of uploader.queue" class="row">
+                    <p><strong>Nome: {{ item?.file?.name }}</strong></p>
+                    <div>
+                      Upload progress:
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
+                      </div>
+                    </div>
+                    <div class="text-center">
+                      <span *ngIf="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+                      <span *ngIf="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+                    </div>
+                    <button type="button" class="btn btn-success btn-xs" (click)="item.upload()" [disabled]="item.isReady || item.isUploading || item.isSuccess">
+                    <span class="glyphicon glyphicon-upload"></span> Upload
+                    </button>
+                  </div>
+
+                  <!--<input type="file" class="file" name="userPhoto" accept="image/*"/>
+              <input type="submit" class="btn btn-primary" value="Enviar">-->
+                </div>
+              </div>
+            </div>
+
+            <!-- edit form column -->
+            <div class="col-md-9">
+              <h3>Informação pessoal</h3>
+
+              <form class="form-horizontal" role="form">
+                <div class="form-group">
+                  <label class="col-lg-3 control-label">Primeiro nome:</label>
+                  <div class="col-lg-8">
+                    <input class="form-control" type="text" value="Jane">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-lg-3 control-label">Último nome:</label>
+                  <div class="col-lg-8">
+                    <input class="form-control" type="text" value="Bishop">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-lg-3 control-label">Número de telefone:</label>
+                  <div class="col-lg-8">
+                    <input class="form-control" type="text" value="janesemail@gmail.com">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-md-3 control-label"></label>
+                  <div class="col-md-8">
+                    <input type="button" class="btn btn-primary" value="Save Changes">
+                    <span></span>
+                    <input type="reset" class="btn btn-default" value="Cancel">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
