@@ -75,7 +75,7 @@ export class HomeComponent{
                 ctx.lineWidth = 50;
                 ctx.strokeStyle = fill[i].color;
                 ctx.beginPath();
-                ctx.arc(xC, yC, r, pointer, pointer + fillRate);
+                ctx.arc(xC, yC, r, pointer, pointer + fillRate + (fillRate/2));
                 ctx.stroke();
                 pointer += fillRate;
                 i++;
