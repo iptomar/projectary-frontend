@@ -1,0 +1,50 @@
+<div class="container">
+  <h1>{{title}}</h1>
+  <hr>
+  <div class="container">
+    <div class="row profile">
+      <div class="col-md-3">
+        <div class="profile-sidebar">
+          <!-- SIDEBAR USERPIC -->
+          <div class="profile-userpic">
+            <img src="http://localhost:8080/photo/{{user?.id}}" class="img-responsive" alt="">
+          </div>
+          <!-- END SIDEBAR USERPIC -->
+          <!-- SIDEBAR USER TITLE -->
+          <div class="profile-usertitle">
+            <div class="profile-usertitle-name">
+              {{user?.name}}
+            </div>
+            <div class="profile-usertitle-job">
+              {{user?.email}}
+            </div>
+          </div>
+          <!-- END SIDEBAR USER TITLE -->
+          <!-- SIDEBAR MENU -->
+          <div class="profile-usermenu">
+            <ul class="nav">
+              <li class="active">
+                <a [routerLink]="['/user/profile/edit', { outlets: {'profile-edit':['home']}}]">
+                  <i class="glyphicon glyphicon-home"></i> Editar Perfil </a>
+              </li>
+              <li>
+                <a>
+                  <i class="glyphicon glyphicon-user"></i> Mudar a Password </a>
+              </li>
+              <li>
+                <a [routerLink]="['/user/profile/edit', { outlets: {'profile-edit':['image']}}]">
+                  <i class="glyphicon glyphicon-ok"></i> Mudar imagem de perfil </a>
+              </li>
+            </ul>
+          </div>
+          <!-- END MENU -->
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="profile-content">
+          <router-outlet name='profile-edit'></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

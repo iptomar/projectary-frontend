@@ -1,0 +1,49 @@
+<div class="col-md-8">
+    <div class="text-center">
+        <h2 class="pull-left">Mudar imagem de perfil</h2>
+        <div class="panel-body col-md-12">
+            <form>
+                <div class="form-group" >
+                    <label style="display:inline-block;">Imagem: </label>
+                    <input type="file" class="form-control" style="display:inline-block;" name="photo" ng2FileSelect [uploader]="uploader" class="width:100px;" />
+                </div>
+            </form>
+            <div *ngFor="let item of uploader.queue" class="row">
+                <div class="row">
+                    <div class="col align-self-start">
+                        <p><b>Nome: {{ item?.file?.name }}</b></p>
+                        <p nowrap><b> Tamanho:</b> {{ item?.file?.size/1024/1024 | number:'.2' }} MB</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10">
+                        <div style="display:inline-block;"> <b>Progresso:</b> </div>
+                        <div class="progress">           
+                            <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="text-center">
+                            <span *ngIf="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+                            <span *ngIf="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col align-self-end">
+                        <button type="button" class="btn btn-success" (click)="item.upload()" [disabled]="item.isReady || item.isUploading || item.isSuccess">
+                            <span class="glyphicon glyphicon-upload"></span> Upload
+                        </button>
+                        <button id="toProfileEdit1" (click)="cancel()" class="btn btn-default pull-right backbutton" [disabled]="item.isReady || item.isUploading">
+                            Voltar atrás
+                        </button>
+                    </div>
+                </div>
+                <br><br>
+                <div *ngIf="item.isSuccess" class="alert alert-success">
+                    <p>A Imagem foi substituída com sucesso!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

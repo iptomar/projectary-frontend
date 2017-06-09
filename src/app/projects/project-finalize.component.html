@@ -1,0 +1,30 @@
+<h1>{{title}}</h1>
+<hr>
+<form>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2>{{group?.name}}</h2>
+        </div>
+        <div class="panel-body">
+            <div *ngFor="let user of group?.team; let i = index " style="vertical-align: middle; padding-top: 1%;">
+                <div class="row">
+                    <div class="col-md-6" >
+                        <p style="padding-left: 20%;"><b>{{user?.name}}</b></p>
+                    </div>
+                    <div class="col-md-6" style="display: flex;">
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <label for="grade{{user?.id}}">Nota Final: </label>
+                            </div>
+                            <div class="col-md-3" >
+                                <input type="text" [(ngModel)]="form.members[i].member_grade" name="grade{{i}}" id="grade{{user?.id}}" placeholder="0-20" class="form-control" required>
+                            </div>                  
+                        </div>
+                    </div>
+                </div>           
+            </div>
+        </div>
+    </div>
+    <button type="submit" id="submit_project_finalize" (click)="submitFinalizeProject()" class="btn btn-success pull-right">Submeter</button>
+    <button id="toProjectDetails" (click)="cancel()" class="btn btn-default pull-right backbutton">Voltar atrás</button>
+</form>

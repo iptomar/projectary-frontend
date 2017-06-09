@@ -2,11 +2,13 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
+import { ProjectFinalizeComponent } from "app/projects/project-finalize.component";
 import { ProjectService } from './project.service';
 import { IProject } from './project';
 import { IGroupProfile } from '../groups/group';
 
 import 'rxjs/add/operator/switchMap';
+
 
 @Component({
     templateUrl: "./project-detail.component.html"
@@ -17,6 +19,7 @@ export class ProjectComponent implements OnInit {
     // Attributes that will be used on views
     title = 'Perfil do projeto';
     project: IProject;
+
     owner: String;
     course: String;
     group: IGroupProfile;
@@ -25,7 +28,8 @@ export class ProjectComponent implements OnInit {
     constructor(
         private _service: ProjectService,
         private _route: ActivatedRoute,
-        private router: Router
+        private router: Router,
+        private location: Location
     ) { }
 
     // Method that is called on initialization of the page
@@ -49,5 +53,12 @@ export class ProjectComponent implements OnInit {
             console.log("Não está atribuído ainda");
             this.isAttributed = false;
         }
+    }
+    cancel() {
+        this.location.back();
+    }
+    
+    finalizeProject(id: string){
+        this.router.navigate(['/project/',id,'finalize']);
     }
 }

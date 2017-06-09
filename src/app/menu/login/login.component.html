@@ -31,7 +31,7 @@
 								<input type="password" class="form-control" id="tfLogUserPass" placeholder="Password" [(ngModel)]="password" name="password"
 								 required>
 							</div>
-							<div class="help-block text-right"><a href="">Esqueceu-se da Password?</a></div>
+							<div class="help-block text-right"><a routerLink="recovery" routerLinkActive="active">Esqueceu-se da Password?</a></div>
 
 							<div *ngIf="error==true" class="alert alert-danger">
 								<p>Dados incorrectos</p>
@@ -72,9 +72,6 @@
 						<div class="row">
 							<div class="col-md-12">
 								<a id="rlgroupjoin" routerLink="user/profile" routerLinkActive="active">Ver Perfil</a>
-							</div>
-							<div class="col-md-12">
-								<a class="">Alterar Perfil</a>
 							</div>
 							<div *ngIf="role=='student'" class="col-md-12">
 								<a id="myApplications" routerLink="user/applications" routerLinkActive="active">Candidaturas</a>

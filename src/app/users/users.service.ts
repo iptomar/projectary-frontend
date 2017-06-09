@@ -15,6 +15,7 @@ export class StudentService {
 
     headers: Headers;
     options: RequestOptions;
+    apiURL = API.url;
 
     constructor(private _http: Http) { 
         let user_data = <ILogin> JSON.parse(localStorage.getItem('currentUser'));
@@ -23,7 +24,6 @@ export class StudentService {
         this.headers.append("Authorization", "Basic " + btoa(user_data.username + ":" + user_data.password));
         this.options = new RequestOptions({ headers: this.headers });
     }
-    apiURL = API.url;
 
     getStudent(id: number): Observable<IStudent> {
         return this._http

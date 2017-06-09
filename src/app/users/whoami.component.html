@@ -4,10 +4,10 @@
     <div class="panel-heading">
         <div class="row">
             <div class="col-md-10">
-                My Profile
+                Perfil
             </div>
             <div class="col-md-2">
-                <button id="btStudentProfEdit" class="btn btn-default pull-right" type="submit">Edit Profile</button>
+                <button id="btStudentProfEdit" class="btn btn-default pull-right" type="submit" [routerLink]="['/user/profile/edit', { outlets: {'profile-edit':['home']}}]">Alterar Perfil</button>
             </div>
         </div>
     </div>
@@ -15,7 +15,7 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-md-3">
-                <img class="img-rounded" src="https://placehold.it/250x350?text=IMAGE" style="width:100%; max-width: 270px; min-width: 150px;" alt="Image">
+                <img class="img-rounded" src="http://localhost:8080/photo/{{student?.id}}" style="width:100%; max-width: 270px; min-width: 150px;" alt="Image">
             </div>
             <div class="col-md-9">
                 <div class="row">
@@ -48,7 +48,7 @@
                 <div class="row">
                     <!-- COURSE -->
                     <div class="col-md-2 col-sm-4 col-xs-12">
-                        <h4><small>Numero de Telefone</small></h4>
+                        <h4><small>Número de Telefone</small></h4>
                     </div>
                     <div class="col-md-10 col-sm-8 col-xs-12">
                         <h4>{{student?.phonenumber}}</h4>
