@@ -43,6 +43,7 @@ import { ProjectApplicationService } from "./projects/project-application/projec
 import { SignInStudentService } from "./signIn/signIn-student.service";
 import { DashboardService } from "./dashboard/dashboard.service";
 import { LoginService } from "./menu/login/login.service";
+import { HomeService } from "./home/home.service";
 import { RecoveryService } from "./recovery/recovery.service";
 import { ApplicationService } from "app/applications/application.service";
 //Pipes
@@ -157,7 +158,8 @@ import { ProfileEditImageComponent } from "app/users/profile-edit-image.componen
 		LoginService,
 		SignInStudentService,
 		DashboardService,
-		ApplicationService
+		ApplicationService,
+		HomeService
   ],
   bootstrap: [ AppComponent ]
 })
