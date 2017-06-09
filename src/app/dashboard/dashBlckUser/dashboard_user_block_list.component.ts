@@ -36,8 +36,11 @@ export class DashboardListUserBlockComponent{
             .subscribe(
                 data => this.putData = data,
                 error =>{
+                    var erro = JSON.parse(error._body);
+                    var message = JSON.stringify(erro.message);
+                    //console.log(error);
                     let myContainer = <HTMLElement> document.querySelector("#notif");
-                    myContainer.innerHTML = '<div class="alert alert-danger"><strong>Erro</strong> no bloqueio do utilizador</div>';
+                    myContainer.innerHTML = '<div class="alert alert-danger">'+message+'</div>';
                     setTimeout(() => { myContainer.innerHTML = ''}, 3000)
                 },
                 () => console.log("Finished")

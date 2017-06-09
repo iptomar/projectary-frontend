@@ -60,8 +60,11 @@ export class SignInStudentComponent implements OnInit {
             .subscribe(
                 data => this.postData = data,
                 error =>{
+                    var erro = JSON.parse(error._body);
+                    var message = JSON.stringify(erro.message);
+                    //console.log(error);
                     let myContainer = <HTMLElement> document.querySelector("#notif");
-                    myContainer.innerHTML = '<div class="alert alert-danger"><strong>Erro</strong> no Registo</div>';
+                    myContainer.innerHTML = '<div class="alert alert-danger">'+message+'</div>';
                     setTimeout(() => { myContainer.innerHTML = ''}, 3000)
                 },
                 () => {
