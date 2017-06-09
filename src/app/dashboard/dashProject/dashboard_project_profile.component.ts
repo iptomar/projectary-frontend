@@ -50,8 +50,11 @@ export class DashboardProjectProfileComponent implements OnInit {
             .postAcceptGroup(this.groupIdToAssign, this.project.id)
             .subscribe(success => { },
             error => {
+                var erro = JSON.parse(error._body);
+                var message = JSON.stringify(erro.message);
+                //console.log(error);
                 let myContainer = <HTMLElement>document.querySelector("#notif");
-                myContainer.innerHTML = '<div class="alert alert-danger"><strong>Erro</strong> na atribuição do Projeto</div></div>';
+                myContainer.innerHTML = '<div class="alert alert-danger">'+message+'</div>';
                 setTimeout(() => { myContainer.innerHTML = '' }, 3000)
             }, () => {
                 let myContainer = <HTMLElement>document.querySelector("#notif");

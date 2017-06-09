@@ -32,8 +32,11 @@ export class GroupCreateComponent{
 
                     this.router.navigate(['home']); },
                 error => {
+                    var erro = JSON.parse(error._body);
+                    var message = JSON.stringify(erro.message);
+                    //console.log(error);
                     let myContainer = <HTMLElement> document.querySelector("#notif");
-                    myContainer.innerHTML = '<div class="alert alert-danger"><strong>Erro</strong> na criação do grupo</div>';
+                    myContainer.innerHTML = '<div class="alert alert-danger">'+message+'</div>';
                     setTimeout(() => { myContainer.innerHTML = ''}, 3000)
                 },          
                 () => console.log("Finished") );
