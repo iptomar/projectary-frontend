@@ -7,7 +7,7 @@
                 Perfil
             </div>
             <div class="col-md-2">
-                <button id="btStudentProfEdit" class="btn btn-default pull-right" type="submit" routerLink="/user/profile/edit">Alterar Perfil</button>
+                <button id="btStudentProfEdit" class="btn btn-default pull-right" type="submit" [routerLink]="['/user/profile/edit', { outlets: {'profile-edit':['home']}}]">Alterar Perfil</button>
             </div>
         </div>
     </div>
@@ -15,7 +15,7 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-md-3">
-                <img class="img-rounded" src="https://placehold.it/250x350?text=IMAGE" style="width:100%; max-width: 270px; min-width: 150px;" alt="Image">
+                <img class="img-rounded" src="http://localhost:8080/photo/{{student?.id}}" style="width:100%; max-width: 270px; min-width: 150px;" alt="Image">
             </div>
             <div class="col-md-9">
                 <div class="row">

@@ -12,6 +12,7 @@ export class ProjectFinalizeComponent implements OnInit {
   title: string = "Finalizar Projeto";
   group: IGroupProfile;
   form: ProjectFinalize;
+  receivedData: string;
 
   constructor(
     private _service: ProjectService,
@@ -37,7 +38,22 @@ export class ProjectFinalizeComponent implements OnInit {
   submitFinalizeProject(){
     this.form.project_id = +this.group.project.id;
     this.form.group_id = +this.group.id;
-    console.log(this.form);
+    this._service.postProjectFinalize(this.form)
+            .subscribe(
+                data => this.receivedData = data,
+                error =>{
+                    let myContainer = <HTMLElement> document.querySelector("#notif");
+                    myContainer.innerHTML = '<div class="alert alert-danger"><strong>Erro</strong> na finalizado do Projeto</div></div>';
+                    setTimeout(() => { myContainer.innerHTML = ''}, 3000)
+                },
+                () => {
+                    let myContainer = <HTMLElement> document.querySelector("#notif");
+                    myContainer.innerHTML = '<div class="alert alert-success">Projeto <strong>Finalizado</strong> com Sucesso</div>';
+                    setTimeout(() => { myContainer.innerHTML = ''}, 3000)
+                    this.router.navigate(['/projects']);
+                }
+            );
+    
   }
 
 

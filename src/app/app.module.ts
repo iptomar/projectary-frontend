@@ -53,6 +53,8 @@ import { ProjectApplicationFilterPipe } from "./dashboard/dashProject/dashboard_
 import { GroupFilterPipe } from "./groups/group-filter.pipe"
 import { UserProfileEditComponent } from "app/users/profile-edit.component";
 import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
+import { ProfileEditDataComponent } from "app/users/profile-edit-userdata.component";
+import { ProfileEditImageComponent } from "app/users/profile-edit-image.component";
 
 
 @NgModule({
@@ -77,7 +79,19 @@ import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
 		{path: 'projectform', component: ProjectFormComponent, canActivate: [AuthGuard], data: { roles: ['teacher'] } },
 		{path: 'projectapplication', component: ProjectApplicationComponent/*, canActivate: [AuthGuard], data: { roles: ['student'] }*/ },
 		{path: 'user/profile', component: WhoAmIComponent, canActivate: [AuthGuard], data: { roles: ['student','teacher'] }},
-		{path: 'user/profile/edit', component: UserProfileEditComponent, canActivate: [AuthGuard], data: { roles: ['student','teacher'] }},
+		{path: 'user/profile/edit', component: UserProfileEditComponent, canActivate: [AuthGuard], data: { roles: ['student','teacher'],},
+			children: [
+			{
+				path: 'home',
+				component: ProfileEditDataComponent,
+				outlet: 'profile-edit'
+			},
+			{
+				path: 'image',
+				component: ProfileEditImageComponent,
+				outlet: 'profile-edit'
+			}
+		]},		
 		{path: 'user/applications', component: ApplicationListComponent, canActivate: [AuthGuard], data: { roles: ['student'] }},
 		{path: 'students', component: StudentListComponent, canActivate: [AuthGuard], data: { roles: ['teacher'] }},
 		{path: 'chpass', component: ChangePasswordComponent, canActivate: [AuthGuard], data: { roles: ['student','teacher'] }},
@@ -86,7 +100,7 @@ import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
 		{path: 'group/join', component: GroupJoinComponent, canActivate: [AuthGuard], data: { roles: ['student']}},
 		{path: 'group/list', component: GroupListComponent, canActivate: [AuthGuard], data: { roles: ['teacher']}},
 		{path: 'group/profile/:id', component: GroupProfileComponent, canActivate: [AuthGuard], data: { roles: ['teacher']}},
-		{path: '**' ,component: NotFoundComponent},
+		{path: '**' ,component: NotFoundComponent}		
     ])
   ], 
   exports: [ 
@@ -121,6 +135,8 @@ import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
 		ModalComponent,
 		UserProfileEditComponent,
 		ProjectFinalizeComponent,
+		ProfileEditDataComponent,
+		ProfileEditImageComponent,
       	//Pipe
 		ProjectFilterPipe,
 		StudentFilterPipe,

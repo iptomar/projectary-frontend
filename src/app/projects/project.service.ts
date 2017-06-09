@@ -7,7 +7,7 @@ import "rxjs/add/operator/map";
 import "rxjs/add/operator/do";
 import "rxjs/add/operator/catch";
 
-import { IProject } from "./project";
+import { IProject, ProjectFinalize } from "./project";
 import { ILogin } from "../menu/login/login";
 import { API } from '../../main';
 import { IGroupProfile } from '../groups/group';
@@ -73,6 +73,10 @@ export class ProjectService {
 
     postApplication(project_id: number, group_id: number) {
         return this._http.post(this.apiURL+'/application', JSON.stringify({"projectid":project_id,"groupid":group_id}), this.options)
+            .map(res => res.json());
+    }
+    postProjectFinalize(data: ProjectFinalize) {
+        return this._http.post(this.apiURL+'/project/finished', JSON.stringify(data), this.options)
             .map(res => res.json());
     }
     
