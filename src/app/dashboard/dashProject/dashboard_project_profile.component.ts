@@ -32,7 +32,7 @@ export class DashboardProjectProfileComponent implements OnInit {
     async ngOnInit() {
         let id = +this._route.snapshot.params['id'];
         this.project = await this._service.getProject(id);
-
+        console.log(this.project);
         this._service.getCourse(this.project.courseid)
             .subscribe(course => this.course = course);
         this._service.getOwner(this.project.userid)

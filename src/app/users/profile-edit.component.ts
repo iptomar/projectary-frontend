@@ -12,8 +12,7 @@ import { Http, Response } from '@angular/http';
 
 @Component({
     templateUrl: "./profile-edit.component.html",
-    styleUrls: ["./profile-edit.component.css"],
-    providers: [StudentService]
+    styleUrls: ["./profile-edit.component.css"]
 })
 
 export class UserProfileEditComponent implements OnInit {

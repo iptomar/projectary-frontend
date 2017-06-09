@@ -30,6 +30,7 @@ export class ProfileEditDataComponent implements OnInit {
             .subscribe(
                 student => {
                     this.user = student;
+                    console.log(student);
                 }, error => console.log("Impossível carregar perfil do estudante ")
             );
     }

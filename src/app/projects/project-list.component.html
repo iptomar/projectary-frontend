@@ -20,27 +20,20 @@
                         <div class="row">
                             <div class="col-md-9">
                                 <h2>{{project.name}}</h2>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="col-md-6">
-                                    Lançamento:
-                                </div>
-                                <div class="col-md-6">
-                                    <span class="label label-primary col-md-12">{{project.created | date :  "dd/MM/y" }}</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-9">
+                                <br> 
                                 <p>Ano Letivo: {{project.year-1}} / {{project.year}}</p>
                             </div>
-                            <div *ngIf="project.approvedin != null" class="col-md-3">
-                                <div class="col-md-6">
-                                    Atribuição:
+                            <div class="col-md-3">
+                                <br>
+                                <div class="row">
+                                    <p>Submetido: <span class="label label-success">{{project.created | date :  "dd/MM/y" }}</span> </p>           
+                                </div>  
+                                <div class="row" *ngIf="project.approvedin != null" >
+                                    <p>Atribuído: <span class="label label-danger">{{project.approvedin | date:  "dd/MM/y" }}</span> </p>                                             
                                 </div>
-                                <div class="col-md-6">
-                                    <span class="label label-danger col-md-12">{{project.approvedin | date:  "dd/MM/y" }}</span>
-                                </div>
+                                <div class="row" *ngIf="project.finished == 1">
+                                    <p>Finalizado: <span class="label label-warning"> {{project.finishedin | date:  "dd/MM/y" }} </span> </p>                  
+                                </div>         
                             </div>
                         </div>
                         <div class="row">
