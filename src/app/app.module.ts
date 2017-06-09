@@ -37,6 +37,7 @@ import { ProjectApplicationService } from "./projects/project-application/projec
 import { SignInStudentService } from "./signIn/signIn-student.service";
 import { DashboardService } from "./dashboard/dashboard.service";
 import { LoginService } from "./menu/login/login.service";
+import { HomeService } from "./home/home.service";
 //Pipes
 import { ProjectFilterPipe } from "./projects/project-filter.pipe";
 import { StudentFilterPipe } from "./users/student-filter.pipe";
@@ -56,7 +57,6 @@ import { ApplicationService } from "app/applications/application.service";
     FormsModule,
     HttpModule,
 	CommonModule, 
-	 
 	RouterModule.forRoot([
 		{path: '',component: HomeComponent},
 		{path: 'home',component: HomeComponent},
@@ -128,7 +128,8 @@ import { ApplicationService } from "app/applications/application.service";
 		LoginService,
 		SignInStudentService,
 		DashboardService,
-		ApplicationService
+		ApplicationService,
+		HomeService
   ],
   bootstrap: [ AppComponent ]
 })
