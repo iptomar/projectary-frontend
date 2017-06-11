@@ -13,10 +13,10 @@ export class GroupCreateComponent {
     // Attributes that will be used on views
     title = 'Criar Grupo';
 
-    constructor(private _service: GroupService, private router: Router) { }
+    constructor(private _httpService: GroupService, private router: Router) { }
 
     create(name: string, password: string) {
-        this._service.postGroup(name, password).subscribe(
+        this._httpService.postGroup(name, password).subscribe(
             success => {
                 let myContainer = <HTMLElement>document.querySelector("#notif");
                 myContainer.innerHTML = '<div class="alert alert-success">Grupo <strong>criado</strong> com sucesso</div>';
@@ -28,10 +28,8 @@ export class GroupCreateComponent {
                 this.router.navigate(['home']);
             },
             error => {
-                var erro = JSON.parse(error._body);
-                var message = JSON.stringify(erro.message);
                 let myContainer = <HTMLElement>document.querySelector("#notif");
-                myContainer.innerHTML = '<div class="alert alert-danger">' + message + '</div>';
+                myContainer.innerHTML = '<div class="alert alert-danger">' + error + '</div>';
                 setTimeout(() => { myContainer.innerHTML = '' }, 3000)
             }
         );
