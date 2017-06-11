@@ -22,16 +22,22 @@
 .login-dp .form-group {
     margin-bottom: 10px;
 }
+
+.login-dp #btUserLogout {
+  cursor: pointer;
+}
+
 @media(max-width:768px){
     .login-dp{
         background-color: inherit;
-        
+        min-width: 0px;
     }
     .login-dp .bottom{
         background-color: inherit;
         border-top:0 none;
     }
 }
+
 
 .loading {
   position: absolute;

@@ -5,10 +5,16 @@
         <div class="col-md-10">
             <div class="form-group input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                <input type="email" class="form-control" id="tfLogUserName" placeholder="Email"
-                name="email" [(ngModel)]="f.email" #email="ngModel" email required>
+                <input type="email" class="form-control" id="tfLogUserName" placeholder="Email" name="email" [(ngModel)]="f.email" #email="ngModel"
+                    email required>
+                <div class="has-error" *ngIf="email.invalid && email.dirty">
+                    <span *ngIf="email.invalid && email.dirty" class="glyphicon form-control-feedback glyphicon-remove" aria-hidden="true"></span>
+                </div>
+                <div class="has-success" *ngIf="email.valid && email.dirty">
+                    <span class="glyphicon form-control-feedback glyphicon-ok" aria-hidden="true"></span>
+                </div>
             </div>
-            <small class="text-danger" *ngIf="email.invalid && email.touched && email.dirty">
+            <small class="text-danger" *ngIf="email.invalid && email.dirty">
                 Deve introduzir um email válido.
             </small>
         </div>

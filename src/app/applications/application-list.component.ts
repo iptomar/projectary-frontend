@@ -16,8 +16,7 @@ export class ApplicationListComponent implements OnInit{
     error: boolean=false;
     errorMessage: string;
 
-    constructor(private _applicationService : ApplicationService){
-    }
+    constructor(private _applicationService : ApplicationService){}
 
     ngOnInit(): void { 
         this._applicationService.getUserApplications()
