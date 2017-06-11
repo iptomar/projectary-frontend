@@ -25,14 +25,11 @@ export class GroupCreateComponent {
                 data.group_id = success.data.id;
                 data.group_name = name;
                 localStorage.setItem('currentUser', JSON.stringify(data));
-                console.log(JSON.parse(localStorage.getItem('currentUser')));
-
                 this.router.navigate(['home']);
             },
             error => {
                 var erro = JSON.parse(error._body);
                 var message = JSON.stringify(erro.message);
-                //console.log(error);
                 let myContainer = <HTMLElement>document.querySelector("#notif");
                 myContainer.innerHTML = '<div class="alert alert-danger">' + message + '</div>';
                 setTimeout(() => { myContainer.innerHTML = '' }, 3000)
