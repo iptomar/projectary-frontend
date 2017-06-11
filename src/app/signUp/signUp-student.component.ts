@@ -1,23 +1,23 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { SignInStudentService } from "./signIn-student.service";
+import { SignUpStudentService } from "./signUp-student.service";
 import { ISchool, ICourse } from "../schools/schools";
 import { Router } from "@angular/router";
-import { ISignInStudent } from "./signIn";
+import { ISignUpStudent } from "./signUp";
 
 @Component({
-    templateUrl: "./signIn-student.component.html",
-    providers: [SignInStudentService]
+    templateUrl: "./signUp-student.component.html",
+    providers: [SignUpStudentService]
 })
 
-export class SignInStudentComponent implements OnInit {
+export class SignUpStudentComponent implements OnInit {
     title = 'Registar Aluno';
     getSchools: ISchool[];
     getCourses: ICourse[];
     postData: string;
     emailValid = false;
 
-    constructor(private _signInService: SignInStudentService, private router: Router) { }
+    constructor(private _signInService: SignUpStudentService, private router: Router) { }
 
     ngOnInit() {
         this.onSchoolGet();
@@ -49,7 +49,7 @@ export class SignInStudentComponent implements OnInit {
     }
 
     // sign up when the form is valid
-    signUp(model: ISignInStudent, isValid: boolean) {
+    signUp(model: ISignUpStudent, isValid: boolean) {
         // check if model is valid
         if (isValid) {
             this._signInService.postJSON(model).subscribe(

@@ -7,10 +7,10 @@ import "rxjs/add/operator/catch";
 
 import { API } from '../../main';
 import { ISchool, ICourse } from "../schools/schools";
-import { ISignInStudent } from "./signIn";
+import { ISignUpStudent } from "./signUp";
 
 @Injectable()
-export class SignInStudentService {
+export class SignUpStudentService {
 
     apiURL = API.url;
 
@@ -32,7 +32,7 @@ export class SignInStudentService {
         return Observable.throw(error.json().error || "Server error");
     }
 
-    postJSON(data: ISignInStudent) {
+    postJSON(data: ISignUpStudent) {
         console.log(data);
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');

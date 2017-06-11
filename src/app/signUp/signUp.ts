@@ -1,4 +1,4 @@
-export interface ISignInStudent {
+export interface ISignUpStudent {
     name: string,
     external: string,
     email: string,
