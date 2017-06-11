@@ -1,8 +1,11 @@
-export interface ISignInStudent{
-    id:number;
-    name:string,
-    external:string,
+export interface ISignInStudent {
+    name: string,
+    external: string,
     email: string,
-    phone:string,
-    password:string
+    password: string,
+    confirmpassword: string,
+    //photo: string,
+    school: string,
+    course: string,
+    phonenumber: string
 }

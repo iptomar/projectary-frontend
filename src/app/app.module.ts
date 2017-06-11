@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from "@angular/router";
 import { CommonModule } from "@angular/common";
@@ -56,6 +56,11 @@ import { UserProfileEditComponent } from "app/users/profile-edit.component";
 import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
 import { ProfileEditDataComponent } from "app/users/profile-edit-userdata.component";
 import { ProfileEditImageComponent } from "app/users/profile-edit-image.component";
+import { CommonModule } from "@angular/common";
+import { ModalComponent } from "./utils/modal.component";
+import { ApplicationListComponent } from "app/applications/application-list.component";
+import { ApplicationService } from "app/applications/application.service";
+import { EqualValidator } from './utils/equalValidator/equal-validator.directive';
 
 
 @NgModule({
@@ -63,7 +68,8 @@ import { ProfileEditImageComponent } from "app/users/profile-edit-image.componen
     BrowserModule,
     FormsModule,
     HttpModule,
-	CommonModule, 
+	CommonModule,
+	 
 	RouterModule.forRoot([
 		{path: '',component: HomeComponent},
 		{path: 'home',component: HomeComponent},
@@ -143,8 +149,8 @@ import { ProfileEditImageComponent } from "app/users/profile-edit-image.componen
 		StudentFilterPipe,
 		ProjectApplicationFilterPipe,
 		GroupFilterPipe, 
-		
 		FileSelectDirective
+		EqualValidator
   ],
   providers: [
 	  	AuthGuard,
