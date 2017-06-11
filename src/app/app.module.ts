@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, EmailValidator } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from "@angular/router";
 import { CommonModule } from "@angular/common";
@@ -56,7 +56,7 @@ import { UserProfileEditComponent } from "app/users/profile-edit.component";
 import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
 import { ProfileEditDataComponent } from "app/users/profile-edit-userdata.component";
 import { ProfileEditImageComponent } from "app/users/profile-edit-image.component";
-import { EqualValidator } from './utils/equalValidator/equal-validator.directive';
+import { EqualValidator } from './utils/validators/equal-validator.directive';
 
 
 @NgModule({

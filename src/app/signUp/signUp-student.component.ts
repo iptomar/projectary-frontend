@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { SignUpStudentService } from "./signUp-student.service";
 import { ISchool, ICourse } from "../schools/schools";
 import { Router } from "@angular/router";
@@ -15,7 +14,7 @@ export class SignUpStudentComponent implements OnInit {
     getSchools: ISchool[];
     getCourses: ICourse[];
     postData: string;
-    emailValid = false;
+    private selectUndefinedOptionValue:any;
 
     constructor(private _signInService: SignUpStudentService, private router: Router) { }
 
@@ -38,14 +37,6 @@ export class SignUpStudentComponent implements OnInit {
             data => this.getCourses = data,
             error => alert(error)
         );
-    }
-
-    // checks if an the email input is invalid
-    getEmailStatus() {
-        this.emailValid = false;
-        if (document.querySelector("#tfSigninUserEmail:invalid") != null) {
-            this.emailValid = true;
-        }
     }
 
     // sign up when the form is valid

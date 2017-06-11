@@ -30,7 +30,7 @@
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-education" aria-hidden="true"></i></span>
                         <input type="text" class="form-control" [(ngModel)]="f.external" #external="ngModel" name="external" id="tfSigninUserStudentNr"
-                            placeholder="Número de Aluno" pattern="[0-9]+" required/>
+                            placeholder="Introduz o teu número de aluno" pattern="[0-9]+" required/>
                         <div class="has-error" *ngIf="external.invalid && external.touched">
                             <span *ngIf="external.invalid && external.touched" class="glyphicon form-control-feedback glyphicon-remove" aria-hidden="true"></span>
                         </div>
@@ -49,15 +49,15 @@
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
                         <input type="email" class="form-control" [(ngModel)]="f.email" #email="ngModel" name="email" id="tfSigninUserEmail"
-                            placeholder="Enter your Email" (change)="getEmailStatus()" required/>
-                        <div class="has-error" *ngIf="(emailValid || email.invalid) && email.touched">
+                            placeholder="Introduz o teu email" email required/>
+                        <div class="has-error" *ngIf="email.invalid && email.touched">
                             <span class="glyphicon form-control-feedback glyphicon-remove" aria-hidden="true"></span>
                         </div>
-                        <div class="has-success" *ngIf="emailValid == false && email.valid && email.touched">
+                        <div class="has-success" *ngIf="email.valid && email.touched">
                             <span class="glyphicon form-control-feedback glyphicon-ok" aria-hidden="true"></span>
                         </div>
                     </div>
-                    <small class="text-danger" *ngIf="(emailValid || email.invalid) && email.touched">
+                    <small class="text-danger" *ngIf="email.invalid && email.touched">
                         A introdução do email é obrigatória e deve ser um email válido.
                     </small>
                 </div>
@@ -68,7 +68,7 @@
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i></span>
                         <input type="password" class="form-control" [(ngModel)]="f.password" #password="ngModel" name="password" id="tfSigninUserPass"
-                            placeholder="Enter your Password" validateEqual="confirmpassword" reverse="true" required/>
+                            placeholder="Introduz a password" validateEqual="confirmpassword" reverse="true" required/>
                         <div class="has-error" *ngIf="password.invalid && password.touched">
                             <span *ngIf="password.invalid && password.touched" class="glyphicon form-control-feedback glyphicon-remove" aria-hidden="true"></span>
                         </div>
@@ -87,7 +87,7 @@
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock" aria-hidden="true"></i></span>
                         <input type="password" class="form-control" #confirmpassword="ngModel" [(ngModel)]="f.confirmpassword" name="confirmpassword"
-                            id="tfSigninUserRepPass" placeholder="Confirm your Password" validateEqual="password" reverse="false"
+                            id="tfSigninUserRepPass" placeholder="Introduz novamente a password" validateEqual="password" reverse="false"
                             required/>
                         <div class="has-error" *ngIf="confirmpassword.invalid && confirmpassword.touched">
                             <span *ngIf="confirmpassword.invalid && confirmpassword.touched" class="glyphicon form-control-feedback glyphicon-remove"
@@ -120,6 +120,7 @@
                         <span class="input-group-addon"><i class="glyphicon glyphicon-education" aria-hidden="true"></i></span>
                         <select class="form-control" id="slSigninUserSchool" #school="ngModel" name="school" [(ngModel)]="f.school" (ngModelChange)="onCourseGet($event)"
                             required>
+                            <option disabled hidden [value]="selectUndefinedOptionValue">Escolhe a tua escola</option>
                             <option [value]="school.id" *ngFor="let school of getSchools">{{school.desc}}</option> 
                         </select>
                     </div>
@@ -134,6 +135,7 @@
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-education" aria-hidden="true"></i></span>
                         <select class="form-control" id="slSigninUserCourse" [(ngModel)]="f.course" #course="ngModel" name="course" required>
+                            <option disabled hidden [value]="selectUndefinedOptionValue">Escolhe o teu curso após escolheres a escola</option>
                             <option [value]="course.id" *ngFor="let course of getCourses">{{course.name}}</option>
                         </select>
                     </div>
@@ -148,7 +150,7 @@
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-phone" aria-hidden="true"></i></span>
                         <input type="text" class="form-control" #phone="ngModel" [(ngModel)]="f.phone" name="phone" id="tfSigninUserPhone"
-                            placeholder="Insira o seu número de telemóvel" pattern="(\+|)([0-9]+){0,26}" />
+                            placeholder="Introduz o teu número de telemóvel" pattern="(\+|)([0-9]+){0,26}" />
                         <div class="has-error" *ngIf="phone.invalid && phone.touched">
                             <span *ngIf="phone.invalid && phone.touched" class="glyphicon form-control-feedback glyphicon-remove" aria-hidden="true"></span>
                         </div>
@@ -164,7 +166,7 @@
             <div class="form-group">
                 <div class="col-md-4"></div>
                 <div class="col-md-8">
-                    <button id="tfSigninUserRegister" type="submit" class="btn btn-primary col-md-12" [disabled]="!f.form.valid">Registar</button>
+                    <button id="tfSigninUserRegister" type="submit" class="btn btn-primary col-xs-12" [disabled]="!f.form.valid">Registar</button>
                 </div>
             </div>
         </form>
