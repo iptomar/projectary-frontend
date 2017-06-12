@@ -36,11 +36,8 @@ export class DashboardListUserActiveComponent{
             .subscribe(
                 data => this.putData = data,
                 error =>{
-                    var erro = JSON.parse(error._body);
-                    var message = JSON.stringify(erro.message);
-                    //console.log(error);
                     let myContainer = <HTMLElement> document.querySelector("#notif");
-                    myContainer.innerHTML = '<div class="alert alert-danger"><strong>'+message+'</div>';
+                    myContainer.innerHTML = '<div class="alert alert-danger"><strong>'+error+'</div>';
                     setTimeout(() => { myContainer.innerHTML = ''}, 3000)
                 },
                 () => {

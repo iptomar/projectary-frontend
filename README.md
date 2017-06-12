@@ -15,9 +15,10 @@ We need to start a server running [the API](https://github.com/iptomar/projectar
 
 ### Development
 To run our project in development mode do `npm run start`. After that - it might take a while - you need to open your browser on the indicated address.
+If you're **using vagrant** and you **need to watch files** use `npm run startWithPoll`. This will use the `--poll` flag on `ng serve`.
 
 ### Production
-To build it you just need to do `npm run build` and it will build the files at `/dist`. Move the `/dist` files to your server, usign nginx move it to `/var/www/html`.
+To build it you just need to do `npm run build` and it will build the files at `/dist`. Move the `/dist` files to your server, using nginx move it to `/var/www/html`.
 
 ## Team
 

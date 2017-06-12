@@ -2,23 +2,23 @@
 <hr>
 <div class="row">
     <div class="col-md-8">
-        <form class="form-horizontal" #f="ngForm" (ngSubmit)="create(f.name, f.password)" novalidate>
+        <form class="form-horizontal" #f="ngForm" (ngSubmit)="check(f.oldpassword, f.password, f.confirmpassword)" novalidate>
             <div class="form-group">
-                <label for="name" class="col-md-4 control-label">Nome do Grupo</label>
+                <label for="oldpassword" class="col-md-4 control-label">Password Antiga</label>
                 <div class="col-md-8">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input id="tfGroupCrName" type="text" class="form-control" placeholder="Introduz o nome do grupo" [(ngModel)]="f.name" #name="ngModel"
-                            name="name" required>
-                        <div class="has-error" *ngIf="name.invalid && name.touched">
-                            <span *ngIf="name.invalid && name.touched" class="glyphicon form-control-feedback glyphicon-remove" aria-hidden="true"></span>
+                        <input id="oldpassword" type="password" class="form-control" placeholder="Introduz o nome do grupo" [(ngModel)]="f.oldpassword"
+                            #oldpassword="ngModel" name="oldpassword" required>
+                        <div class="has-error" *ngIf="oldpassword.invalid && oldpassword.touched">
+                            <span *ngIf="oldpassword.invalid && oldpassword.touched" class="glyphicon form-control-feedback glyphicon-remove" aria-hidden="true"></span>
                         </div>
-                        <div class="has-success" *ngIf="name.valid && name.touched">
+                        <div class="has-success" *ngIf="oldpassword.valid && oldpassword.touched">
                             <span class="glyphicon form-control-feedback glyphicon-ok" aria-hidden="true"></span>
                         </div>
                     </div>
-                    <small class="text-danger" *ngIf="name.invalid && name.touched">
-                    A introdução do nome é obrigatória.
+                    <small class="text-danger" *ngIf="oldpassword.invalid && oldpassword.touched">
+                    A introdução do password antiga é obrigatória.
                 </small>
                 </div>
             </div>
@@ -27,7 +27,7 @@
                 <div class="col-md-8">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input id="tfGroupCrPass" type="password" class="form-control" name="password" placeholder="Introduz a password" [(ngModel)]="f.password"
+                        <input id="newpassword" type="password" class="form-control" name="password" placeholder="Introduz a password" [(ngModel)]="f.password"
                             #password="ngModel" validateEqual="confirmpassword" reverse="true" required>
                         <div class="has-error" *ngIf="password.invalid && password.touched">
                             <span *ngIf="password.invalid && password.touched" class="glyphicon form-control-feedback glyphicon-remove" aria-hidden="true"></span>
@@ -46,9 +46,8 @@
                 <div class="col-md-8">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input id="tfGroupCrRepPass" type="password" class="form-control" #confirmpassword="ngModel" [(ngModel)]="f.confirmpassword"
-                            name="confirmpassword" placeholder="Introduz novamente a password" validateEqual="password" reverse="false"
-                            required>
+                        <input id="confirm" type="password" class="form-control" #confirmpassword="ngModel" [(ngModel)]="f.confirmpassword" name="confirmpassword"
+                            placeholder="Introduz novamente a password" validateEqual="password" reverse="false" required>
                         <div class="has-error" *ngIf="confirmpassword.invalid && confirmpassword.touched">
                             <span *ngIf="confirmpassword.invalid && confirmpassword.touched" class="glyphicon form-control-feedback glyphicon-remove"
                                 aria-hidden="true"></span>
@@ -65,7 +64,7 @@
             <div class="form-group">
                 <div class="col-md-4"></div>
                 <div class="col-md-8">
-                    <button id="btGroupCreate" type="submit" class="btn btn-primary col-xs-12" [disabled]="!f.form.valid">Criar Grupo</button>
+                    <button id="btGroupCreate" type="submit" class="btn btn-primary col-xs-12" [disabled]="!f.form.valid">Alterar Password</button>
                 </div>
             </div>
         </form>

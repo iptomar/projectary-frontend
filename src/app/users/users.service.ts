@@ -43,6 +43,7 @@ export class StudentService {
         return this._http.put(this.apiURL+'/user/chpassword', JSON.stringify({"password":data}), this.options)
             .map(res => res.json());
     }
+    
     private handleError(error: Response){
         console.error(error);
         return Observable.throw(error.json().error || "Server error");

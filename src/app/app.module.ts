@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, EmailValidator } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from "@angular/router";
 import { CommonModule } from "@angular/common";
@@ -20,7 +20,7 @@ import { ProjectFormComponent} from "./projects/project-form/project-form.compon
 import { WhoAmIComponent } from "./users/whoami.component";
 import { StudentListComponent } from "./users/student-list.component";
 import { ChangePasswordComponent } from "./users/chpass.component";
-import { SignInStudentComponent } from "./signIn/signIn-student.component";
+import { SignUpStudentComponent } from "./signUp/signUp-student.component";
 import { GroupJoinComponent } from "./groups/group-join.component";
 import { GroupCreateComponent } from "./groups/group-create.component";
 import { GroupListComponent } from "./groups/group-list.component";
@@ -40,7 +40,7 @@ import { ProjectFormService } from "./projects/project-form/project-form.service
 import { ProjectService } from "./projects/project.service";
 import { GroupService } from "./groups/group.service";
 import { ProjectApplicationService } from "./projects/project-application/project-application.service";
-import { SignInStudentService } from "./signIn/signIn-student.service";
+import { SignUpStudentService } from "./signUp/signUp-student.service";
 import { DashboardService } from "./dashboard/dashboard.service";
 import { LoginService } from "./menu/login/login.service";
 import { HomeService } from "./home/home.service";
@@ -56,6 +56,7 @@ import { UserProfileEditComponent } from "app/users/profile-edit.component";
 import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
 import { ProfileEditDataComponent } from "app/users/profile-edit-userdata.component";
 import { ProfileEditImageComponent } from "app/users/profile-edit-image.component";
+import { EqualValidator } from './utils/validators/equal-validator.directive';
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import { ProfileEditImageComponent } from "app/users/profile-edit-image.componen
     BrowserModule,
     FormsModule,
     HttpModule,
-	CommonModule, 
+	CommonModule,
+	 
 	RouterModule.forRoot([
 		{path: '',component: HomeComponent},
 		{path: 'home',component: HomeComponent},
@@ -96,7 +98,7 @@ import { ProfileEditImageComponent } from "app/users/profile-edit-image.componen
 		{path: 'user/applications', component: ApplicationListComponent, canActivate: [AuthGuard], data: { roles: ['student'] }},
 		{path: 'students', component: StudentListComponent, canActivate: [AuthGuard], data: { roles: ['teacher'] }},
 		{path: 'chpass', component: ChangePasswordComponent, canActivate: [AuthGuard], data: { roles: ['student','teacher'] }},
-		{path: 'signinstudent', component: SignInStudentComponent},
+		{path: 'signup', component: SignUpStudentComponent},
 		{path: 'group/create', component: GroupCreateComponent, canActivate: [AuthGuard], data: { roles: ['student']}},
 		{path: 'group/join', component: GroupJoinComponent, canActivate: [AuthGuard], data: { roles: ['student']}},
 		{path: 'group/list', component: GroupListComponent, canActivate: [AuthGuard], data: { roles: ['teacher']}},
@@ -123,7 +125,7 @@ import { ProfileEditImageComponent } from "app/users/profile-edit-image.componen
 		WhoAmIComponent,
 		ApplicationListComponent,
 		StudentListComponent,
-		SignInStudentComponent,
+		SignUpStudentComponent,
 		GroupCreateComponent,
 		GroupJoinComponent,
 		GroupListComponent,
@@ -143,8 +145,8 @@ import { ProfileEditImageComponent } from "app/users/profile-edit-image.componen
 		StudentFilterPipe,
 		ProjectApplicationFilterPipe,
 		GroupFilterPipe, 
-		
-		FileSelectDirective
+		FileSelectDirective,
+		EqualValidator
   ],
   providers: [
 	  	AuthGuard,
@@ -156,7 +158,7 @@ import { ProfileEditImageComponent } from "app/users/profile-edit-image.componen
 		GroupService,
 		RecoveryService,
 		LoginService,
-		SignInStudentService,
+		SignUpStudentService,
 		DashboardService,
 		ApplicationService,
 		HomeService

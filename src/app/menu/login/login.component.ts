@@ -13,7 +13,7 @@ import { Router } from "@angular/router";
 
 export class LoginComponent implements OnInit {
 
-  private username: string;
+  private email: string;
   private password: string;
   private name: string;
   private isadmin: number;
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.loading = true;
-    this._httpService.login(this.username, this.password).subscribe(
+    this._httpService.login(this.email, this.password).subscribe(
       result => {    
         this.error = false;
         this.autenticated = true;

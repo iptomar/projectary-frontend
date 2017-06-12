@@ -19,7 +19,7 @@ export class GroupProfileComponent implements OnInit {
 
     constructor(
         private _service: GroupService,
-        private _route: ActivatedRoute, 
+        private _route: ActivatedRoute,
         private router: Router
     ) { }
 
@@ -28,46 +28,41 @@ export class GroupProfileComponent implements OnInit {
         this._route.params
             .switchMap((params: Params) => this._service.getGroup(params['id']))
             .subscribe(
-                group => this.group = group,
-                error => console.log("Impossível carregar perfil do grupo ")
+            group => this.group = group,
+            error => console.log("Impossível carregar perfil do grupo ")
             );
     }
 
-    edit(): void{
-        if(this.newName!=null){
-            this._service
-                .updateGroup(this.group.id, this.newName)
-                .subscribe( success => {let myContainer = <HTMLElement> document.querySelector("#notif");
-                    myContainer.innerHTML = '<div class="alert alert-success">Grupo <strong>alterado</strong> com sucesso</div>';
-                    setTimeout(() => { myContainer.innerHTML = ''}, 3000)
-                    this.router.navigate(['/group/list']); },
+    edit(): void {
+        if (this.newName != null) {
+            this._service.updateGroup(this.group.id, this.newName).subscribe(success => {
+                let myContainer = <HTMLElement>document.querySelector("#notif");
+                myContainer.innerHTML = '<div class="alert alert-success">Grupo <strong>alterado</strong> com sucesso</div>';
+                setTimeout(() => { myContainer.innerHTML = '' }, 3000)
+                this.router.navigate(['/group/list']);
+            },
                 error => {
-                    var erro = JSON.parse(error._body);
-                    var message = JSON.stringify(erro.message);
-                    //console.log(error);
-                    let myContainer = <HTMLElement> document.querySelector("#notif");
-                    myContainer.innerHTML = '<div class="alert alert-danger">'+message+'</div>';
-                    setTimeout(() => { myContainer.innerHTML = ''}, 3000)
-                },          
-                () => console.log("Finished") );
+                    let myContainer = <HTMLElement>document.querySelector("#notif");
+                    myContainer.innerHTML = '<div class="alert alert-danger">' + error + '</div>';
+                    setTimeout(() => { myContainer.innerHTML = '' }, 3000)
+                }
+            );
         }
     }
 
-    remove(): void{
-        this._service
-            .removeGroup(this.group.id)
-            .subscribe( success => {let myContainer = <HTMLElement> document.querySelector("#notif");
-                    myContainer.innerHTML = '<div class="alert alert-success">Grupo <strong>removido</strong> com sucesso</div>';
-                    setTimeout(() => { myContainer.innerHTML = ''}, 3000)
-                    this.router.navigate(['/group/list']); },
-                error => {
-                    var erro = JSON.parse(error._body);
-                    var message = JSON.stringify(erro.message);
-                    //console.log(error);
-                    let myContainer = <HTMLElement> document.querySelector("#notif");
-                    myContainer.innerHTML = '<div class="alert alert-danger">'+message+'</div>';
-                    setTimeout(() => { myContainer.innerHTML = ''}, 3000)
-                },          
-                () => console.log("Finished") );
-        }
+    remove(): void {
+        this._service.removeGroup(this.group.id).subscribe(
+            success => {
+                let myContainer = <HTMLElement>document.querySelector("#notif");
+                myContainer.innerHTML = '<div class="alert alert-success">Grupo <strong>removido</strong> com sucesso</div>';
+                setTimeout(() => { myContainer.innerHTML = '' }, 3000)
+                this.router.navigate(['/group/list']);
+            },
+            error => {
+                let myContainer = <HTMLElement>document.querySelector("#notif");
+                myContainer.innerHTML = '<div class="alert alert-danger">' + error + '</div>';
+                setTimeout(() => { myContainer.innerHTML = '' }, 3000)
+            }
+        );
     }
+}

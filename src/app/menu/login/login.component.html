@@ -23,8 +23,8 @@
 						<form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
 							<div class="form-group input-group">
 								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-								<input type="text" class="form-control" id="tfLogUserName" placeholder="Username" [(ngModel)]="username" name="username"
-								 required>
+								<input type="email" class="form-control" id="tfLogEmail" placeholder="Email" [(ngModel)]="email" name="email"
+								 email required>
 							</div>
 							<div class="form-group input-group">
 								<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
@@ -57,7 +57,7 @@
 						</form>
 					</div>
 					<div class="bottom text-center">
-						<a id="anUserRegister" routerLink="/signinstudent" routerLinkActive="active"><b>Registar</b></a>
+						<a id="anUserRegister" routerLink="/signup" routerLinkActive="active"><b>Registar</b></a>
 					</div>
 				</div>
 			</li>

@@ -1,16 +1,25 @@
 <h2>{{title}}</h2>
 <hr>
 <div class="row">
-    <div class="col-md-10">
-        <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+    <form class="form" #f="ngForm" (ngSubmit)="onRecPost(f.email)" id="login-nav">
+        <div class="col-md-10">
             <div class="form-group input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                <input type="text" #email class="form-control" id="tfLogUserName" placeholder="Username" name="username"
-                    required>
+                <input type="email" class="form-control" id="tfLogUserName" placeholder="Email" name="email" [(ngModel)]="f.email" #email="ngModel"
+                    email required>
+                <div class="has-error" *ngIf="email.invalid && email.dirty">
+                    <span *ngIf="email.invalid && email.dirty" class="glyphicon form-control-feedback glyphicon-remove" aria-hidden="true"></span>
+                </div>
+                <div class="has-success" *ngIf="email.valid && email.dirty">
+                    <span class="glyphicon form-control-feedback glyphicon-ok" aria-hidden="true"></span>
+                </div>
             </div>
-        </form>
-    </div>
-    <div class="col-md-2">
-        <button (click)="onRecPost(email.value)" class="btn btn-danger"> Recuperar Password </button>
-    </div>
+            <small class="text-danger" *ngIf="email.invalid && email.dirty">
+                Deve introduzir um email válido.
+            </small>
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-danger" [disabled]="!f.form.valid">Recuperar Password</button>
+        </div>
+    </form>
 </div>
