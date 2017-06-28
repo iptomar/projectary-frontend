@@ -44,6 +44,12 @@ export class ProjectService {
     }
 
     getGroup(id:number): Observable<IGroupProfile>{
+        let user_data = <ILogin> JSON.parse(localStorage.getItem('currentUser'));
+        this.userID = parseInt(user_data.user_id);
+        this.headers = new Headers();
+        this.headers.append('Content-Type', 'application/json');
+        this.headers.append("Authorization", "Basic " + btoa(user_data.username + ":" + user_data.password));
+        this.options = new RequestOptions({ headers: this.headers });
         return this._http
             .get(this.apiURL + `/group/${id}`, this.options)
             .map((response: Response) => <IGroupProfile>response.json().data)
