@@ -23,7 +23,9 @@ export class DashboardListUserActiveComponent{
     // Method that is called on initialization of the page
     ngOnInit(): void {
         this._service.getPendingStudents().subscribe(
-            students => this.students = students , 
+            students => {
+				this.students = students;
+			} , 
             error =>  console.log("Impossível carregar lista de estudantes")
         );
     }
